@@ -159,7 +159,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              @description Whether this is from a bot, conceivably always true. ***/
         } = botMessage;
         const currentCount = this.myInternalState.userMessageCount || 0;
-        const outMessage ="MESSAGE TO WRITE: "+String(currentCount)
+        const newCount = currentCount + 1;
+        const outMessage ="MESSAGE TO WRITE: "+String(newCount) ;
         return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
