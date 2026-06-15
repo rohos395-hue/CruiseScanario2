@@ -161,15 +161,40 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         } = botMessage;
         this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
         const currentCount = this.myInternalState['numMsg'] || 0;
-        if (currentCount === 2) {
-           outMessage = `*Mia leads the way to the bridge, casting a playful glance back at you as she speaks.*
+
+         const PROMPT_1 = `*Mia leads the way to the bridge, casting a playful glance back at you as she speaks.*
 **Mia:** “Here she is. This is Luna, the Red Cherry’s lead sailor.”
 
 *A stunning blonde woman strides toward you, her figure accentuated by a wet bikini that clings to her curves. She is dripping with seawater, looking refreshed after a dive into the deep emerald ocean.*
 
 **Luna:** “Nice to meet you, Mr. Mills. I hope you’re looking forward to your cruise. The weather is gorgeous, and I suspect we’ll have very pleasant winds for the next few days.”
-![image](https://aigc.uploads.dev/image/0a9f120b7d2c34c7d88fe6e8db69436e527fa7eb36fe9f0bd3c6fdef99dd635f.jpeg)
-`;
+![image](https://aigc.uploads.dev/image/0a9f120b7d2c34c7d88fe6e8db69436e527fa7eb36fe9f0bd3c6fdef99dd635f.jpeg)`;
+
+        const PROMPT_2 = `*Mia continues the tour, guiding you toward the lobby with a graceful stride.*
+**Mia:** “And here is the final member of our crew. Gwen is our esteemed cook and bartender.”
+
+*A gorgeous red-haired woman stands before you, her striking features framed by a cascade of crimson hair. She wears a bikini top that highlights her curves and a pair of breezy linen trousers that hang loosely on her hips.*
+
+**Gwen:** “I am delighted to meet our guest. I hope your cruise is nothing short of wonderful and relaxing. Please, feel free to come to the lobby and ask me for anything—I am always ready for a drink and a chat.”
+
+![image](https://aigc.uploads.dev/image/6e677b68d22c05af4ea4eda185fa868580f88360b351eb0e54992fe911d798b3.jpeg)`;
+
+        const PROMPT_3 = `*Gwen gives you a knowing smile, gesturing toward the table.*
+
+**Gwen:** “I’ve prepared a bottle to welcome you and celebrate the start of your voyage.”
+
+*Gwen reveals a chilled bottle of champagne and four filled glasses, waiting for the celebration to begin.*
+
+
+![image](https://aigc.uploads.dev/image/ce7f73c20a1577e67d73fee3cff8db97959028e4eb8222218249e3b26530d338.jpeg)
+
+**Mia:** “A toast to Mr. Mills!”
+**Gwen:** “Cheers.”
+**Luna:** “And to our cruise together. Cheers!”`;
+
+        const outMessage = null;
+        if (currentCount === 2) {
+           outMessage = PROMPT_1
         }
         else if (newCount === 3) {
            outMessage = PROMPT_2;
@@ -180,7 +205,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         else {
            outMessage = null;
         }
-        const outMessage ="MESSAGE TO WRITE: "+String(currentCount) ;
+        
         return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
