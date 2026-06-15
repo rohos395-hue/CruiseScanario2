@@ -76,6 +76,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         this.myInternalState = messageState != null ? messageState : {'someKey': 'someValue'};
         this.myInternalState['numUsers'] = Object.keys(users).length;
         this.myInternalState['numChars'] = Object.keys(characters).length;
+        this.myInternalState['numMsg'] = 0 ;
     }
 
     async load(): Promise<Partial<LoadResponse<InitStateType, ChatStateType, MessageStateType>>> {
@@ -158,7 +159,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             isBot             /*** @type: boolean
              @description Whether this is from a bot, conceivably always true. ***/
         } = botMessage;
-        this.myInternalState.userMessageCount = this.myInternalState.userMessageCount +1;
+        this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
         const currentCount = this.myInternalState.userMessageCount || 0;
         
         const outMessage ="MESSAGE TO WRITE: "+String(currentCount) ;
