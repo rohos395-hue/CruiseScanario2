@@ -143,7 +143,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     }
 
     if (this.myInternalState.emmaPresent) {
-        presentCharacters.push("Emma");
+        presentCharacters.push("Gwen");
     }
 
     const stageDirections = `
