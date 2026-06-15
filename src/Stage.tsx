@@ -160,7 +160,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              @description Whether this is from a bot, conceivably always true. ***/
         } = botMessage;
         this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
-        const currentCount = this.myInternalState.userMessageCount || 0;
+        const currentCount = this.myInternalState['numMsg'] || 0;
         
         const outMessage ="MESSAGE TO WRITE: "+String(currentCount) ;
         return {
