@@ -161,7 +161,25 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         } = botMessage;
         this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
         const currentCount = this.myInternalState['numMsg'] || 0;
-        
+        if (currentCount === 2) {
+           outMessage = `*Mia leads the way to the bridge, casting a playful glance back at you as she speaks.*
+**Mia:** “Here she is. This is Luna, the Red Cherry’s lead sailor.”
+
+*A stunning blonde woman strides toward you, her figure accentuated by a wet bikini that clings to her curves. She is dripping with seawater, looking refreshed after a dive into the deep emerald ocean.*
+
+**Luna:** “Nice to meet you, Mr. Mills. I hope you’re looking forward to your cruise. The weather is gorgeous, and I suspect we’ll have very pleasant winds for the next few days.”
+![image](https://aigc.uploads.dev/image/0a9f120b7d2c34c7d88fe6e8db69436e527fa7eb36fe9f0bd3c6fdef99dd635f.jpeg)
+`;
+        }
+        else if (newCount === 3) {
+           outMessage = PROMPT_2;
+        }
+        else if (newCount === 4) {
+           outMessage = PROMPT_3;
+        }
+        else {
+           outMessage = null;
+        }
         const outMessage ="MESSAGE TO WRITE: "+String(currentCount) ;
         return {
             /*** @type null | string @description A string to add to the
