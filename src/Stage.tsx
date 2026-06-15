@@ -156,7 +156,30 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             isBot             /*** @type: boolean
              @description Whether this is from a bot, conceivably always true. ***/
         } = botMessage;
+        
+     this.myInternalState.userMessageCount = (this.myInternalState.userMessageCount || 0) + 1;
+
+    
+     const currentCount = this.myInternalState.userMessageCount || 0;
+
+    if (currentCount === 1) {
+
         return {
+            modifiedMessage: `
+This is my pre-generated prompt.
+
+It will completely replace whatever the LLM generated.
+
+The user will see this as the bot's message.
+`,
+            messageState: {
+                ...this.myInternalState,
+                injected: true
+            }
+        };
+    }
+     
+     return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
              but that isn't persisted. ***/
