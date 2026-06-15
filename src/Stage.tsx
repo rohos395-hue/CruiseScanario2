@@ -77,6 +77,13 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         this.myInternalState['numUsers'] = Object.keys(users).length;
         this.myInternalState['numChars'] = Object.keys(characters).length;
         this.myInternalState['numMsg'] = 0 ;
+        this.myInternalState['miaAffection'] = 25;
+        this.myInternalState['lunaAffection'] = 50;
+        this.myInternalState['gwenAffection'] = 10;
+        this.myInternalState['miaPresent'] = true;
+        this.myInternalState['lunaPresent'] = false;
+        this.myInternalState['gwenPresent'] = true;
+        this.myInternalState['day'] = 1;
     }
 
     async load(): Promise<Partial<LoadResponse<InitStateType, ChatStateType, MessageStateType>>> {
@@ -224,7 +231,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         };
     }
 
-    render(): ReactElement {
+    render_old(): ReactElement {
         /***
          There should be no "work" done here. Just returning the React element to display.
          If you're unfamiliar with React and prefer video, I've heard good things about
@@ -250,5 +257,43 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             </div>
         </div>;
     }
+    render(): ReactElement {
+
+    return (
+        <div style={{
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            flexDirection: 'column'
+        }}>
+
+            {/* Dating Sim HUD */}
+            <div style={{
+                backgroundColor: '#222',
+                color: 'white',
+                padding: '8px',
+                fontSize: '14px',
+                borderBottom: '1px solid #555',
+                whiteSpace: 'nowrap'
+            }}>
+                {this.myInternalState.miaPresent ? "🟢" : "⚫"} ❤️ Mia: {this.myInternalState.miaAffection}
+                {" | "}
+                {this.myInternalState.lunaPresent ? "🟢" : "⚫"} ❤️ Luna: {this.myInternalState.lunaAffection}
+                {" | "}
+                {this.myInternalState.emmaPresent ? "🟢" : "⚫"} ❤️ Emma: {this.myInternalState.emmaAffection}
+                {" || "}
+                📅 Day {this.myInternalState.day}
+            </div>
+
+            {/* Main stage content */}
+            <div style={{
+                padding: '10px'
+            }}>
+                Dating Sim Stage Running
+            </div>
+
+        </div>
+    );
+}
 
 }
