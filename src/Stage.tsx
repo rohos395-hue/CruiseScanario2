@@ -130,6 +130,32 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             isBot             /*** @type: boolean
              @description Whether this is itself from another bot, ex. in a group chat. ***/
         } = userMessage;
+
+
+        let presentCharacters: string[] = [];
+
+    if (this.myInternalState.miaPresent) {
+        presentCharacters.push("Mia");
+    }
+
+    if (this.myInternalState.lunaPresent) {
+        presentCharacters.push("Luna");
+    }
+
+    if (this.myInternalState.emmaPresent) {
+        presentCharacters.push("Emma");
+    }
+
+    const stageDirections = `
+SCENE STATE
+
+Only the following characters are currently present:
+${presentCharacters.join(", ")}
+
+Characters who are not present cannot speak, act, appear, be referenced as participating in the scene, or interact with the player.
+
+Write the next response using only characters currently present.
+`;
         return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
@@ -277,11 +303,11 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
                 whiteSpace: 'nowrap'
             }}>
                 {this.myInternalState.miaPresent ? "🟢" : "⚫"} ❤️ Mia: {this.myInternalState.miaAffection}
-                {" | "}
+                {"     |    "}
                 {this.myInternalState.lunaPresent ? "🟢" : "⚫"} ❤️ Luna: {this.myInternalState.lunaAffection}
-                {" | "}
-                {this.myInternalState.emmaPresent ? "🟢" : "⚫"} ❤️ Emma: {this.myInternalState.emmaAffection}
-                {" || "}
+                {"    |     "}
+                {this.myInternalState.gwenPresent ? "🟢" : "⚫"} ❤️ Gwen: {this.myInternalState.emmaAffection}
+                {"        ||        "}
                 📅 Day {this.myInternalState.day}
             </div>
 
@@ -289,7 +315,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             <div style={{
                 padding: '10px'
             }}>
-                Dating Sim Stage Running
+                
             </div>
 
         </div>
