@@ -192,14 +192,14 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 **Gwen:** “Cheers.”
 **Luna:** “And to our cruise together. Cheers!”`;
 
-        const outMessage = null;
+        let outMessage = null;
         if (currentCount === 2) {
            outMessage = PROMPT_1
         }
-        else if (newCount === 3) {
+        else if (currentCount === 3) {
            outMessage = PROMPT_2;
         }
-        else if (newCount === 4) {
+        else if (currentCount === 4) {
            outMessage = PROMPT_3;
         }
         else {
