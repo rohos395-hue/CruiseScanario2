@@ -158,7 +158,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             isBot             /*** @type: boolean
              @description Whether this is from a bot, conceivably always true. ***/
         } = botMessage;
-        const outMessage ="MESSAGE TO WRITE
+        const outMessage ="MESSAGE TO WRITE"
         return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
