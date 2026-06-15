@@ -145,11 +145,36 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         };
     }
 
-    async afterResponse(botMessage: Message) {
-    return {
-        modifiedMessage: "TEST REPLACEMENT"
-    };
-}
+    async afterResponse(botMessage: Message): Promise<Partial<StageResponse<ChatStateType, MessageStateType>>> {
+        /***
+         This is called immediately after a response from the LLM.
+         ***/
+        const {
+            content,            /*** @type: string
+             @description The LLM's response. ***/
+            anonymizedId,       /*** @type: string
+             @description An anonymized ID that is unique to this individual
+              in this chat, but NOT their Chub ID. ***/
+            isBot             /*** @type: boolean
+             @description Whether this is from a bot, conceivably always true. ***/
+        } = botMessage;
+        return {
+            /*** @type null | string @description A string to add to the
+             end of the final prompt sent to the LLM,
+             but that isn't persisted. ***/
+            stageDirections: null,
+            /*** @type MessageStateType | null @description the new state after the botMessage. ***/
+            messageState: {'someKey': this.myInternalState['someKey']},
+            /*** @type null | string @description If not null, the bot's response itself is replaced
+             with this value, both in what's sent to the LLM subsequently and in the database. ***/
+            modifiedMessage: null,
+            /*** @type null | string @description an error message to show
+             briefly at the top of the screen, if any. ***/
+            error: null,
+            systemMessage: null,
+            chatState: null
+        };
+    }
 
     render(): ReactElement {
         /***
