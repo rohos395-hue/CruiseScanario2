@@ -1,7 +1,7 @@
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
-
+import CruiseMap from "./assets/map_cata.png";
 /***
  The type that this stage persists message-level state in.
  This is primarily for readability, and not enforced.
@@ -283,7 +283,7 @@ Write the next response using only characters currently present.
             </div>
         </div>;
     }
-    render(): ReactElement {
+    render_old2(): ReactElement {
 
     return (
         <div style={{
@@ -321,5 +321,127 @@ Write the next response using only characters currently present.
         </div>
     );
 }
+render(): ReactElement {
 
+    return (
+        <div style={{
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            flexDirection: 'column'
+        }}>
+
+            {/* Dating Sim HUD */}
+            <div style={{
+                backgroundColor: '#222',
+                color: 'white',
+                padding: '8px',
+                fontSize: '14px',
+                borderBottom: '1px solid #555',
+                whiteSpace: 'nowrap'
+            }}>
+                {this.myInternalState.miaPresent ? "🟢" : "⚫"} ❤️ Mia: {this.myInternalState.miaAffection}
+                {"     |    "}
+                {this.myInternalState.lunaPresent ? "🟢" : "⚫"} ❤️ Luna: {this.myInternalState.lunaAffection}
+                {"    |     "}
+                {this.myInternalState.gwenPresent ? "🟢" : "⚫"} ❤️ Gwen: {this.myInternalState.gwenAffection}
+                {"        ||        "}
+                📅 Day {this.myInternalState.day}
+            </div>
+
+            {/* Main stage content */}
+            <div style={{
+                padding: '10px',
+                position: 'relative'
+            }}>
+
+                {/* Cruise Map */}
+                <div style={{
+                    position: 'relative',
+                    width: '800px'
+                }}>
+
+                    <img
+                        src={CruiseMap}
+                        style={{
+                            width: '100%',
+                            display: 'block'
+                        }}
+                    />
+
+                    {/* BRIDGE */}
+                    <div
+                        title="Bridge"
+                        style={{
+                            position: 'absolute',
+                            left: '220px',
+                            top: '100px',
+                            width: '80px',
+                            height: '60px',
+
+                            backgroundColor: 'rgba(255,0,0,0.25)',
+                            border: '2px solid red',
+
+                            cursor: 'pointer'
+                        }}
+
+                        onMouseEnter={() => {
+                            console.log("Bridge");
+                        }}
+
+                        onClick={() => {
+
+                            this.myInternalState.currentLocation = "Bridge";
+
+                            this.myInternalState.lunaPresent = true;
+                            this.myInternalState.miaPresent = false;
+                            this.myInternalState.gwenPresent = false;
+
+                            this.forceUpdate();
+                        }}
+                    />
+
+                    {/* MAIN DECK */}
+                    <div
+                        title="Main Deck"
+                        style={{
+                            position: 'absolute',
+                            left: '400px',
+                            top: '250px',
+                            width: '120px',
+                            height: '80px',
+
+                            backgroundColor: 'rgba(0,255,0,0.25)',
+                            border: '2px solid green',
+
+                            cursor: 'pointer'
+                        }}
+
+                        onClick={() => {
+
+                            this.myInternalState.currentLocation = "Main Deck";
+
+                            this.myInternalState.lunaPresent = false;
+                            this.myInternalState.miaPresent = true;
+                            this.myInternalState.gwenPresent = true;
+
+                            this.forceUpdate();
+                        }}
+                    />
+
+                </div>
+
+                {/* Debug location display */}
+                <div style={{
+                    marginTop: '10px',
+                    fontWeight: 'bold'
+                }}>
+                    Current Location: {this.myInternalState.currentLocation}
+                </div>
+
+            </div>
+
+        </div>
+    );
+}
 }
