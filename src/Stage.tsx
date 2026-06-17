@@ -2,6 +2,7 @@ import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
 import CruiseMap from "./assets/map_cata.jpg";
+import CompassIcon from "./assets/compass.jpg";
 /***
  The type that this stage persists message-level state in.
  This is primarily for readability, and not enforced.
@@ -348,7 +349,54 @@ render(): ReactElement {
                 {"        ||        "}
                 📅 Day {this.myInternalState.day}
             </div>
+         <button
+    style={{
+        marginLeft: "20px",
+        background: "none",
+        border: "none",
+        cursor: "pointer",
+        padding: "0"
+    }}
+    onClick={() => {
 
+        this.myInternalState.showMap =
+            !this.myInternalState.showMap;
+
+        this.forceUpdate();
+
+    }}
+>
+    <img
+        src={CompassIcon}
+        alt="Map"
+        style={{
+            width: "32px",
+            height: "32px",
+            objectFit: "cover"
+        }}
+    />
+</button>
+{showMap && (
+
+    <div style={{
+
+        position: "fixed",
+
+        top: "50%",
+        left: "50%",
+
+        transform: "translate(-50%, -50%)",
+
+        backgroundColor: "#111",
+
+        padding: "10px",
+
+        zIndex: 9999
+    }}>
+
+        MAP HERE
+
+   
             {/* Main stage content */}
             <div style={{
                 padding: '10px',
@@ -563,6 +611,9 @@ render(): ReactElement {
             </div>
 
         </div>
+  </div>
+
+)}
     );
 }
 }
