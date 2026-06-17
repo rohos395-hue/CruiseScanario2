@@ -397,7 +397,7 @@ render(): ReactElement {
                             this.myInternalState.miaPresent = false;
                             this.myInternalState.gwenPresent = false;
 
-                            this.forceUpdate();
+                            // this.forceUpdate();
                         }}
                     />
 
@@ -425,7 +425,7 @@ render(): ReactElement {
                             this.myInternalState.miaPresent = true;
                             this.myInternalState.gwenPresent = true;
 
-                            this.forceUpdate();
+                            // this.forceUpdate();
                         }}
                     />
 
