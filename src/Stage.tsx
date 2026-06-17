@@ -375,9 +375,9 @@ render(): ReactElement {
                         style={{
                             position: 'absolute',
                             left: '10px',
-                            top: '90px',
-                            width: '60px',
-                            height: '70px',
+                            top: '85px',
+                            width: '50px',
+                            height: '75px',
 
                             backgroundColor: 'rgba(255,0,0,0.25)',
                             border: '2px solid red',
@@ -406,10 +406,10 @@ render(): ReactElement {
                         title="Room2"
                         style={{
                             position: 'absolute',
-                            left: '10px',
-                            top: '280px',
-                            width: '40px',
-                            height: '80px',
+                            left: '15px',
+                            top: '285px',
+                            width: '50px',
+                            height: '75px',
 
                             backgroundColor: 'rgba(0,255,0,0.25)',
                             border: '2px solid green',
@@ -430,7 +430,37 @@ render(): ReactElement {
                     />
 
                 </div>
+                    {/* BRIDGE */}
+                    <div
+                        title="Room3"
+                        style={{
+                            position: 'absolute',
+                            left: '300px',
+                            top: '90px',
+                            width: '80px',
+                            height: '70px',
 
+                            backgroundColor: 'rgba(255,0,0,0.25)',
+                            border: '2px solid red',
+
+                            cursor: 'pointer'
+                        }}
+
+                        onMouseEnter={() => {
+                            console.log("Room3");
+                        }}
+
+                        onClick={() => {
+
+                            this.myInternalState.currentLocation = "Room1";
+
+                            this.myInternalState.lunaPresent = true;
+                            this.myInternalState.miaPresent = false;
+                            this.myInternalState.gwenPresent = false;
+
+                            // this.forceUpdate();
+                        }}
+                    />
                 {/* Debug location display */}
                 <div style={{
                     marginTop: '10px',
