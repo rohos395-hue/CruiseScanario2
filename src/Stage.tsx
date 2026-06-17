@@ -394,7 +394,7 @@ render(): ReactElement {
         zIndex: 9999
     }}>
 
-        MAP HERE
+        // MAP HERE
 
    
             {/* Main stage content */}
@@ -611,7 +611,7 @@ render(): ReactElement {
             </div>
 
         </div>
-  </div>
+ // </div>
 
 )}
     );
