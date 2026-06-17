@@ -374,7 +374,7 @@ render(): ReactElement {
                         title="Room1"
                         style={{
                             position: 'absolute',
-                            left: '15px',
+                            left: '18px',
                             top: '80px',
                             width: '50px',
                             height: '75px',
@@ -428,8 +428,8 @@ render(): ReactElement {
                         title="Room3"
                         style={{
                             position: 'absolute',
-                            left: '160px',
-                            top: '95px',
+                            left: '155px',
+                            top: '100px',
                             width: '80px',
                             height: '60px',
 
@@ -451,6 +451,26 @@ render(): ReactElement {
                             this.myInternalState.miaPresent = false;
                             this.myInternalState.gwenPresent = false;
 
+                            // this.forceUpdate();
+                        }}
+                    />
+              {/* Myroom */}
+                    <div
+                        title="myRoom"
+                        style={{
+                            position: 'absolute',
+                            left: '180px',
+                            top: '285px',
+                            width: '55px',
+                            height: '80px',
+
+                            backgroundColor: 'rgba(0,255,0,0.25)',
+                            border: '2px solid green',
+
+                            cursor: 'pointer'
+                        }}
+
+                        onClick={() => {
                             // this.forceUpdate();
                         }}
                     />
