@@ -514,6 +514,41 @@ render(): ReactElement {
                             // this.forceUpdate();
                         }}
                     />
+              {/* hobbyRoom */}
+                    <div
+                        title="hobbyRoom"
+                        style={{
+                            position: 'absolute',
+                            left: '340px',
+                            top: '110px',
+                            width: '80px',
+                            height: '50px',
+
+                            backgroundColor: 'rgba(0,255,0,0.25)',
+                            border: '2px solid green',
+
+                            cursor: 'pointer'
+                        }}
+
+                        onClick={() => {
+                            // this.forceUpdate();
+                        }}
+                    />
+                           {/* captainRoom */}
+                    <div
+                        title="captainRoom"
+                        style={{
+                            position: 'absolute',
+                            left: '500px',
+                            top: '300px',
+                            width: '80px',
+                            height: '50px',
+
+                            backgroundColor: 'rgba(0,255,0,0.25)',
+                            border: '2px solid green',
+
+                            cursor: 'pointer'
+                        }}
 
 
                 {/* Debug location display */}
