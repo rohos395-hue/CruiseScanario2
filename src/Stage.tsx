@@ -326,7 +326,7 @@ Write the next response using only characters currently present.
                     />
                 </button>
             </div>
-			</div>
+			
 
             {/* MAP POPUP */}
             {this.myInternalState.showMap && (
@@ -399,7 +399,7 @@ Write the next response using only characters currently present.
                     Current Location: {this.myInternalState.currentLocation}
                     showMap:   {this.myInternalState.showMap}
                 </div>
-
+			</div>
             </div>
 
         </div>
