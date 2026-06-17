@@ -57,14 +57,14 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
      ***/
     myInternalState: {[key: string]: any};
     private locations = [
-                    { title:"Room1"      ,left: '20px' ,top:  '80px',width: '50px' ,height: '75px' ,border: '2px solid red',}
-					               { title:"Room2"      ,left: '15px' ,top: '287px',width: '55px' ,height: '80px' ,border: '2px solid green',}
-					               { title:"Room3"      ,left: '155px',top: '103px',width: '80px' ,height: '60px' ,border: '2px solid red',}
-                    { title:"myRoom"     ,left: '180px',top: '295px',width: '60px' ,height: '80px' ,border: '2px solid green',}
-                    { title:"Kitchen"    ,left: '310px',top: '170px',width: '165px',height: '120px',border: '2px solid green',}
-					               { title:"lobby1"     ,left: '325px',top: '295px',width: '85px' ,height: '90px' ,border: '2px solid green',}
-					               { title:"hobbyRoom"  ,left: '340px',top: '115px',width: '75px' ,height: '50px' ,border: '2px solid green',}
-                    { title:"captainRoom",left: '600px',top: '300px',width: '50px' ,height: '40px' ,border: '2px solid green',}
+                    { title: 'Room1'      ,left: '20px' ,top:  '80px',width: '50px' ,height: '75px' ,border: '2px solid red',},
+					{ title:'Room2'      ,left: '15px' ,top: '287px',width: '55px' ,height: '80px' ,border: '2px solid green',},
+					{ title:'Room3'      ,left: '155px',top: '103px',width: '80px' ,height: '60px' ,border: '2px solid red',},
+                    { title:'myRoom'     ,left: '180px',top: '295px',width: '60px' ,height: '80px' ,border: '2px solid green',},
+                    { title:'Kitchen'    ,left: '310px',top: '170px',width: '165px',height: '120px',border: '2px solid green',},
+					{ title:'lobby1'     ,left: '325px',top: '295px',width: '85px' ,height: '90px' ,border: '2px solid green',},
+					{ title:'hobbyRoom'  ,left: '340px',top: '115px',width: '75px' ,height: '50px' ,border: '2px solid green',},
+                    { title:'captainRoom',left: '600px',top: '300px',width: '50px' ,height: '40px' ,border: '2px solid green',},
 					                   ]
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
