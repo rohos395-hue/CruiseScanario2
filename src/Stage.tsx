@@ -326,6 +326,7 @@ Write the next response using only characters currently present.
                     />
                 </button>
             </div>
+			</div>
 
             {/* MAP POPUP */}
             {this.myInternalState.showMap && (
