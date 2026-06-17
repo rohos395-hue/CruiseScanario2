@@ -417,7 +417,7 @@ render(): ReactElement {
                             cursor: 'pointer'
                         }}
 
-                        onClick={() => 
+                        onClick={() => {
                             // this.forceUpdate();
                         }}
                     />
