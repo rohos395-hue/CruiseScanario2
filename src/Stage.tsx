@@ -371,13 +371,13 @@ render(): ReactElement {
 
                     {/* BRIDGE */}
                     <div
-                        title="Bridge"
+                        title="Room1"
                         style={{
                             position: 'absolute',
-                            left: '220px',
-                            top: '100px',
-                            width: '80px',
-                            height: '60px',
+                            left: '10px',
+                            top: '90px',
+                            width: '60px',
+                            height: '70px',
 
                             backgroundColor: 'rgba(255,0,0,0.25)',
                             border: '2px solid red',
@@ -386,12 +386,12 @@ render(): ReactElement {
                         }}
 
                         onMouseEnter={() => {
-                            console.log("Bridge");
+                            console.log("Room1");
                         }}
 
                         onClick={() => {
 
-                            this.myInternalState.currentLocation = "Bridge";
+                            this.myInternalState.currentLocation = "Room1";
 
                             this.myInternalState.lunaPresent = true;
                             this.myInternalState.miaPresent = false;
@@ -403,12 +403,12 @@ render(): ReactElement {
 
                     {/* MAIN DECK */}
                     <div
-                        title="Main Deck"
+                        title="Room2"
                         style={{
                             position: 'absolute',
-                            left: '400px',
-                            top: '250px',
-                            width: '120px',
+                            left: '10px',
+                            top: '280px',
+                            width: '40px',
                             height: '80px',
 
                             backgroundColor: 'rgba(0,255,0,0.25)',
