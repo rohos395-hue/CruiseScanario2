@@ -329,59 +329,58 @@ Write the next response using only characters currently present.
 			
 
             {/* MAP POPUP */}
-            {this.myInternalState.showMap && (
+{this.myInternalState.showMap && (
 
-                <div
-                    style={{
-                        position: "fixed",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
+    <div
+        style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
 
-                        width: "90vw",
-                        maxWidth: "800px",
+            width: "90vw",
+            maxWidth: "800px",
 
-                        backgroundColor: "#111",
-                        padding: "10px",
+            backgroundColor: "#111",
+            padding: "10px",
 
-                        border: "2px solid #666",
+            border: "2px solid #666",
 
-                        zIndex: 9999
-                    }}
-                >
+            zIndex: 9999
+        }}
+    >
 
-                    <div
-                        style={{
-                            position: "relative",
-                            width: "100%"
-                        }}
-                    >
+        <div
+            style={{
+                position: "relative",
+                width: "100%"
+            }}
+        >
 
-                        <img
-                            src={CruiseMap}
-                            style={{
-                                width: "100%",
-                                display: "block"
-                            }}
-                        />
+            <img
+                src={CruiseMap}
+                style={{
+                    width: "100%",
+                    display: "block"
+                }}
+            />
 
-                        
+        </div>
 
-                    <button
-                        style={{
-                            marginTop: "10px"
-                        }}
-                        onClick={() => {
-                            this.myInternalState.showMap = false;
-                            // this.forceUpdate();
-                        }}
-                    >
-                        Close Map
-                    </button>
+        <button
+            style={{
+                marginTop: "10px"
+            }}
+            onClick={() => {
+                this.myInternalState.showMap = false;
+            }}
+        >
+            Close Map
+        </button>
 
-                </div>
+    </div>
 
-            )}
+)}
 
             {/* Main Content */}
             <div
