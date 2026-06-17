@@ -1,7 +1,7 @@
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
-import CruiseMap from "./assets/map_cata.png";
+import CruiseMap from "./assets/map_cata.jpg";
 /***
  The type that this stage persists message-level state in.
  This is primarily for readability, and not enforced.
