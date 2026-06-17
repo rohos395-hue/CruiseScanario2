@@ -47,6 +47,7 @@ type ChatStateType = any;
  If you want to rename it, be sure to modify App.js as well.
  @link https://github.com/CharHubAI/chub-stages-ts/blob/main/src/types/stage.ts
  ***/
+
 export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateType, ConfigType> {
 
     /***
@@ -55,6 +56,16 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
      but exists as long as the instance does, i.e., the chat page is open.
      ***/
     myInternalState: {[key: string]: any};
+    private locations = [
+                    { title:"Room1"      ,left: '20px' ,top:  '80px',width: '50px' ,height: '75px' ,border: '2px solid red',}
+					               { title:"Room2"      ,left: '15px' ,top: '287px',width: '55px' ,height: '80px' ,border: '2px solid green',}
+					               { title:"Room3"      ,left: '155px',top: '103px',width: '80px' ,height: '60px' ,border: '2px solid red',}
+                    { title:"myRoom"     ,left: '180px',top: '295px',width: '60px' ,height: '80px' ,border: '2px solid green',}
+                    { title:"Kitchen"    ,left: '310px',top: '170px',width: '165px',height: '120px',border: '2px solid green',}
+					               { title:"lobby1"     ,left: '325px',top: '295px',width: '85px' ,height: '90px' ,border: '2px solid green',}
+					               { title:"hobbyRoom"  ,left: '340px',top: '115px',width: '75px' ,height: '50px' ,border: '2px solid green',}
+                    { title:"captainRoom",left: '600px',top: '300px',width: '50px' ,height: '40px' ,border: '2px solid green',}
+					                   ]
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
         /***
@@ -353,55 +364,7 @@ Write the next response using only characters currently present.
                             }}
                         />
 
-                        {/* ROOM 1 */}
-                        <div
-                            title="Room1"
-                            style={{
-                                position: "absolute",
-                                left: "20px",
-                                top: "80px",
-                                width: "50px",
-                                height: "75px",
-
-                                backgroundColor: "rgba(255,0,0,0.25)",
-                                border: "2px solid red",
-
-                                cursor: "pointer"
-                            }}
-                            onClick={() => {
-
-                                this.myInternalState.currentLocation = "Room1";
-
-                                this.myInternalState.lunaPresent = true;
-                                this.myInternalState.miaPresent = false;
-                                this.myInternalState.gwenPresent = false;
-
-                                this.myInternalState.showMap = false;
-
-                                // this.forceUpdate();
-                            }}
-                        />
-
-                        {/* ROOM 2 */}
-                        <div
-                            title="Room2"
-                            style={{
-                                position: "absolute",
-                                left: "15px",
-                                top: "287px",
-                                width: "55px",
-                                height: "80px",
-
-                                backgroundColor: "rgba(0,255,0,0.25)",
-                                border: "2px solid green",
-
-                                cursor: "pointer"
-                            }}
-                        />
-
-                        {/* Add your other rooms here */}
-
-                    </div>
+                        
 
                     <button
                         style={{
@@ -433,6 +396,7 @@ Write the next response using only characters currently present.
                     }}
                 >
                     Current Location: {this.myInternalState.currentLocation}
+                    showMap:   {this.myInternalState.showMap}
                 </div>
 
             </div>
