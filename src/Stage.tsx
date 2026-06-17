@@ -549,6 +549,7 @@ render(): ReactElement {
 
                             cursor: 'pointer'
                         }}
+                      />
 
 
                 {/* Debug location display */}
