@@ -374,8 +374,8 @@ render(): ReactElement {
                         title="Room1"
                         style={{
                             position: 'absolute',
-                            left: '10px',
-                            top: '85px',
+                            left: '15px',
+                            top: '80px',
                             width: '50px',
                             height: '75px',
 
@@ -408,8 +408,8 @@ render(): ReactElement {
                             position: 'absolute',
                             left: '15px',
                             top: '285px',
-                            width: '50px',
-                            height: '75px',
+                            width: '55px',
+                            height: '80px',
 
                             backgroundColor: 'rgba(0,255,0,0.25)',
                             border: '2px solid green',
@@ -417,14 +417,7 @@ render(): ReactElement {
                             cursor: 'pointer'
                         }}
 
-                        onClick={() => {
-
-                            this.myInternalState.currentLocation = "Main Deck";
-
-                            this.myInternalState.lunaPresent = false;
-                            this.myInternalState.miaPresent = true;
-                            this.myInternalState.gwenPresent = true;
-
+                        onClick={() => 
                             // this.forceUpdate();
                         }}
                     />
@@ -435,10 +428,10 @@ render(): ReactElement {
                         title="Room3"
                         style={{
                             position: 'absolute',
-                            left: '300px',
-                            top: '90px',
+                            left: '160px',
+                            top: '95px',
                             width: '80px',
-                            height: '70px',
+                            height: '60px',
 
                             backgroundColor: 'rgba(255,0,0,0.25)',
                             border: '2px solid red',
