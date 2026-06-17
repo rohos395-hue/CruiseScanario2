@@ -461,7 +461,7 @@ render(): ReactElement {
                             position: 'absolute',
                             left: '180px',
                             top: '295px',
-                            width: '55px',
+                            width: '60px',
                             height: '80px',
 
                             backgroundColor: 'rgba(0,255,0,0.25)',
@@ -481,8 +481,8 @@ render(): ReactElement {
                             position: 'absolute',
                             left: '310px',
                             top: '170px',
-                            width: '160px',
-                            height: '110px',
+                            width: '165px',
+                            height: '120px',
 
                             backgroundColor: 'rgba(0,255,0,0.25)',
                             border: '2px solid green',
@@ -494,6 +494,27 @@ render(): ReactElement {
                             // this.forceUpdate();
                         }}
                     />
+               {/* lobby1 */}
+                    <div
+                        title="lobby1"
+                        style={{
+                            position: 'absolute',
+                            left: '325px',
+                            top: '295px',
+                            width: '85px',
+                            height: '90px',
+
+                            backgroundColor: 'rgba(0,255,0,0.25)',
+                            border: '2px solid green',
+
+                            cursor: 'pointer'
+                        }}
+
+                        onClick={() => {
+                            // this.forceUpdate();
+                        }}
+                    />
+
 
                 {/* Debug location display */}
                 <div style={{
