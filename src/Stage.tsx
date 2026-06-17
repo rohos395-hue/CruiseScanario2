@@ -374,7 +374,7 @@ render(): ReactElement {
                         title="Room1"
                         style={{
                             position: 'absolute',
-                            left: '18px',
+                            left: '20px',
                             top: '80px',
                             width: '50px',
                             height: '75px',
@@ -407,7 +407,7 @@ render(): ReactElement {
                         style={{
                             position: 'absolute',
                             left: '15px',
-                            top: '285px',
+                            top: '287px',
                             width: '55px',
                             height: '80px',
 
@@ -429,7 +429,7 @@ render(): ReactElement {
                         style={{
                             position: 'absolute',
                             left: '155px',
-                            top: '100px',
+                            top: '103px',
                             width: '80px',
                             height: '60px',
 
@@ -460,7 +460,7 @@ render(): ReactElement {
                         style={{
                             position: 'absolute',
                             left: '180px',
-                            top: '285px',
+                            top: '290px',
                             width: '55px',
                             height: '80px',
 
@@ -474,6 +474,27 @@ render(): ReactElement {
                             // this.forceUpdate();
                         }}
                     />
+                {/* Kitchen */}
+                    <div
+                        title="Kitchen"
+                        style={{
+                            position: 'absolute',
+                            left: '300px',
+                            top: '190px',
+                            width: '100px',
+                            height: '100px',
+
+                            backgroundColor: 'rgba(0,255,0,0.25)',
+                            border: '2px solid green',
+
+                            cursor: 'pointer'
+                        }}
+
+                        onClick={() => {
+                            // this.forceUpdate();
+                        }}
+                    />
+
                 {/* Debug location display */}
                 <div style={{
                     marginTop: '10px',
