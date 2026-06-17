@@ -258,362 +258,185 @@ Write the next response using only characters currently present.
         };
     }
 
-    render_old(): ReactElement {
-        /***
-         There should be no "work" done here. Just returning the React element to display.
-         If you're unfamiliar with React and prefer video, I've heard good things about
-         @link https://scrimba.com/learn/learnreact but haven't personally watched/used it.
-
-         For creating 3D and game components, react-three-fiber
-           @link https://docs.pmnd.rs/react-three-fiber/getting-started/introduction
-           and the associated ecosystem of libraries are quite good and intuitive.
-
-         Cuberun is a good example of a game built with them.
-           @link https://github.com/akarlsten/cuberun (Source)
-           @link https://cuberun.adamkarlsten.com/ (Demo)
-         ***/
-        return <div style={{
-            width: '100vw',
-            height: '100vh',
-            display: 'grid',
-            alignItems: 'stretch'
-        }}>
-            <div>Hello World! I'm an empty stage! With {this.myInternalState['someKey']}!</div>
-            <div>There is/are/were {this.myInternalState['numChars']} character(s)
-                and {this.myInternalState['numUsers']} human(s) here.
-            </div>
-        </div>;
-    }
-    render_old2(): ReactElement {
+ render(): ReactElement {
 
     return (
-        <div style={{
-            width: '100vw',
-            height: '100vh',
-            display: 'flex',
-            flexDirection: 'column'
-        }}>
+        <div
+            style={{
+                width: "100vw",
+                height: "100vh",
+                display: "flex",
+                flexDirection: "column"
+            }}
+        >
 
-            {/* Dating Sim HUD */}
-            <div style={{
-                backgroundColor: '#222',
-                color: 'white',
-                padding: '8px',
-                fontSize: '14px',
-                borderBottom: '1px solid #555',
-                whiteSpace: 'nowrap'
-            }}>
+            {/* HUD */}
+            <div
+                style={{
+                    backgroundColor: "#222",
+                    color: "white",
+                    padding: "8px",
+                    fontSize: "14px",
+                    borderBottom: "1px solid #555",
+                    whiteSpace: "nowrap"
+                }}
+            >
                 {this.myInternalState.miaPresent ? "🟢" : "⚫"} ❤️ Mia: {this.myInternalState.miaAffection}
-                {"     |    "}
+                {" | "}
                 {this.myInternalState.lunaPresent ? "🟢" : "⚫"} ❤️ Luna: {this.myInternalState.lunaAffection}
-                {"    |     "}
-                {this.myInternalState.gwenPresent ? "🟢" : "⚫"} ❤️ Gwen: {this.myInternalState.emmaAffection}
-                {"        ||        "}
-                📅 Day {this.myInternalState.day}
-            </div>
-
-            {/* Main stage content */}
-            <div style={{
-                padding: '10px'
-            }}>
-                
-            </div>
-
-        </div>
-    );
-}
-render(): ReactElement {
-
-    return (
-        <div style={{
-            width: '100vw',
-            height: '100vh',
-            display: 'flex',
-            flexDirection: 'column'
-        }}>
-
-            {/* Dating Sim HUD */}
-            <div style={{
-                backgroundColor: '#222',
-                color: 'white',
-                padding: '8px',
-                fontSize: '14px',
-                borderBottom: '1px solid #555',
-                whiteSpace: 'nowrap'
-            }}>
-                {this.myInternalState.miaPresent ? "🟢" : "⚫"} ❤️ Mia: {this.myInternalState.miaAffection}
-                {"     |    "}
-                {this.myInternalState.lunaPresent ? "🟢" : "⚫"} ❤️ Luna: {this.myInternalState.lunaAffection}
-                {"    |     "}
+                {" | "}
                 {this.myInternalState.gwenPresent ? "🟢" : "⚫"} ❤️ Gwen: {this.myInternalState.gwenAffection}
-                {"        ||        "}
+                {" || "}
                 📅 Day {this.myInternalState.day}
-            </div>
-         <button
-    style={{
-        marginLeft: "20px",
-        background: "none",
-        border: "none",
-        cursor: "pointer",
-        padding: "0"
-    }}
-    onClick={() => {
 
-        this.myInternalState.showMap =
-            !this.myInternalState.showMap;
+                <button
+                    style={{
+                        marginLeft: "20px",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        verticalAlign: "middle"
+                    }}
+                    onClick={() => {
+                        this.myInternalState.showMap =
+                            !this.myInternalState.showMap;
 
-        this.forceUpdate();
-
-    }}
->
-    <img
-        src={CompassIcon}
-        alt="Map"
-        style={{
-            width: "32px",
-            height: "32px",
-            objectFit: "cover"
-        }}
-    />
-</button>
-{showMap && (
-
-    <div style={{
-
-        position: "fixed",
-
-        top: "50%",
-        left: "50%",
-
-        transform: "translate(-50%, -50%)",
-
-        backgroundColor: "#111",
-
-        padding: "10px",
-
-        zIndex: 9999
-    }}>
-
-        // MAP HERE
-
-   
-            {/* Main stage content */}
-            <div style={{
-                padding: '10px',
-                position: 'relative'
-            }}>
-
-                {/* Cruise Map */}
-                <div style={{
-                    position: 'relative',
-                    width: '800px'
-                }}>
-
+                        // Depending on Chub version:
+                        // this.forceUpdate();
+                    }}
+                >
                     <img
-                        src={CruiseMap}
+                        src={CompassIcon}
+                        alt="Map"
                         style={{
-                            width: '100%',
-                            display: 'block'
+                            width: "32px",
+                            height: "32px"
                         }}
                     />
+                </button>
+            </div>
 
-                    {/* BRIDGE */}
+            {/* MAP POPUP */}
+            {this.myInternalState.showMap && (
+
+                <div
+                    style={{
+                        position: "fixed",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+
+                        width: "90vw",
+                        maxWidth: "800px",
+
+                        backgroundColor: "#111",
+                        padding: "10px",
+
+                        border: "2px solid #666",
+
+                        zIndex: 9999
+                    }}
+                >
+
                     <div
-                        title="Room1"
                         style={{
-                            position: 'absolute',
-                            left: '20px',
-                            top: '80px',
-                            width: '50px',
-                            height: '75px',
-
-                            backgroundColor: 'rgba(255,0,0,0.25)',
-                            border: '2px solid red',
-
-                            cursor: 'pointer'
+                            position: "relative",
+                            width: "100%"
                         }}
+                    >
 
-                        onMouseEnter={() => {
-                            console.log("Room1");
+                        <img
+                            src={CruiseMap}
+                            style={{
+                                width: "100%",
+                                display: "block"
+                            }}
+                        />
+
+                        {/* ROOM 1 */}
+                        <div
+                            title="Room1"
+                            style={{
+                                position: "absolute",
+                                left: "20px",
+                                top: "80px",
+                                width: "50px",
+                                height: "75px",
+
+                                backgroundColor: "rgba(255,0,0,0.25)",
+                                border: "2px solid red",
+
+                                cursor: "pointer"
+                            }}
+                            onClick={() => {
+
+                                this.myInternalState.currentLocation = "Room1";
+
+                                this.myInternalState.lunaPresent = true;
+                                this.myInternalState.miaPresent = false;
+                                this.myInternalState.gwenPresent = false;
+
+                                this.myInternalState.showMap = false;
+
+                                // this.forceUpdate();
+                            }}
+                        />
+
+                        {/* ROOM 2 */}
+                        <div
+                            title="Room2"
+                            style={{
+                                position: "absolute",
+                                left: "15px",
+                                top: "287px",
+                                width: "55px",
+                                height: "80px",
+
+                                backgroundColor: "rgba(0,255,0,0.25)",
+                                border: "2px solid green",
+
+                                cursor: "pointer"
+                            }}
+                        />
+
+                        {/* Add your other rooms here */}
+
+                    </div>
+
+                    <button
+                        style={{
+                            marginTop: "10px"
                         }}
-
                         onClick={() => {
-
-                            this.myInternalState.currentLocation = "Room1";
-
-                            this.myInternalState.lunaPresent = true;
-                            this.myInternalState.miaPresent = false;
-                            this.myInternalState.gwenPresent = false;
-
+                            this.myInternalState.showMap = false;
                             // this.forceUpdate();
                         }}
-                    />
-
-                    {/* MAIN DECK */}
-                    <div
-                        title="Room2"
-                        style={{
-                            position: 'absolute',
-                            left: '15px',
-                            top: '287px',
-                            width: '55px',
-                            height: '80px',
-
-                            backgroundColor: 'rgba(0,255,0,0.25)',
-                            border: '2px solid green',
-
-                            cursor: 'pointer'
-                        }}
-
-                        onClick={() => {
-                            // this.forceUpdate();
-                        }}
-                    />
+                    >
+                        Close Map
+                    </button>
 
                 </div>
-                    {/* BRIDGE */}
-                    <div
-                        title="Room3"
-                        style={{
-                            position: 'absolute',
-                            left: '155px',
-                            top: '103px',
-                            width: '80px',
-                            height: '60px',
 
-                            backgroundColor: 'rgba(255,0,0,0.25)',
-                            border: '2px solid red',
+            )}
 
-                            cursor: 'pointer'
-                        }}
+            {/* Main Content */}
+            <div
+                style={{
+                    padding: "10px"
+                }}
+            >
 
-                        onMouseEnter={() => {
-                            console.log("Room3");
-                        }}
-
-                        onClick={() => {
-
-                            this.myInternalState.currentLocation = "Room1";
-
-                            this.myInternalState.lunaPresent = true;
-                            this.myInternalState.miaPresent = false;
-                            this.myInternalState.gwenPresent = false;
-
-                            // this.forceUpdate();
-                        }}
-                    />
-              {/* Myroom */}
-                    <div
-                        title="myRoom"
-                        style={{
-                            position: 'absolute',
-                            left: '180px',
-                            top: '295px',
-                            width: '60px',
-                            height: '80px',
-
-                            backgroundColor: 'rgba(0,255,0,0.25)',
-                            border: '2px solid green',
-
-                            cursor: 'pointer'
-                        }}
-
-                        onClick={() => {
-                            // this.forceUpdate();
-                        }}
-                    />
-                {/* Kitchen */}
-                    <div
-                        title="Kitchen"
-                        style={{
-                            position: 'absolute',
-                            left: '310px',
-                            top: '170px',
-                            width: '165px',
-                            height: '120px',
-
-                            backgroundColor: 'rgba(0,255,0,0.25)',
-                            border: '2px solid green',
-
-                            cursor: 'pointer'
-                        }}
-
-                        onClick={() => {
-                            // this.forceUpdate();
-                        }}
-                    />
-               {/* lobby1 */}
-                    <div
-                        title="lobby1"
-                        style={{
-                            position: 'absolute',
-                            left: '325px',
-                            top: '295px',
-                            width: '85px',
-                            height: '90px',
-
-                            backgroundColor: 'rgba(0,255,0,0.25)',
-                            border: '2px solid green',
-
-                            cursor: 'pointer'
-                        }}
-
-                        onClick={() => {
-                            // this.forceUpdate();
-                        }}
-                    />
-              {/* hobbyRoom */}
-                    <div
-                        title="hobbyRoom"
-                        style={{
-                            position: 'absolute',
-                            left: '340px',
-                            top: '115px',
-                            width: '75px',
-                            height: '50px',
-
-                            backgroundColor: 'rgba(0,255,0,0.25)',
-                            border: '2px solid green',
-
-                            cursor: 'pointer'
-                        }}
-
-                        onClick={() => {
-                            // this.forceUpdate();
-                        }}
-                    />
-                           {/* captainRoom */}
-                    <div
-                        title="captainRoom"
-                        style={{
-                            position: 'absolute',
-                            left: '600px',
-                            top: '300px',
-                            width: '50px',
-                            height: '40px',
-
-                            backgroundColor: 'rgba(0,255,0,0.25)',
-                            border: '2px solid green',
-
-                            cursor: 'pointer'
-                        }}
-                      />
-
-
-                {/* Debug location display */}
-                <div style={{
-                    marginTop: '10px',
-                    fontWeight: 'bold'
-                }}>
+                <div
+                    style={{
+                        marginTop: "10px",
+                        fontWeight: "bold"
+                    }}
+                >
                     Current Location: {this.myInternalState.currentLocation}
                 </div>
 
             </div>
 
         </div>
- // </div>
-
-)}
     );
-}
 }
