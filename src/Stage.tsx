@@ -460,7 +460,7 @@ render(): ReactElement {
                         style={{
                             position: 'absolute',
                             left: '180px',
-                            top: '290px',
+                            top: '295px',
                             width: '55px',
                             height: '80px',
 
@@ -479,10 +479,10 @@ render(): ReactElement {
                         title="Kitchen"
                         style={{
                             position: 'absolute',
-                            left: '300px',
-                            top: '190px',
-                            width: '100px',
-                            height: '100px',
+                            left: '310px',
+                            top: '170px',
+                            width: '160px',
+                            height: '110px',
 
                             backgroundColor: 'rgba(0,255,0,0.25)',
                             border: '2px solid green',
