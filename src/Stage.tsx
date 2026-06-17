@@ -520,8 +520,8 @@ render(): ReactElement {
                         style={{
                             position: 'absolute',
                             left: '340px',
-                            top: '110px',
-                            width: '80px',
+                            top: '115px',
+                            width: '75px',
                             height: '50px',
 
                             backgroundColor: 'rgba(0,255,0,0.25)',
@@ -539,10 +539,10 @@ render(): ReactElement {
                         title="captainRoom"
                         style={{
                             position: 'absolute',
-                            left: '500px',
+                            left: '600px',
                             top: '300px',
-                            width: '80px',
-                            height: '50px',
+                            width: '50px',
+                            height: '40px',
 
                             backgroundColor: 'rgba(0,255,0,0.25)',
                             border: '2px solid green',
