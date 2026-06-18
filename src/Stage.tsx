@@ -307,7 +307,9 @@ Write the next response using only characters currently present.
 
               
             </div>
-			
+			<div>
+            Render timestamp: {Date.now()}
+            </div>
 
             {/* MAP POPUP */}
 {this.myInternalState.showMap && (
