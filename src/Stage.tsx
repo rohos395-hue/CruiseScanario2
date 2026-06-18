@@ -1,8 +1,9 @@
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
-import CruiseMap from "./assets/map_cata.jpg";
-import CompassIcon from "./assets/compass.jpg";
+import HUD from "./HUD";
+// import CruiseMap from "./assets/map_cata.jpg";
+// import CompassIcon from "./assets/compass.jpg";
 /***
  The type that this stage persists message-level state in.
  This is primarily for readability, and not enforced.
@@ -56,7 +57,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
      but exists as long as the instance does, i.e., the chat page is open.
      ***/
     myInternalState: {[key: string]: any};
-    private locations = [
+   /*** private locations = [
                     { title: 'Room1'      ,left: '20px' ,top:  '80px',width: '50px' ,height: '75px' ,border: '2px solid red',},
 					{ title:'Room2'      ,left: '15px' ,top: '287px',width: '55px' ,height: '80px' ,border: '2px solid green',},
 					{ title:'Room3'      ,left: '155px',top: '103px',width: '80px' ,height: '60px' ,border: '2px solid red',},
@@ -65,7 +66,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 					{ title:'lobby1'     ,left: '325px',top: '295px',width: '85px' ,height: '90px' ,border: '2px solid green',},
 					{ title:'hobbyRoom'  ,left: '340px',top: '115px',width: '75px' ,height: '50px' ,border: '2px solid green',},
                     { title:'captainRoom',left: '600px',top: '300px',width: '50px' ,height: '40px' ,border: '2px solid green',},
-					                   ]
+					                   ]***/
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
         /***
@@ -97,8 +98,49 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         this.myInternalState['gwenPresent'] = true;
         this.myInternalState['day'] = 1;
 		this.myInternalState.showMap = false;
+		this.myInternalState.currentLocation = "myRoom";
+    }
+    getGameState() {
+    return this.myInternalState;
     }
 
+    moveToLocation(location: string) {
+
+    this.myInternalState.currentLocation = location;
+
+    switch (location) {
+
+        case "captainRoom":
+
+            this.myInternalState.miaPresent = true;
+            this.myInternalState.lunaPresent = false;
+            this.myInternalState.gwenPresent = false;
+
+            break;
+
+        case "Kitchen":
+
+            this.myInternalState.miaPresent = false;
+            this.myInternalState.lunaPresent = true;
+            this.myInternalState.gwenPresent = true;
+
+            break;
+
+        case "myRoom":
+
+            this.myInternalState.miaPresent = false;
+            this.myInternalState.lunaPresent = false;
+            this.myInternalState.gwenPresent = false;
+
+            break;
+    }
+
+    console.log(
+        "[Location]",
+        location
+    );
+    }
+	
     async load(): Promise<Partial<LoadResponse<InitStateType, ChatStateType, MessageStateType>>> {
         /***
          This is called immediately after the constructor, in case there is some asynchronous code you need to
@@ -155,7 +197,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         presentCharacters.push("Luna");
     }
 
-    if (this.myInternalState.emmaPresent) {
+    if (this.myInternalState.gwenPresent) {
         presentCharacters.push("Gwen");
     }
 
@@ -271,122 +313,8 @@ Write the next response using only characters currently present.
     }
 
  render(): ReactElement {
-
     return (
-        <div
-            style={{
-                width: "100%",
-        		minHeight: "100vh",
-        		display: "flex",
-        		flexDirection: "column",
-        		overflowX: "hidden",
-        		overflowY: "auto"
-            }}
-        >
-
-            {/* HUD */}
-            <div    style={{ backgroundColor: "#222",color: "white",padding: "8px",fontSize: "14px",borderBottom: "1px solid #555",whiteSpace: "nowrap"}}>
-				  <button
-                    style={{marginLeft: "20px",background: "none",border: "none",cursor: "pointer",verticalAlign: "middle"}}
-                    onClick={() => {this.myInternalState.showMap =!this.myInternalState.showMap;}}
-                >
-                    <img
-                        src={CompassIcon}
-                        alt="Map"
-                        style={{width: "32px",height: "32px"}}
-                    />
-                </button>
-             
-                {this.myInternalState.miaPresent ? "🟢" : "⚫"} ❤️ Mia: {this.myInternalState.miaAffection}
-                {" | "}
-                {this.myInternalState.lunaPresent ? "🟢" : "⚫"} ❤️ Luna: {this.myInternalState.lunaAffection}
-                {" | "}
-                {this.myInternalState.gwenPresent ? "🟢" : "⚫"} ❤️ Gwen: {this.myInternalState.gwenAffection}
-                {" || "}
-                📅 Day {this.myInternalState.day}
-
-              
-            </div>
-			<div>
-            Render timestamp: {Date.now()}
-            </div>
-
-            {/* MAP POPUP */}
-{this.myInternalState.showMap && (
-
-    <div
-        style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-
-            width: "90vw",
-            maxWidth: "800px",
-
-            backgroundColor: "#111",
-            padding: "10px",
-
-            border: "2px solid #666",
-
-            zIndex: 9999
-        }}
-    >
-
-        <div
-            style={{
-                position: "relative",
-                width: "100%"
-            }}
-        >
-
-            <img
-                src={CruiseMap}
-                style={{
-                    width: "100%",
-                    display: "block"
-                }}
-            />
-
-        </div>
-
-        <button
-            style={{
-                marginTop: "10px"
-            }}
-            onClick={() => {
-                this.myInternalState.showMap = false;
-		        // @ts-ignore
-                this.forceUpdate();
-            }}
-        >
-            Close Map
-        </button>
-
-    </div>
-
-)}
-
-            {/* Main Content */}
-            <div
-                style={{
-                    padding: "10px"
-                }}
-            >
-
-                <div
-                    style={{
-                        marginTop: "10px",
-                        fontWeight: "bold"
-                    }}
-                >
-                    Current Location: {this.myInternalState.currentLocation}
-                    showMap: {String(this.myInternalState.showMap)}
-                </div>
-			</div>
-            </div>
-
-       
+        <HUD stage={this} />
     );
 }
 }
