@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import CruiseMap from "../assets/map_cata.jpg";
-import CompassIcon from "../assets/compass.jpg";
+import CruiseMap from "./assets/map_cata.jpg";
+import CompassIcon from "./assets/compass.jpg";
 
 interface HUDProps {
     stage: any;
