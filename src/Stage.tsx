@@ -284,24 +284,7 @@ Write the next response using only characters currently present.
 
             {/* HUD */}
             <div
-                style={{
-                    backgroundColor: "#222",
-                    color: "white",
-                    padding: "8px",
-                    fontSize: "14px",
-                    borderBottom: "1px solid #555",
-                    whiteSpace: "nowrap"
-                }}
-            >
-                {this.myInternalState.miaPresent ? "🟢" : "⚫"} ❤️ Mia: {this.myInternalState.miaAffection}
-                {" | "}
-                {this.myInternalState.lunaPresent ? "🟢" : "⚫"} ❤️ Luna: {this.myInternalState.lunaAffection}
-                {" | "}
-                {this.myInternalState.gwenPresent ? "🟢" : "⚫"} ❤️ Gwen: {this.myInternalState.gwenAffection}
-                {" || "}
-                📅 Day {this.myInternalState.day}
-
-                <button
+				  <button
                     style={{
                         marginLeft: "20px",
                         background: "none",
@@ -326,6 +309,24 @@ Write the next response using only characters currently present.
                         }}
                     />
                 </button>
+                style={{
+                    backgroundColor: "#222",
+                    color: "white",
+                    padding: "8px",
+                    fontSize: "14px",
+                    borderBottom: "1px solid #555",
+                    whiteSpace: "nowrap"
+                }}
+            >
+                {this.myInternalState.miaPresent ? "🟢" : "⚫"} ❤️ Mia: {this.myInternalState.miaAffection}
+                {" | "}
+                {this.myInternalState.lunaPresent ? "🟢" : "⚫"} ❤️ Luna: {this.myInternalState.lunaAffection}
+                {" | "}
+                {this.myInternalState.gwenPresent ? "🟢" : "⚫"} ❤️ Gwen: {this.myInternalState.gwenAffection}
+                {" || "}
+                📅 Day {this.myInternalState.day}
+
+              
             </div>
 			
 
