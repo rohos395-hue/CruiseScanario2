@@ -275,10 +275,12 @@ Write the next response using only characters currently present.
     return (
         <div
             style={{
-                width: "100vw",
-                height: "100vh",
-                display: "flex",
-                flexDirection: "column"
+                width: "100%",
+        		minHeight: "100vh",
+        		display: "flex",
+        		flexDirection: "column",
+        		overflowX: "hidden",
+        		overflowY: "auto"
             }}
         >
 
