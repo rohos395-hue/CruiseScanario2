@@ -354,6 +354,8 @@ Write the next response using only characters currently present.
             }}
             onClick={() => {
                 this.myInternalState.showMap = false;
+		        // @ts-ignore
+                this.forceUpdate();
             }}
         >
             Close Map
