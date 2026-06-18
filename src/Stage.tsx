@@ -96,6 +96,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         this.myInternalState['lunaPresent'] = false;
         this.myInternalState['gwenPresent'] = true;
         this.myInternalState['day'] = 1;
+		this.myInternalState.showMap = false;
     }
 
     async load(): Promise<Partial<LoadResponse<InitStateType, ChatStateType, MessageStateType>>> {
@@ -396,7 +397,7 @@ Write the next response using only characters currently present.
                     }}
                 >
                     Current Location: {this.myInternalState.currentLocation}
-                    showMap:   {this.myInternalState.showMap}
+                    showMap: {String(this.myInternalState.showMap)}
                 </div>
 			</div>
             </div>
