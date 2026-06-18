@@ -283,41 +283,18 @@ Write the next response using only characters currently present.
         >
 
             {/* HUD */}
-            <div
+            <div    style={{ backgroundColor: "#222",color: "white",padding: "8px",fontSize: "14px",borderBottom: "1px solid #555",whiteSpace: "nowrap"}}>
 				  <button
-                    style={{
-                        marginLeft: "20px",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        verticalAlign: "middle"
-                    }}
-                    onClick={() => {
-                        this.myInternalState.showMap =
-                            !this.myInternalState.showMap;
-
-                        // Depending on Chub version:
-                        // this.forceUpdate();
-                    }}
+                    style={{marginLeft: "20px",background: "none",border: "none",cursor: "pointer",verticalAlign: "middle"}}
+                    onClick={() => {this.myInternalState.showMap =!this.myInternalState.showMap;}}
                 >
                     <img
                         src={CompassIcon}
                         alt="Map"
-                        style={{
-                            width: "32px",
-                            height: "32px"
-                        }}
+                        style={{width: "32px",height: "32px"}}
                     />
                 </button>
-                style={{
-                    backgroundColor: "#222",
-                    color: "white",
-                    padding: "8px",
-                    fontSize: "14px",
-                    borderBottom: "1px solid #555",
-                    whiteSpace: "nowrap"
-                }}
-            >
+             
                 {this.myInternalState.miaPresent ? "🟢" : "⚫"} ❤️ Mia: {this.myInternalState.miaAffection}
                 {" | "}
                 {this.myInternalState.lunaPresent ? "🟢" : "⚫"} ❤️ Luna: {this.myInternalState.lunaAffection}
