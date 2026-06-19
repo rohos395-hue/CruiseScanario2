@@ -2,7 +2,7 @@ import React from "react";
 
 import locationsData from "./assets/locations.json";
 
-import CompassIcon from "./assets/CompassIcon.png";
+import CompassIcon from "./assets/compass.jpg";
 
 interface HUDProps {
     stage: any;
