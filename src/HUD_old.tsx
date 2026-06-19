@@ -45,7 +45,7 @@ export default function HUD({ stage }: HUDProps) {
             }}
         >
 
-            {/* HUD BAR */}
+        
             <div
                 style={{
                     backgroundColor: "#222",
@@ -95,7 +95,7 @@ export default function HUD({ stage }: HUDProps) {
 
             </div>
 
-            {/* MAP POPUP */}
+        
 
             {showMap && (
 
@@ -172,7 +172,7 @@ export default function HUD({ stage }: HUDProps) {
 
             )}
 
-            {/* MAIN CONTENT */}
+        
 
             <div
                 style={{
