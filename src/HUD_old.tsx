@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/***import React, { useState } from "react";
 import locationsData from "./assets/locations.json";
 //import CruiseMap from "./assets/map_cata.jpg";
 import CompassIcon from "./assets/compass.jpg";
@@ -191,6 +191,7 @@ export default function HUD({ stage }: HUDProps) {
 
             </div>
 
-        </div>
+        </div> 
     );
 }
+***/
