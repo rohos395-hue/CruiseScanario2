@@ -1,7 +1,16 @@
 import React, { useState } from "react";
-
-import CruiseMap from "./assets/map_cata.jpg";
+import locationsData from "./data/locations.json";
+//import CruiseMap from "./assets/map_cata.jpg";
 import CompassIcon from "./assets/compass.jpg";
+const currentDeck = "mainDeck";
+
+const deckData =
+    locationsData[
+        currentDeck as keyof typeof locationsData
+    ];
+
+const locations =
+    deckData.locations;
 
 interface HUDProps {
     stage: any;
