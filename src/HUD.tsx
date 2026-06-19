@@ -21,13 +21,7 @@ export default function HUD({ stage }: HUDProps) {
     if (!deckData) {
         return <div>Invalid deck: {currentDeck}</div>;
     }
-    <div style={{color:"white"}}>
-    Current deck: {currentDeck}
-</div>
 
-<div style={{color:"white"}}>
-    Map path: {deckData.map}
-</div>
 
     return (
 
@@ -92,6 +86,14 @@ export default function HUD({ stage }: HUDProps) {
                 {" || "}
 
                 📅 Day {state.day}
+
+                <div style={{color:"white"}}>
+                    Current deck: {currentDeck}
+                </div>
+
+                <div style={{color:"white"}}>
+                    Map path: {deckData.map}
+                </div>    
 
             </div>
 
