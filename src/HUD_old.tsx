@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import locationsData from "./data/locations.json";
+import locationsData from "./assets/locations.json";
 //import CruiseMap from "./assets/map_cata.jpg";
 import CompassIcon from "./assets/compass.jpg";
 const currentDeck = "mainDeck";
