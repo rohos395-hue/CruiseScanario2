@@ -1,6 +1,6 @@
 import React from "react";
 
-import locationsData from "./data/locations.json";
+import locationsData from "./assets/locations.json";
 
 import CompassIcon from "./assets/CompassIcon.png";
 
