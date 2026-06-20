@@ -131,7 +131,6 @@ export default function HUD({ stage }: HUDProps) {
                     >
 
                         <img
-                            //src={deckData.map}
                             src={MainDeckMap};
                             alt={currentDeck}
                             style={{
