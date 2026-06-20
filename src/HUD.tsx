@@ -4,6 +4,8 @@ import locationsData from "./assets/locations.json";
 
 import CompassIcon from "./assets/compass.jpg";
 
+import MainDeckMap from "./assets/mainDeck.jpg";
+
 interface HUDProps {
     stage: any;
 }
@@ -129,7 +131,8 @@ export default function HUD({ stage }: HUDProps) {
                     >
 
                         <img
-                            src={deckData.map}
+                            //src={deckData.map}
+                            src=MainDeckMap;
                             alt={currentDeck}
                             style={{
                                 width: "100%",
