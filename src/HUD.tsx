@@ -80,7 +80,8 @@ export default function HUD({ stage }: HUDProps) {
                 📅 Day {state.day}
 
                 <div style={{color:"white"}}>
-                    Current deck: {currentDeck}
+                    
+                    Current deck: {deckData.floorname}
                 </div>
 
                 <div style={{color:"white"}}>
@@ -176,16 +177,6 @@ export default function HUD({ stage }: HUDProps) {
                 position: "absolute",
 
                 left: "90%",top:"10%",width:"5%",height:"5%",
-                {/* `${locationsData.buttons.ButtonUp.left}%`,
-
-                top:
-                    `${locationsData.buttons.ButtonUp.top}%`,
-
-                width:
-                    `${locationsData.buttons.ButtonUp.width}%`,
-
-                height:
-                    `${locationsData.buttons.ButtonUp.height}%`, */}
 
                 border:
                     "2px solid blue",
@@ -211,17 +202,6 @@ export default function HUD({ stage }: HUDProps) {
                 position: "absolute",
 
                  left: "10%",top:"10%",width:"5%",height:"5%",
-                {/*
-                    `${locationsData.buttons.ButtonDn.left}%`,
-
-                top:
-                    `${locationsData.buttons.ButtonDn.top}%`,
-
-                width:
-                    `${locationsData.buttons.ButtonDn.width}%`,
-
-                height:
-                    `${locationsData.buttons.ButtonDn.height}%`,*/}
 
                 border:
                     "2px solid green",
