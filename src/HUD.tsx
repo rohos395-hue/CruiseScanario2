@@ -145,26 +145,19 @@ export default function HUD({ stage }: HUDProps) {
                     style={{
                         position: "absolute",
 
-                        left:
-                            `${loc.left}%`,
+                        left:                            `${loc.left}%`,
 
-                        top:
-                            `${loc.top}%`,
+                        top:                            `${loc.top}%`,
 
-                        width:
-                            `${loc.width}%`,
+                        width:                            `${loc.width}%`,
 
-                        height:
-                            `${loc.height}%`,
+                        height:                            `${loc.height}%`,
 
-                        border:
-                            "2px solid red",
+                        border:                            "2px solid red",
 
-                        backgroundColor:
-                            "rgba(255,0,0,0.15)",
+                        backgroundColor:                            "rgba(255,0,0,0.15)",
 
-                        cursor:
-                            "pointer"
+                        cursor:                            "pointer"
                     }}
                 />
             )
@@ -182,8 +175,8 @@ export default function HUD({ stage }: HUDProps) {
             style={{
                 position: "absolute",
 
-                left:
-                    `${locationsData.buttons.ButtonUp.left}%`,
+                left: 90%,top:10%,width:5%,height:5%,
+                {/* `${locationsData.buttons.ButtonUp.left}%`,
 
                 top:
                     `${locationsData.buttons.ButtonUp.top}%`,
@@ -192,7 +185,7 @@ export default function HUD({ stage }: HUDProps) {
                     `${locationsData.buttons.ButtonUp.width}%`,
 
                 height:
-                    `${locationsData.buttons.ButtonUp.height}%`,
+                    `${locationsData.buttons.ButtonUp.height}%`, */}
 
                 border:
                     "2px solid blue",
@@ -217,7 +210,8 @@ export default function HUD({ stage }: HUDProps) {
             style={{
                 position: "absolute",
 
-                left:
+                 left: 10%,top:10%,width:5%,height:5%,
+                {/*
                     `${locationsData.buttons.ButtonDn.left}%`,
 
                 top:
@@ -227,7 +221,7 @@ export default function HUD({ stage }: HUDProps) {
                     `${locationsData.buttons.ButtonDn.width}%`,
 
                 height:
-                    `${locationsData.buttons.ButtonDn.height}%`,
+                    `${locationsData.buttons.ButtonDn.height}%`,*/}
 
                 border:
                     "2px solid green",
