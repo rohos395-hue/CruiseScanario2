@@ -18,29 +18,14 @@ export default function HUD({ stage }: HUDProps) {
     return (
 
         <div
-    style={{
-        position: "fixed",
-
-        top: "50%",
-        left: "50%",
-
-        transform: "translate(-50%, -50%)",
-
-        width: "95vw",
-        maxWidth: "600px",
-
-        maxHeight: "90vh",
-
-        overflow: "auto",
-
-        backgroundColor: "#111",
-
-        border: "2px solid #666",
-
-        padding: "10px",
-
-        zIndex: 9999
-    }}
+            style={{
+                width: "100%",
+                minHeight: "100vh",
+                display: "flex",
+                flexDirection: "column",
+                overflowX: "hidden",
+                overflowY: "auto"
+            }}
         >
 
             {/* HUD BAR */}
@@ -114,14 +99,14 @@ export default function HUD({ stage }: HUDProps) {
 <div
     style={{
         position: "fixed",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
+
+        top: "5%",
+        left: "5%",
 
         width: "90vw",
-        maxWidth: "900px",
 
         backgroundColor: "#111",
+
         border: "2px solid #666",
 
         padding: "10px",
