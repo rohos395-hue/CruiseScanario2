@@ -1,5 +1,5 @@
 import React from "react";
-import locationsData from "./locations.json";
+import locationsData from "./assets/locations.json";
 import CompassIcon from "./assets/CompassIcon.png";
 
 interface HUDProps {
