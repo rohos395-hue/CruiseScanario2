@@ -1,4 +1,4 @@
-{ "floors": ["cabinDeck": {"locations":[
+{ "floors": [{"cabinDeck": {"locations":[
   {"name" : "room1",        "top":	3	,     "left":	19	,   "width":	23	,   "height" :	17	},
   {"name" : "secret_room1",   "top":	9	,     "left":	2	,     "width":	15	,   "height" :	15	},
   {"name" : "bath1",          "top":	1	,     "left":	37	,   "width":	15	,   "height" :	12	},
@@ -11,9 +11,9 @@
   {"name" : "myBath",         "top":	82	,   "left":	37	,   "width":	13	,   "height" :	15	}  
 ],
 "map":"./assets/cabinDeck.jpg"
-             },
+} },
 
-"mainDeck": {"locations":[
+{"mainDeck": {"locations":[
 {"name" : "kitchen",       "top":	19	,   "left":	37	,   "width":	67	,   "height" :	27	},
 {"name" : "lobbyOutdoor",  "top":	23	,   "left":	65	,   "width":	29	,   "height" :	19	},
 {"name" : "hobbyRoom",     "top":	24	,   "left":	26	,   "width":	36	,   "height" :	9	},
@@ -24,16 +24,16 @@
 {"name" : "deckBotRight",  "top":	84	,   "left":	38	,   "width":	14	,   "height" :	43	}
 ],
 "map":"./assets/mainDeck.jpg"
-            },
+}},
 
-"topDeck":{"locations":[
+{"topDeck":{"locations":[
 {"name" : "controlRoom",  "top":	59	,   "left":	64	,   "width":	22	,   "height" :	5	},
 {"name" : "flybridge",    "top":	27	,   "left":	70	,   "width":	40	,   "height" :	14	}
 ],
 "map":"./assets/topDeck.jpg"
-          }],
+}  }],
 "buttons":[
-"ButtonUp":{"name" : "floorUp",  "top":	40	,   "left":	3	,     "width":	15	,   "height" :	2	},
+{"name" : "floorUp",  "top":	40	,   "left":	3	,     "width":	15	,   "height" :	2	},
 
-"ButtonDn":{"name" : "floorDn",  "top":	40	,   "left":	94	,   "width":	15	,   "height" :	2	}
+{"name" : "floorDn",  "top":	40	,   "left":	94	,   "width":	15	,   "height" :	2	}
 ]}
