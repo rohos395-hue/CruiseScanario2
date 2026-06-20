@@ -40,7 +40,7 @@ export default function HUD({ stage }: HUDProps) {
         padding: "10px",
 
         zIndex: 9999
-    
+    }}
         >
 
             {/* HUD BAR */}
