@@ -1,10 +1,6 @@
 import React from "react";
-
-import locationsData from "./assets/locations.json";
-
-import CompassIcon from "./assets/compass.jpg";
-
-import MainDeckMap from "./assets/mainDeck.jpg";
+import locationsData from "./locations.json";
+import CompassIcon from "./assets/CompassIcon.png";
 
 interface HUDProps {
     stage: any;
@@ -14,15 +10,9 @@ export default function HUD({ stage }: HUDProps) {
 
     const state = stage.myInternalState;
 
-    const currentDeck =
-        state.currentDeck || "mainDeck";
+    const deckIndex =    state.currentDeck ?? 1;
 
-    const deckData =
-        (locationsData as any)[currentDeck];
-
-    if (!deckData) {
-        return <div>Invalid deck: {currentDeck}</div>;
-    }
+    const deckData =     locationsData.floors[deckIndex];
 
 
     return (
@@ -103,184 +93,174 @@ export default function HUD({ stage }: HUDProps) {
 
             {state.showMap && (
 
+<div
+    style={{
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+
+        width: "90vw",
+        maxWidth: "900px",
+
+        backgroundColor: "#111",
+        border: "2px solid #666",
+
+        padding: "10px",
+
+        zIndex: 9999
+    }}
+>
+
+    <div
+        style={{
+            position: "relative",
+            width: "100%"
+        }}
+    >
+
+        <img
+            src={deckData.map}
+            alt={deckData.floorname}
+            style={{
+                width: "100%",
+                display: "block"
+            }}
+        />
+
+        {deckData.locations.map(
+            (loc: any) => (
+
                 <div
+                    key={loc.name}
+
+                    title={loc.name}
+
+                    onClick={() =>
+                        stage.handleLocationClick(
+                            loc.name
+                        )
+                    }
+
                     style={{
-                        position: "fixed",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
+                        position: "absolute",
 
-                        width: "90vw",
-                        maxWidth: "900px",
+                        left:
+                            `${loc.left}%`,
 
-                        backgroundColor: "#111",
+                        top:
+                            `${loc.top}%`,
 
-                        padding: "10px",
+                        width:
+                            `${loc.width}%`,
 
-                        zIndex: 9999,
+                        height:
+                            `${loc.height}%`,
 
-                        border: "2px solid #666"
+                        border:
+                            "2px solid red",
+
+                        backgroundColor:
+                            "rgba(255,0,0,0.15)",
+
+                        cursor:
+                            "pointer"
                     }}
-                >
+                />
+            )
+        )}
 
-                    <div
-                        style={{
-                            position: "relative",
-                            width: "100%"
-                        }}
-                    >
+        {/* FLOOR UP */}
 
-                        <img
-                            src={MainDeckMap}
-                            alt={currentDeck}
-                            style={{
-                                width: "100%",
-                                display: "block"
-                            }}
-                        />
+        <div
+            title="Go Up"
 
-                        {/* LOCATIONS */}
+            onClick={() =>
+                stage.changeDeck("up")
+            }
 
-                        {deckData.locations.map(
-                            (loc: any) => (
+            style={{
+                position: "absolute",
 
-                                <div
-                                    key={loc.name}
+                left:
+                    `${locationsData.buttons.ButtonUp.left}%`,
 
-                                    onClick={() => {
+                top:
+                    `${locationsData.buttons.ButtonUp.top}%`,
 
-                                        stage.handleLocationClick(
-                                            loc.name
-                                        );
-                                    }}
+                width:
+                    `${locationsData.buttons.ButtonUp.width}%`,
 
-                                    title={loc.name}
+                height:
+                    `${locationsData.buttons.ButtonUp.height}%`,
 
-                                    style={{
+                border:
+                    "2px solid blue",
 
-                                        position: "absolute",
+                backgroundColor:
+                    "rgba(0,0,255,0.15)",
 
-                                        left:
-                                            `${loc.left}%`,
+                cursor:
+                    "pointer"
+            }}
+        />
 
-                                        top:
-                                            `${loc.top}%`,
+        {/* FLOOR DOWN */}
 
-                                        width:
-                                            `${loc.width}%`,
+        <div
+            title="Go Down"
 
-                                        height:
-                                            `${loc.height}%`,
+            onClick={() =>
+                stage.changeDeck("down")
+            }
 
-                                        border:
-                                            "2px solid red",
+            style={{
+                position: "absolute",
 
-                                        backgroundColor:
-                                            "rgba(255,0,0,0.15)",
+                left:
+                    `${locationsData.buttons.ButtonDn.left}%`,
 
-                                        cursor:
-                                            "pointer"
-                                    }}
-                                />
+                top:
+                    `${locationsData.buttons.ButtonDn.top}%`,
 
-                            )
-                        )}
+                width:
+                    `${locationsData.buttons.ButtonDn.width}%`,
 
-                        {/* FLOOR UP */}
+                height:
+                    `${locationsData.buttons.ButtonDn.height}%`,
 
-                        <div
+                border:
+                    "2px solid green",
 
-                            onClick={() =>
-                                stage.changeDeck("up")
-                            }
+                backgroundColor:
+                    "rgba(0,255,0,0.15)",
 
-                            title="Go Up"
+                cursor:
+                    "pointer"
+            }}
+        />
 
-                            style={{
+    </div>
 
-                                position: "absolute",
+    <button
+        style={{
+            marginTop: "10px"
+        }}
 
-                                left:
-                                    `${locationsData.ButtonUp.left}%`,
+        onClick={() => {
 
-                                top:
-                                    `${locationsData.ButtonUp.top}%`,
+            state.showMap = false;
 
-                                width:
-                                    `${locationsData.ButtonUp.width}%`,
+            // @ts-ignore
+            stage.forceUpdate?.();
+        }}
+    >
+        Close Map
+    </button>
 
-                                height:
-                                    `${locationsData.ButtonUp.height}%`,
+</div>
 
-                                border:
-                                    "2px solid blue",
-
-                                backgroundColor:
-                                    "rgba(0,0,255,0.15)",
-
-                                cursor:
-                                    "pointer"
-                            }}
-                        />
-
-                        {/* FLOOR DOWN */}
-
-                        <div
-
-                            onClick={() =>
-                                stage.changeDeck("down")
-                            }
-
-                            title="Go Down"
-
-                            style={{
-
-                                position: "absolute",
-
-                                left:
-                                    `${locationsData.ButtonDn.left}%`,
-
-                                top:
-                                    `${locationsData.ButtonDn.top}%`,
-
-                                width:
-                                    `${locationsData.ButtonDn.width}%`,
-
-                                height:
-                                    `${locationsData.ButtonDn.height}%`,
-
-                                border:
-                                    "2px solid green",
-
-                                backgroundColor:
-                                    "rgba(0,255,0,0.15)",
-
-                                cursor:
-                                    "pointer"
-                            }}
-                        />
-
-                    </div>
-
-                    <button
-                        style={{
-                            marginTop: "10px"
-                        }}
-                        onClick={() => {
-
-                            state.showMap =
-                                false;
-
-                            // @ts-ignore
-                            stage.forceUpdate?.();
-                        }}
-                    >
-                        Close Map
-                    </button>
-
-                </div>
-
-            )}
+)}
 
         </div>
     );
