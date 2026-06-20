@@ -18,12 +18,29 @@ export default function HUD({ stage }: HUDProps) {
     return (
 
         <div
-            style={{
-                width: "100%",
-                minHeight: "100vh",
-                display: "flex",
-                flexDirection: "column"
-            }}
+    style={{
+        position: "fixed",
+
+        top: "50%",
+        left: "50%",
+
+        transform: "translate(-50%, -50%)",
+
+        width: "95vw",
+        maxWidth: "600px",
+
+        maxHeight: "90vh",
+
+        overflow: "auto",
+
+        backgroundColor: "#111",
+
+        border: "2px solid #666",
+
+        padding: "10px",
+
+        zIndex: 9999
+    
         >
 
             {/* HUD BAR */}
