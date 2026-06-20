@@ -97,8 +97,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         this.myInternalState['lunaPresent'] = false;
         this.myInternalState['gwenPresent'] = true;
         this.myInternalState['day'] = 1;
-		this.myInternalState.showMap = false;
-		this.myInternalState.currentLocation = "myRoom";
+		this.myInternalState.currentDeck ??= 1;
+        this.myInternalState.showMap ??= false;
     }
     getGameState() {
     return this.myInternalState;
@@ -311,7 +311,32 @@ Write the next response using only characters currently present.
             chatState: null
         };
     }
+	
+changeDeck(direction: "up" | "down") {
 
+    let deck =
+        this.myInternalState.currentDeck;
+
+    if (direction === "up")
+        deck++;
+
+    if (direction === "down")
+        deck--;
+
+    deck = Math.max(
+        0,
+        Math.min(
+            deck,
+            locationsData.floors.length - 1
+        )
+    );
+
+    this.myInternalState.currentDeck =
+        deck;
+
+    // @ts-ignore
+    this.forceUpdate?.();
+}
  render(): ReactElement {
     return (
         <HUD stage={this} />
