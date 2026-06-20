@@ -103,7 +103,7 @@ export default function HUD({ stage }: HUDProps) {
         top: "5%",
         left: "5%",
 
-        width: "90vw",
+        height: "90vw",
 
         backgroundColor: "#111",
 
