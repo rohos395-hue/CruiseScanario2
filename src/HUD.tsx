@@ -131,7 +131,7 @@ export default function HUD({ stage }: HUDProps) {
                     >
 
                         <img
-                            src={MainDeckMap};
+                            src={MainDeckMap}
                             alt={currentDeck}
                             style={{
                                 width: "100%",
