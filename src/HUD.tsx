@@ -175,7 +175,7 @@ export default function HUD({ stage }: HUDProps) {
             style={{
                 position: "absolute",
 
-                left: 90%,top:10%,width:5%,height:5%,
+                left: "90%",top:"10%",width:"5%",height:"5%",
                 {/* `${locationsData.buttons.ButtonUp.left}%`,
 
                 top:
@@ -210,7 +210,7 @@ export default function HUD({ stage }: HUDProps) {
             style={{
                 position: "absolute",
 
-                 left: 10%,top:10%,width:5%,height:5%,
+                 left: "10%",top:"10%",width:"5%",height:"5%",
                 {/*
                     `${locationsData.buttons.ButtonDn.left}%`,
 
