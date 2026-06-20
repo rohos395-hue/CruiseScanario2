@@ -1,4 +1,4 @@
-{ "cabinDeck": {"locations":[
+{ "floors": ["cabinDeck": {"locations":[
   {"name" : "room1",        "top":	3	,     "left":	19	,   "width":	23	,   "height" :	17	},
   {"name" : "secret_room1",   "top":	9	,     "left":	2	,     "width":	15	,   "height" :	15	},
   {"name" : "bath1",          "top":	1	,     "left":	37	,   "width":	15	,   "height" :	12	},
@@ -31,9 +31,9 @@
 {"name" : "flybridge",    "top":	27	,   "left":	70	,   "width":	40	,   "height" :	14	}
 ],
 "map":"./assets/topDeck.jpg"
-          },
-
+          },],
+"buttons":[
 "ButtonUp":{"name" : "floorUp",  "top":	40	,   "left":	3	,     "width":	15	,   "height" :	2	},
 
 "ButtonDn":{"name" : "floorDn",  "top":	40	,   "left":	94	,   "width":	15	,   "height" :	2	}
-}
+]}
