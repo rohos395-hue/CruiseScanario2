@@ -1,7 +1,7 @@
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
-import HUD from "./HUD";
+import HUD from "./HUD1";
 import locationsData from "./assets/locations.json";
 // import CruiseMap from "./assets/map_cata.jpg";
 // import CompassIcon from "./assets/compass.jpg";
@@ -100,6 +100,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         this.myInternalState['day'] = 1;
 		this.myInternalState.currentDeck ??= 1;
         this.myInternalState.showMap ??= false;
+		this.myInternalState.activeScreen= "none";
     }
     getGameState() {
     return this.myInternalState;
