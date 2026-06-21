@@ -313,35 +313,114 @@ Write the next response using only characters currently present.
             chatState: null
         };
     }
-	
-changeDeck(direction: "up" | "down") {
+// ========================
+// HUD Actions
+// ========================
 
-    let deck =
-        this.myInternalState.currentDeck;
+openMap(): void {
 
-    if (direction === "up")
-        deck++;
-
-    if (direction === "down")
-        deck--;
-
-    deck = Math.max(
-        0,
-        Math.min(
-            deck,
-            locationsData.floors.length - 1
-        )
-    );
-
-    this.myInternalState.currentDeck =
-        deck;
+    this.myInternalState.activeScreen = "map";
 
     // @ts-ignore
     this.forceUpdate?.();
 }
+
+
+openStats(): void {
+
+    this.myInternalState.activeScreen = "stats";
+
+    // @ts-ignore
+    this.forceUpdate?.();
+}
+
+
+closeScreen(): void {
+
+    this.myInternalState.activeScreen = "none";
+
+    // @ts-ignore
+    this.forceUpdate?.();
+}	
+changeDeck(delta: number): void {
+
+    const maxDeck =
+        locationsData.floors.length - 1;
+
+    let next =
+        this.myInternalState.currentDeck +
+        delta;
+
+    next = Math.max(
+        0,
+        Math.min(maxDeck, next)
+    );
+
+    this.myInternalState.currentDeck = next;
+
+    // @ts-ignore
+    this.forceUpdate?.();
+}
+
+locationClicked(
+    location: string
+): void {
+
+    console.log(
+        "Location clicked:",
+        location
+    );
+
+    this.myInternalState.currentLocation =
+        location;
+
+    this.closeScreen();
+
+}
+
+	{/***locationClicked(
+    location: string
+): void {
+
+    this.myInternalState.currentLocation =
+        location;
+
+    this.closeScreen();
+
+    this.loadSceneForLocation(
+        location
+    );
+
+	}***/}
+
+	
  render(): ReactElement {
     return (
-        <HUD state={this} />
+        <HUD
+
+    state={this.myInternalState}
+
+    onOpenMap={() =>
+        this.openMap()
+    }
+
+    onOpenStats={() =>
+        this.openStats()
+    }
+
+    onCloseScreen={() =>
+        this.closeScreen()
+    }
+
+    onChangeDeck={(d) =>
+        this.changeDeck(d)
+    }
+
+    onLocationClick={(l) =>
+        this.locationClicked(l)
+    }
+
+/>
     );
 }
 }
