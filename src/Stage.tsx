@@ -378,7 +378,7 @@ locationClicked(
 
 }***/
 
-	/***locationClicked(
+	locationClicked(
     location: string
 ): void {
 
@@ -387,11 +387,9 @@ locationClicked(
 
     this.closeScreen();
 
-    this.loadSceneForLocation(
-        location
-    );
+    //this.loadSceneForLocation(location);
 
-	}***/
+	}
 
 	
  render(): ReactElement {
