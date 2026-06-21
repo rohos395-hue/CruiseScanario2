@@ -16,6 +16,7 @@
 
 {"floorname":"mainDeck",
   "locations":[
+{"name" : "all",       "top":	0	,   "left":	0	,   "width":	100	,   "height" :	100	},    
 {"name" : "kitchen",       "top":	19	,   "left":	37	,   "width":	67	,   "height" :	27	},
 {"name" : "lobbyOutdoor",  "top":	23	,   "left":	65	,   "width":	29	,   "height" :	19	},
 {"name" : "hobbyRoom",     "top":	24	,   "left":	26	,   "width":	36	,   "height" :	9	},
