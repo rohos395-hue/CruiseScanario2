@@ -103,9 +103,10 @@ export default function HUD({ stage }: HUDProps) {
         top: "2%",
         left: "2%",
 
-        width: "96vw",
+        width: "50vw",
         maxHeight: "50vh",
-
+        
+        overflow: "auto",
         backgroundColor: "#111",
 
         border: "2px solid #666",
@@ -119,7 +120,7 @@ export default function HUD({ stage }: HUDProps) {
     <div
         style={{
             position: "relative",
-            width: "100%"
+            height: "100%"
         }}
     >
 
