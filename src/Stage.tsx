@@ -385,7 +385,7 @@ locationClicked(
     this.myInternalState.currentLocation =
         location;
 
-    this.closeScreen();
+    //this.closeScreen();
 
     //this.loadSceneForLocation(location);
 
