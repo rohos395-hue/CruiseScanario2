@@ -150,7 +150,7 @@ export default function HUD({
                     <div
                         style={{
                             position: "relative",
-                            width: "95vw",
+                            height: "95vw",
                             maxWidth: "1000px",
                             margin: "20px auto"
                         }}
