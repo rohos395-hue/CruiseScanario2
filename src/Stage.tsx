@@ -378,7 +378,7 @@ locationClicked(
 
 }
 
-	{/***locationClicked(
+	/***locationClicked(
     location: string
 ): void {
 
@@ -391,7 +391,7 @@ locationClicked(
         location
     );
 
-	}***/}
+	}***/
 
 	
  render(): ReactElement {
