@@ -1,7 +1,7 @@
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
-import HUD from "./HUD1";
+import HUD from "./HUD2";
 import locationsData from "./assets/locations.json";
 // import CruiseMap from "./assets/map_cata.jpg";
 // import CompassIcon from "./assets/compass.jpg";
@@ -316,7 +316,7 @@ Write the next response using only characters currently present.
 // ========================
 // HUD Actions
 // ========================
-
+/***
 openMap(): void {
 
     this.myInternalState.activeScreen = "map";
@@ -376,7 +376,7 @@ locationClicked(
 
     this.closeScreen();
 
-}
+}***/
 
 	/***locationClicked(
     location: string
@@ -395,32 +395,21 @@ locationClicked(
 
 	
  render(): ReactElement {
+
     return (
+
         <HUD
 
-    state={this.myInternalState}
+            state={this.myInternalState}
 
-    onOpenMap={() =>
-        this.openMap()
-    }
+            onLocationClick={(location) =>
+                this.locationClicked(
+                    location
+                )
+            }
 
-    onOpenStats={() =>
-        this.openStats()
-    }
+        />
 
-    onCloseScreen={() =>
-        this.closeScreen()
-    }
-
-    onChangeDeck={(d) =>
-        this.changeDeck(d)
-    }
-
-    onLocationClick={(l) =>
-        this.locationClicked(l)
-    }
-
-/>
     );
 }
 }
