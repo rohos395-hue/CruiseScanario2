@@ -100,16 +100,16 @@ export default function HUD({ stage }: HUDProps) {
     style={{
         position: "fixed",
 
-        top: "5%",
-        left: "5%",
+        top: "2%",
+        left: "2%",
 
-        height: "90vw",
+        width: "96vw",
 
         backgroundColor: "#111",
 
         border: "2px solid #666",
 
-        padding: "10px",
+        padding: "5px",
 
         zIndex: 9999
     }}
@@ -123,12 +123,13 @@ export default function HUD({ stage }: HUDProps) {
     >
 
         <img
-            src={deckData.map}
-            alt={deckData.floorname}
-            style={{
-                width: "100%",
-                display: "block"
-            }}
+    src={deckData.map}
+    alt={deckData.floorname}
+    style={{
+        width: "100%",
+        height: "auto",
+        display: "block"
+    }}
         />
 
         {deckData.locations.map(
