@@ -341,7 +341,7 @@ changeDeck(direction: "up" | "down") {
 }
  render(): ReactElement {
     return (
-        <HUD stage={this} />
+        <HUD state={this} />
     );
 }
 }
