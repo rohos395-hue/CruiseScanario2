@@ -1,0 +1,48 @@
+{"scenes": [
+"name":"greeting",
+  "conditions":[{"type":"at_start","value":0},{"type":"once", "value":true}]
+  "frames":[
+{      "id": "greetingMia",
+      "priority": 1,
+      "once": true,
+      "condition": {
+        "none": []
+      },
+      "beforePrompt": [],
+      "afterPrompt": [],
+      "characterPresent": ["Mia"],
+      "effects": [        {"type": "none","value": ""        }      ],
+"id": "greetingLuna",
+      "priority": 2,
+      "once": true,
+      "condition": {
+        "none": []
+      },
+      "beforePrompt": [],
+      "afterPrompt": [],
+      "characterPresent": ["Mia","Luna"],
+      "effects": [        {"type": "none","value": ""        }      ],
+  
+"id": "greetingGwen",
+      "priority": 3,
+      "once": true,
+      "condition": {
+        "none": []
+      },
+      "beforePrompt": [],
+      "afterPrompt": [],
+      "characterPresent": ["Mia","Luna","Gwen"],
+      "effects": [        {"type": "none","value": ""        }      ],
+  
+"id": "greetingToast",
+      "priority": 4,
+      "once": true,
+      "condition": {
+        "none": []
+      },
+      "beforePrompt": [],
+      "afterPrompt": [],
+      "characterPresent": ["Mia","Luna","Gwen"],
+      "effects": [        {"type": "none","value": ""        }      ],
+  ]
+]}
