@@ -15,7 +15,7 @@
 {"id": "greetingLuna",
       "priority": 2,
       "once": true,
-      "condition": {type": "scene_time_gte","value": 2},
+      "condition": {"type": "scene_time_gte","value": 2},
       "beforePrompt": "descibe this scene: Mia leads the way to the bridge, casting a playful glance back at you as she speaks. Mia introduces Luna as the sailor of the red cherry. Luna is a beautiful blonde woman wearing a white bikini dripping water for her recent bath into the sea, Luna welcomes {{user}}",
 
       "afterPrompt": "![image](https://aigc.uploads.dev/image/0a9f120b7d2c34c7d88fe6e8db69436e527fa7eb36fe9f0bd3c6fdef99dd635f.jpeg)",
