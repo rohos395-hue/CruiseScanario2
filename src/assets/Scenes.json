@@ -15,9 +15,7 @@
 "id": "greetingLuna",
       "priority": 2,
       "once": true,
-      "condition": {
-        "none": []
-      },
+      "condition": {type": "scene_time_gte","value": 2},
       "beforePrompt": [],
       "afterPrompt": [],
       "characterPresent": ["Mia","Luna"],
@@ -26,9 +24,7 @@
 "id": "greetingGwen",
       "priority": 3,
       "once": true,
-      "condition": {
-        "none": []
-      },
+      "condition": {type": "scene_time_gte","value": 3},
       "beforePrompt": [],
       "afterPrompt": [],
       "characterPresent": ["Mia","Luna","Gwen"],
@@ -37,9 +33,7 @@
 "id": "greetingToast",
       "priority": 4,
       "once": true,
-      "condition": {
-        "none": []
-      },
+      "condition": {type": "scene_time_gte","value": 4},
       "beforePrompt": [],
       "afterPrompt": [],
       "characterPresent": ["Mia","Luna","Gwen"],
