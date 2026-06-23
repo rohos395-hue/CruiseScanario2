@@ -95,8 +95,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		this.myInternalState.log = "";
 		this.myInternalState.log =
     (this.myInternalState.log ?? "") +
-	`\n\n["IN CONSTRUCTOR"]\n`
-    `\n\n[${new Date().toISOString()}]\n` +
+	\n["IN CONSTRUCTOR"] +
+    `\n[${new Date().toISOString()}]\n` +
     JSON.stringify(this.myInternalState.messageState, null, 2);
     }
 	
@@ -187,8 +187,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         } = userMessage;
 
             (this.myInternalState.log ?? "") +
-	`\n\n["IN beforePrompt"]\n`
-    `\n\n[${new Date().toISOString()}]\n` +
+	\n["IN beforePrompt"]+
+    `\n[${new Date().toISOString()}]\n` +
     JSON.stringify(this.myInternalState.messageState, null, 2);
     
         let presentCharacters: string[] = [];
@@ -298,8 +298,8 @@ Write the next response using only characters currently present.
            outMessage = null;
         }
             (this.myInternalState.log ?? "") +
-	`\n\n["IN afterPrompt"]\n`
-    `\n\n[${new Date().toISOString()}]\n` +
+	\n["IN afterPrompt"] +
+    `\n[${new Date().toISOString()}]\n` +
     JSON.stringify(this.myInternalState.messageState, null, 2);
     
         return {
