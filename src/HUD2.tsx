@@ -297,7 +297,8 @@ export default function HUD({
                             {state.currentLocation}
                         </div>
                         <div>
-                            state.log
+                            LOG:
+                            {state.log}
 
                         </div>
 
