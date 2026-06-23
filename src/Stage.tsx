@@ -97,7 +97,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     (this.myInternalState.log ?? "") +
 	`\n\n["IN CONSTRUCTOR"]\n`
     `\n\n[${new Date().toISOString()}]\n` +
-    JSON.stringify(this.this.myInternalState.messageState, null, 2);
+    JSON.stringify(this.myInternalState.messageState, null, 2);
     }
 	
     getGameState() {
@@ -189,8 +189,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             (this.myInternalState.log ?? "") +
 	`\n\n["IN beforePrompt"]\n`
     `\n\n[${new Date().toISOString()}]\n` +
-    JSON.stringify(this.this.myInternalState.messageState, null, 2);
-    }
+    JSON.stringify(this.myInternalState.messageState, null, 2);
+    
         let presentCharacters: string[] = [];
 
     if (this.myInternalState.miaPresent) {
@@ -300,8 +300,8 @@ Write the next response using only characters currently present.
             (this.myInternalState.log ?? "") +
 	`\n\n["IN afterPrompt"]\n`
     `\n\n[${new Date().toISOString()}]\n` +
-    JSON.stringify(this.this.myInternalState.messageState, null, 2);
-    }
+    JSON.stringify(this.myInternalState.messageState, null, 2);
+    
         return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
