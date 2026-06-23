@@ -58,16 +58,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
      but exists as long as the instance does, i.e., the chat page is open.
      ***/
     myInternalState: {[key: string]: any};
-   /*** private locations = [
-                    { title: 'Room1'      ,left: '20px' ,top:  '80px',width: '50px' ,height: '75px' ,border: '2px solid red',},
-					{ title:'Room2'      ,left: '15px' ,top: '287px',width: '55px' ,height: '80px' ,border: '2px solid green',},
-					{ title:'Room3'      ,left: '155px',top: '103px',width: '80px' ,height: '60px' ,border: '2px solid red',},
-                    { title:'myRoom'     ,left: '180px',top: '295px',width: '60px' ,height: '80px' ,border: '2px solid green',},
-                    { title:'Kitchen'    ,left: '310px',top: '170px',width: '165px',height: '120px',border: '2px solid green',},
-					{ title:'lobby1'     ,left: '325px',top: '295px',width: '85px' ,height: '90px' ,border: '2px solid green',},
-					{ title:'hobbyRoom'  ,left: '340px',top: '115px',width: '75px' ,height: '50px' ,border: '2px solid green',},
-                    { title:'captainRoom',left: '600px',top: '300px',width: '50px' ,height: '40px' ,border: '2px solid green',},
-					                   ]***/
+   
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
         /***
@@ -101,7 +92,14 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		this.myInternalState.currentDeck ??= 1;
         this.myInternalState.showMap ??= false;
 		this.myInternalState.activeScreen= "none";
+		this.myInternalState.log = "";
+		this.myInternalState.log =
+    (this.myInternalState.log ?? "") +
+	`\n\n["IN CONSTRUCTOR"]\n`
+    `\n\n[${new Date().toISOString()}]\n` +
+    JSON.stringify(this.this.myInternalState.messageState, null, 2);
     }
+	
     getGameState() {
     return this.myInternalState;
     }
@@ -188,7 +186,11 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              @description Whether this is itself from another bot, ex. in a group chat. ***/
         } = userMessage;
 
-
+            (this.myInternalState.log ?? "") +
+	`\n\n["IN beforePrompt"]\n`
+    `\n\n[${new Date().toISOString()}]\n` +
+    JSON.stringify(this.this.myInternalState.messageState, null, 2);
+    }
         let presentCharacters: string[] = [];
 
     if (this.myInternalState.miaPresent) {
@@ -295,7 +297,11 @@ Write the next response using only characters currently present.
         else {
            outMessage = null;
         }
-        
+            (this.myInternalState.log ?? "") +
+	`\n\n["IN afterPrompt"]\n`
+    `\n\n[${new Date().toISOString()}]\n` +
+    JSON.stringify(this.this.myInternalState.messageState, null, 2);
+    }
         return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
