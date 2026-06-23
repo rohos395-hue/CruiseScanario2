@@ -186,7 +186,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              @description Whether this is itself from another bot, ex. in a group chat. ***/
         } = userMessage;
 
-            (this.myInternalState.log ?? "") +
+          this.myInternalState.log =  (this.myInternalState.log ?? "") +
 	"\n IN beforePrompt"+
     `[${new Date().toISOString()}]\n` +
     JSON.stringify(content, null, 2);
@@ -297,7 +297,7 @@ Write the next response using only characters currently present.
         else {
            outMessage = null;
         }
-            (this.myInternalState.log ?? "") +
+         this.myInternalState.log =   (this.myInternalState.log ?? "") +
 	"\n IN afterPrompt " +
     `[${new Date().toISOString()}]\n` +
     JSON.stringify(content, null, 2);
