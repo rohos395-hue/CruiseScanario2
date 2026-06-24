@@ -97,7 +97,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     (this.myInternalState.log ?? "") +
 	"\n IN CONSTRUCTOR. " +
     `[${new Date().toISOString()}]\n` +
-    JSON.stringify(chatState, null, 2);
+    JSON.stringify(this.chatState, null, 2);
     }
 	
     getGameState() {
@@ -189,7 +189,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
           this.myInternalState.log =  (this.myInternalState.log ?? "") +
 	"\n IN beforePrompt"+
     `[${new Date().toISOString()}]\n` +
-    JSON.stringify(chatState, null, 2);
+    JSON.stringify(this.chatState, null, 2);
     
         let presentCharacters: string[] = [];
 
@@ -300,7 +300,7 @@ Write the next response using only characters currently present.
          this.myInternalState.log =   (this.myInternalState.log ?? "") +
 	"\n IN afterPrompt " +
     `[${new Date().toISOString()}]\n` +
-    JSON.stringify(chatState, null, 2);
+    JSON.stringify(this.chatState, null, 2);
     
         return {
             /*** @type null | string @description A string to add to the
