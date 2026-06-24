@@ -97,7 +97,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     (this.myInternalState.log ?? "") +
 	"\n IN CONSTRUCTOR. " +
     `[${new Date().toISOString()}]\n` +
-    JSON.stringify(this.chatState, null, 2);
+    JSON.stringify(this.messageState, null, 2);
     }
 	
     getGameState() {
