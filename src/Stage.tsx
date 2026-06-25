@@ -60,7 +60,7 @@ export interface CharacterDatabase {
 }
 import charactersJson from "./assets/characters.json";
 
-const characterDb: CharacterDatabase = charactersJson;
+//const characterDb: CharacterDatabase = charactersJson;
 /***
  A simple example class that implements the interfaces necessary for a Stage.
  If you want to rename it, be sure to modify App.js as well.
@@ -75,6 +75,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
      but exists as long as the instance does, i.e., the chat page is open.
      ***/
     myInternalState: {[key: string]: any};
+
+	characterDb: CharacterDatabase;
    
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
@@ -86,7 +88,13 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
          User at @link https://github.com/CharHubAI/chub-stages-ts/blob/main/src/types/user.ts
          ***/
         super(data);
+		
+		this.characterDb = charactersJson;
+		const  numCharacters =    this.characterDb.characters.length;
+		// const nameCharacters=	this.characterDb.characters.map(        c => c.name    );
+		
         const {
+			
             characters,         // @type:  { [key: string]: Character }
             users,                  // @type:  { [key: string]: User}
             config,                                 //  @type:  ConfigType
@@ -95,9 +103,16 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             initState,                             // @type: null | InitStateType
             chatState                              // @type: null | ChatStateType
         } = data;
+		
+		
+
+		
         this.myInternalState = messageState != null ? messageState : {'someKey': 'someValue'};
         this.myInternalState['numUsers'] = Object.keys(users).length;
-        this.myInternalState['numChars'] = Object.keys(characters).length;
+		this.myInternalState.numChars =    numCharacters;
+		this.myInternalState.characterNames =    this.characterDb.characters.map(        c => c.name    );
+		this.myInternalState.characterPresent  =    new Array(numCharacters).fill(false);
+        //this.myInternalState['numChars'] = Object.keys(characters).length;
         this.myInternalState['numMsg'] = 0 ;
         this.myInternalState['miaAffection'] = 25;
         this.myInternalState['lunaAffection'] = 50;
