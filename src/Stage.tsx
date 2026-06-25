@@ -96,12 +96,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
          User at @link https://github.com/CharHubAI/chub-stages-ts/blob/main/src/types/user.ts
          ***/
         super(data);
-		this.myInternalState = messageState != null ? messageState : {'someKey': 'someValue'};
-		
-		this.myInternalState.characterDb = charactersJson;
-		const  numCharacters =    this.myInternalState.characterDb.characters.length;
-		const statNames = this.myInternalState.characterDb.stats.map(stat => stat.name);
-		const statsByName = Object.fromEntries(    this.myInternalState.characterDb.stats.map(s => [s.name, s]) );
+
 		// const nameCharacters=	this.characterDb.characters.map(        c => c.name    );
 		
         const {
@@ -117,7 +112,12 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
 		
 
+		this.myInternalState = messageState != null ? messageState : {'someKey': 'someValue'};
 		
+		this.myInternalState.characterDb = charactersJson;
+		const  numCharacters =    this.myInternalState.characterDb.characters.length;
+		const statNames = this.myInternalState.characterDb.stats.map(stat => stat.name);
+		const statsByName = Object.fromEntries(    this.myInternalState.characterDb.stats.map(s => [s.name, s]) );
        
         this.myInternalState['numUsers'] = Object.keys(users).length;
 		this.myInternalState.numChars =    numCharacters;
