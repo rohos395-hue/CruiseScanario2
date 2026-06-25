@@ -1,7 +1,9 @@
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
-import HUD from "./HUD3";
+const USE_HUD = True
+if USE_HUD {
+import HUD from "./HUD3";}
 import locationsData from "./assets/locations.json";
 // import CruiseMap from "./assets/map_cata.jpg";
 // import CompassIcon from "./assets/compass.jpg";
@@ -291,7 +293,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
  render(): ReactElement {
 
     return (
-
+if USE_HUD {
         <HUD
 
             state={this.myInternalState}
@@ -304,6 +306,6 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 
         />
 
-    );
+    );   }
 }
 }
