@@ -76,37 +76,49 @@ startScene(sceneId: string, state: any): boolean {
 
     return true;
 }
-advanceFrame(): void {
+    getActiveScene(state: any) {
 
-    if (!this.activeScene)
+        const activeSceneId =
+            state.sceneState?.activeSceneId;
+
+        if (!activeSceneId)
+            return null;
+
+        return             this.scenes.find(
+                s => s.id === activeSceneId
+            );
+    }
+advanceFrame(state: any): void {
+
+    if (!state.sceneState.activeSceneId)
         return;
 
     const scene =
-        this.getActiveScene();
+        this.getActiveScene(state);
 
     if (!scene)
         return;
 
-    this.activeScene.frameIndex++;
+    state.sceneState.frameIndex++;
 
     if (
-        this.activeScene.frameIndex >=
+        state.sceneState.frameIndex >=
         scene.frames.length
     ) {
 
-        this.completeScene();
+        this.completeScene(state);
     }
 }
-  completeScene(): void {
+  completeScene(state: any): void {
 
-    if (!this.activeScene)
+    if (!state.sceneState.activeSceneId)
         return;
 
     this.completedScenes.add(
-        this.activeScene.sceneId
+        state.sceneState.activeSceneId
     );
 
-    this.activeScene = null;
+    state.sceneState.activeSceneId = null;
 }
 
 
