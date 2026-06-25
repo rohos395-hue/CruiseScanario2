@@ -13,7 +13,7 @@ interface HUDProps {
 
 export default function HUD({
 
-    e,
+     state,
 
     onLocationClick
 
