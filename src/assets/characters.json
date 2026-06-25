@@ -2,17 +2,23 @@
     "affection": {
       "default": 30,
       "min": 0,
-      "max": 100
+      "max": 100,
+      "icon":"",
+      "description":""
     },
     "lust": {
       "default": 50,
       "min": 0,
-      "max": 100
+      "max": 100,
+      "icon":"",
+      "description":""
     },
     "suspicion": {
       "default": 0,
       "min": 0,
-      "max": 100
+      "max": 100,
+      "icon":"",
+      "description":""
     }
   },
   
