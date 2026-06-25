@@ -141,12 +141,6 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
         //this.myInternalState['numChars'] = Object.keys(characters).length;
         this.myInternalState['numMsg'] = 0 ;
-        this.myInternalState['miaAffection'] = 25;
-        this.myInternalState['lunaAffection'] = 50;
-        this.myInternalState['gwenAffection'] = 10;
-        this.myInternalState['miaPresent'] = true;
-        this.myInternalState['lunaPresent'] = false;
-        this.myInternalState['gwenPresent'] = true;
         this.myInternalState['day'] = 1;
 		this.myInternalState.currentDeck ??= 1;
         this.myInternalState.showMap ??= false;
@@ -166,33 +160,6 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     moveToLocation(location: string) {
 
     this.myInternalState.currentLocation = location;
-
-    switch (location) {
-
-        case "captainRoom":
-
-            this.myInternalState.miaPresent = true;
-            this.myInternalState.lunaPresent = false;
-            this.myInternalState.gwenPresent = false;
-
-            break;
-
-        case "Kitchen":
-
-            this.myInternalState.miaPresent = false;
-            this.myInternalState.lunaPresent = true;
-            this.myInternalState.gwenPresent = true;
-
-            break;
-
-        case "myRoom":
-
-            this.myInternalState.miaPresent = false;
-            this.myInternalState.lunaPresent = false;
-            this.myInternalState.gwenPresent = false;
-
-            break;
-    }
 
     console.log(
         "[Location]",
@@ -245,36 +212,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              @description Whether this is itself from another bot, ex. in a group chat. ***/
         } = userMessage;
 
-          this.myInternalState.log =  (this.myInternalState.log ?? "") +
-	"\n IN beforePrompt"+
-    `[${new Date().toISOString()}]\n` +
-    JSON.stringify(this.myInternalState.messageState, null, 2);
-    
-        let presentCharacters: string[] = [];
-
-    if (this.myInternalState.miaPresent) {
-        presentCharacters.push("Mia");
-    }
-
-    if (this.myInternalState.lunaPresent) {
-        presentCharacters.push("Luna");
-    }
-
-    if (this.myInternalState.gwenPresent) {
-        presentCharacters.push("Gwen");
-    }
-
-    const stageDirections = `
-SCENE STATE
-
-Only the following characters are currently present:
-${presentCharacters.join(", ")}
-
-Characters who are not present cannot speak, act, appear, be referenced as participating in the scene, or interact with the player.
-
-Write the next response using only characters currently present.
-`;
-        return {
+          
+      return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
              but that isn't persisted. ***/
@@ -313,53 +252,8 @@ Write the next response using only characters currently present.
         this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
         const currentCount = this.myInternalState['numMsg'] || 0;
 
-         const PROMPT_1 = `*Mia leads the way to the bridge, casting a playful glance back at you as she speaks.*
-**Mia:** “Here she is. This is Luna, the Red Cherry’s lead sailor.”
-
-*A stunning blonde woman strides toward you, her figure accentuated by a wet bikini that clings to her curves. She is dripping with seawater, looking refreshed after a dive into the deep emerald ocean.*
-
-**Luna:** “Nice to meet you, Mr. Mills. I hope you’re looking forward to your cruise. The weather is gorgeous, and I suspect we’ll have very pleasant winds for the next few days.”
-![image](https://aigc.uploads.dev/image/0a9f120b7d2c34c7d88fe6e8db69436e527fa7eb36fe9f0bd3c6fdef99dd635f.jpeg)`;
-
-        const PROMPT_2 = `*Mia continues the tour, guiding you toward the lobby with a graceful stride.*
-**Mia:** “And here is the final member of our crew. Gwen is our esteemed cook and bartender.”
-
-*A gorgeous red-haired woman stands before you, her striking features framed by a cascade of crimson hair. She wears a bikini top that highlights her curves and a pair of breezy linen trousers that hang loosely on her hips.*
-
-**Gwen:** “I am delighted to meet our guest. I hope your cruise is nothing short of wonderful and relaxing. Please, feel free to come to the lobby and ask me for anything—I am always ready for a drink and a chat.”
-
-![image](https://aigc.uploads.dev/image/6e677b68d22c05af4ea4eda185fa868580f88360b351eb0e54992fe911d798b3.jpeg)`;
-
-        const PROMPT_3 = `*Gwen gives you a knowing smile, gesturing toward the table.*
-
-**Gwen:** “I’ve prepared a bottle to welcome you and celebrate the start of your voyage.”
-
-*Gwen reveals a chilled bottle of champagne and four filled glasses, waiting for the celebration to begin.*
-
-
-![image](https://aigc.uploads.dev/image/ce7f73c20a1577e67d73fee3cff8db97959028e4eb8222218249e3b26530d338.jpeg)
-
-**Mia:** “A toast to Mr. Mills!”
-**Gwen:** “Cheers.”
-**Luna:** “And to our cruise together. Cheers!”`;
-
         let outMessage = null;
-        if (currentCount === 2) {
-           outMessage = PROMPT_1
-        }
-        else if (currentCount === 3) {
-           outMessage = PROMPT_2;
-        }
-        else if (currentCount === 4) {
-           outMessage = PROMPT_3;
-        }
-        else {
-           outMessage = null;
-        }
-         this.myInternalState.log =   (this.myInternalState.log ?? "") +
-	"\n IN afterPrompt " +
-    `[${new Date().toISOString()}]\n` +
-    JSON.stringify(this.myInternalState.messageState, null, 2);
+        
     
         return {
             /*** @type null | string @description A string to add to the
@@ -378,70 +272,7 @@ Write the next response using only characters currently present.
             chatState: null
         };
     }
-// ========================
-// HUD Actions
-// ========================
-/***
-openMap(): void {
 
-    this.myInternalState.activeScreen = "map";
-
-    // @ts-ignore
-    this.forceUpdate?.();
-}
-
-
-openStats(): void {
-
-    this.myInternalState.activeScreen = "stats";
-
-    // @ts-ignore
-    this.forceUpdate?.();
-}
-
-
-closeScreen(): void {
-
-    this.myInternalState.activeScreen = "none";
-
-    // @ts-ignore
-    this.forceUpdate?.();
-}	
-changeDeck(delta: number): void {
-
-    const maxDeck =
-        locationsData.floors.length - 1;
-
-    let next =
-        this.myInternalState.currentDeck +
-        delta;
-
-    next = Math.max(
-        0,
-        Math.min(maxDeck, next)
-    );
-
-    this.myInternalState.currentDeck = next;
-
-    // @ts-ignore
-    this.forceUpdate?.();
-}
-
-locationClicked(
-    location: string
-): void {
-
-    console.log(
-        "Location clicked:",
-        location
-    );
-
-    this.myInternalState.currentLocation =
-        location;
-
-    this.closeScreen();
-
-}***/
 
 	locationClicked(
     location: string
