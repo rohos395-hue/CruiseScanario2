@@ -54,9 +54,17 @@ export interface Character {
 
     fieldToneTraits: Record<string, string>;
 }
-
+export interface Stat {
+	name:string;
+	default: integer;
+	min: integer;
+	max: integer;
+	icon:string;
+	description:string}
 export interface CharacterDatabase {
-    characters: Character[];
+    stat: Stat[];
+	characters: Character[];
+	
 }
 import charactersJson from "./assets/characters.json";
 
