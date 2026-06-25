@@ -44,6 +44,23 @@ type InitStateType = any;
  ***/
 type ChatStateType = any;
 
+/*** Characters intrerface and types ***/
+export interface Character {
+    name: string;
+    aspect: string;
+    clothings: string;
+    role: string;
+    secrets: string[];
+
+    fieldToneTraits: Record<string, string>;
+}
+
+export interface CharacterDatabase {
+    characters: Character[];
+}
+import charactersJson from "./assets/characters.json";
+
+const characterDb: CharacterDatabase = charactersJson;
 /***
  A simple example class that implements the interfaces necessary for a Stage.
  If you want to rename it, be sure to modify App.js as well.
