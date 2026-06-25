@@ -91,6 +91,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
 		this.characterDb = charactersJson;
 		const  numCharacters =    this.characterDb.characters.length;
+		const statNames = Object.keys(this.characterDb.stats);
+		
 		// const nameCharacters=	this.characterDb.characters.map(        c => c.name    );
 		
         const {
@@ -112,6 +114,14 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		this.myInternalState.numChars =    numCharacters;
 		this.myInternalState.characterNames =    this.characterDb.characters.map(        c => c.name    );
 		this.myInternalState.characterPresent  =    new Array(numCharacters).fill(false);
+
+		this.myInternalState.characterStats = {};
+
+		for (const statName of statNames) {
+    			this.myInternalState.characterStats[statName].value =new Array(numCharacters).fill(this.characterDb.stats[statName].default);
+				this.myInternalState.characterStats[statName].min =this.characterDb.stats[statName].min;
+				this.myInternalState.characterStats[statName].max =this.characterDb.stats[statName].max;
+										  }
         //this.myInternalState['numChars'] = Object.keys(characters).length;
         this.myInternalState['numMsg'] = 0 ;
         this.myInternalState['miaAffection'] = 25;
