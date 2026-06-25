@@ -148,11 +148,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         this.myInternalState.showMap ??= false;
 		this.myInternalState.activeScreen= "none";
 		this.myInternalState.log = "";
-		this.myInternalState.log =
-    (this.myInternalState.log ?? "") +
-	"\n IN CONSTRUCTOR. " +
-    `[${new Date().toISOString()}]\n` +
-    JSON.stringify(this.myInternalState.messageState, null, 2);
+		
     }
 	
     getGameState() {
