@@ -36,8 +36,7 @@ export class SceneEngine {
 
     constructor() {
         this.scenes = scenesData.scenes;
-        this.scenes.completedScenes = []
-    }
+            }
 
     getCurrentFrame(state: any) {
 
@@ -115,7 +114,7 @@ advanceFrame(state: any): void {
     if (!state.sceneState.activeSceneId)
         return;
 
-    this.scenes.completedScenes.add(
+    state.sceneState.completedScenes.add(
         state.sceneState.activeSceneId
     );
 
