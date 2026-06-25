@@ -1,4 +1,22 @@
-{ "characters": [
+{ "stats": {
+    "affection": {
+      "default": 30,
+      "min": 0,
+      "max": 100
+    },
+    "lust": {
+      "default": 50,
+      "min": 0,
+      "max": 100
+    },
+    "suspicion": {
+      "default": 0,
+      "min": 0,
+      "max": 100
+    }
+  }
+  
+  "characters": [
   {"name":"Mia", 
   "aspect":"A stunning 40-year-old woman of Italian descent. She is characterized by long, raven-black hair and piercing, intelligent blue eyes. She possesses a striking hourglass figure with an exceptionally ample bust that often strains against her clothing.",
   "clothings":"Her signature look consists of a crisp white polo and form-fitting blue jeans, blending a sense of authority with an undeniable sexual appeal.",    
