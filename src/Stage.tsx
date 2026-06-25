@@ -88,3 +88,391 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
    
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
+        /***
+         This is the first thing called in the stage,
+         to create an instance of it.
+         The definition of InitialData is at @link https://github.com/CharHubAI/chub-stages-ts/blob/main/src/types/initial.ts
+         Character at @link https://github.com/CharHubAI/chub-stages-ts/blob/main/src/types/character.ts
+         User at @link https://github.com/CharHubAI/chub-stages-ts/blob/main/src/types/user.ts
+         ***/
+        super(data);
+
+		// const nameCharacters=	this.characterDb.characters.map(        c => c.name    );
+		
+        const {
+			
+            characters,         // @type:  { [key: string]: Character }
+            users,                  // @type:  { [key: string]: User}
+            config,                                 //  @type:  ConfigType
+            messageState,                           //  @type:  MessageStateType
+            environment,                     // @type: Environment (which is a string)
+            initState,                             // @type: null | InitStateType
+            chatState                              // @type: null | ChatStateType
+        } = data;
+		
+		
+
+		this.myInternalState = messageState != null ? messageState : {'someKey': 'someValue'};
+		
+		this.myInternalState.characterDb = charactersJson  as CharacterDatabase;
+		const  numCharacters =    this.myInternalState.characterDb.characters.length;
+		const statNames = this.myInternalState.characterDb.stats.map((stat: Stat) => stat.name);
+		const statsByName = Object.fromEntries(    this.myInternalState.characterDb.stats.map( (s:Stat) => [s.name, s]) );
+       
+        this.myInternalState['numUsers'] = Object.keys(users).length;
+		this.myInternalState.numChars =    numCharacters;
+		this.myInternalState.characterNames =    this.myInternalState.characterDb.characters.map(        (c:Character) => c.name    );
+		this.myInternalState.characterPresent  =    new Array(numCharacters).fill(false);
+
+		this.myInternalState.characterStats = {};
+
+		/***for (const statName of statNames) {
+    			this.myInternalState.characterStats[statName].value =new Array(numCharacters).fill(this.characterDb.stats[statName].default);
+				this.myInternalState.characterStats[statName].min =this.characterDb.stats[statName].min;
+				this.myInternalState.characterStats[statName].max =this.characterDb.stats[statName].max;***/
+		for (const statName of statNames) {
+    				const stat = statsByName[statName];
+    				this.myInternalState.characterStats[statName].value = new Array(numCharacters).fill(stat.default);
+    				this.myInternalState.characterStats[statName].min = stat.min;
+    				this.myInternalState.characterStats[statName].max = stat.max;
+					this.myInternalState.characterStats[statName].icon = stat.icon;
+					this.myInternalState.characterStats[statName].description = stat.description;
+								  		  }
+		
+        //this.myInternalState['numChars'] = Object.keys(characters).length;
+        this.myInternalState['numMsg'] = 0 ;
+        this.myInternalState['miaAffection'] = 25;
+        this.myInternalState['lunaAffection'] = 50;
+        this.myInternalState['gwenAffection'] = 10;
+        this.myInternalState['miaPresent'] = true;
+        this.myInternalState['lunaPresent'] = false;
+        this.myInternalState['gwenPresent'] = true;
+        this.myInternalState['day'] = 1;
+		this.myInternalState.currentDeck ??= 1;
+        this.myInternalState.showMap ??= false;
+		this.myInternalState.activeScreen= "none";
+		this.myInternalState.log = "";
+		this.myInternalState.log =
+    (this.myInternalState.log ?? "") +
+	"\n IN CONSTRUCTOR. " +
+    `[${new Date().toISOString()}]\n` +
+    JSON.stringify(this.myInternalState.messageState, null, 2);
+    }
+	
+    getGameState() {
+    return this.myInternalState;
+    }
+
+    moveToLocation(location: string) {
+
+    this.myInternalState.currentLocation = location;
+
+    switch (location) {
+
+        case "captainRoom":
+
+            this.myInternalState.miaPresent = true;
+            this.myInternalState.lunaPresent = false;
+            this.myInternalState.gwenPresent = false;
+
+            break;
+
+        case "Kitchen":
+
+            this.myInternalState.miaPresent = false;
+            this.myInternalState.lunaPresent = true;
+            this.myInternalState.gwenPresent = true;
+
+            break;
+
+        case "myRoom":
+
+            this.myInternalState.miaPresent = false;
+            this.myInternalState.lunaPresent = false;
+            this.myInternalState.gwenPresent = false;
+
+            break;
+    }
+
+    console.log(
+        "[Location]",
+        location
+    );
+    }
+	
+    async load(): Promise<Partial<LoadResponse<InitStateType, ChatStateType, MessageStateType>>> {
+        /***
+         This is called immediately after the constructor, in case there is some asynchronous code you need to
+         run on instantiation.
+         ***/
+        return {
+            /*** @type boolean @default null
+             @description The 'success' boolean returned should be false IFF (if and only if), some condition is met that means
+              the stage shouldn't be run at all and the iFrame can be closed/removed.
+              For example, if a stage displays expressions and no characters have an expression pack,
+              there is no reason to run the stage, so it would return false here. ***/
+            success: true,
+            /*** @type null | string @description an error message to show
+             briefly at the top of the screen, if any. ***/
+            error: null,
+            initState: null,
+            chatState: null,
+        };
+    }
+
+    async setState(state: MessageStateType): Promise<void> {
+        /***
+         This can be called at any time, typically after a jump to a different place in the chat tree
+         or a swipe. Note how neither InitState nor ChatState are given here. They are not for
+         state that is affected by swiping.
+         ***/
+        if (state != null) {
+            this.myInternalState = {...this.myInternalState, ...state};
+        }
+    }
+
+    async beforePrompt(userMessage: Message): Promise<Partial<StageResponse<ChatStateType, MessageStateType>>> {
+        /***
+         This is called after someone presses 'send', but before anything is sent to the LLM.
+         ***/
+        const {
+            content,            /*** @type: string
+             @description Just the last message about to be sent. ***/
+            anonymizedId,       /*** @type: string
+             @description An anonymized ID that is unique to this individual
+              in this chat, but NOT their Chub ID. ***/
+            isBot             /*** @type: boolean
+             @description Whether this is itself from another bot, ex. in a group chat. ***/
+        } = userMessage;
+
+          this.myInternalState.log =  (this.myInternalState.log ?? "") +
+	"\n IN beforePrompt"+
+    `[${new Date().toISOString()}]\n` +
+    JSON.stringify(this.myInternalState.messageState, null, 2);
+    
+        let presentCharacters: string[] = [];
+
+    if (this.myInternalState.miaPresent) {
+        presentCharacters.push("Mia");
+    }
+
+    if (this.myInternalState.lunaPresent) {
+        presentCharacters.push("Luna");
+    }
+
+    if (this.myInternalState.gwenPresent) {
+        presentCharacters.push("Gwen");
+    }
+
+    const stageDirections = `
+SCENE STATE
+
+Only the following characters are currently present:
+${presentCharacters.join(", ")}
+
+Characters who are not present cannot speak, act, appear, be referenced as participating in the scene, or interact with the player.
+
+Write the next response using only characters currently present.
+`;
+        return {
+            /*** @type null | string @description A string to add to the
+             end of the final prompt sent to the LLM,
+             but that isn't persisted. ***/
+            stageDirections: null,
+            /*** @type MessageStateType | null @description the new state after the userMessage. ***/
+            messageState: {'someKey': this.myInternalState['someKey']},
+            /*** @type null | string @description If not null, the user's message itself is replaced
+             with this value, both in what's sent to the LLM and in the database. ***/
+            modifiedMessage: null,
+            /*** @type null | string @description A system message to append to the end of this message.
+             This is unique in that it shows up in the chat log and is sent to the LLM in subsequent messages,
+             but it's shown as coming from a system user and not any member of the chat. If you have things like
+             computed stat blocks that you want to show in the log, but don't want the LLM to start trying to
+             mimic/output them, they belong here. ***/
+            systemMessage: null,
+            /*** @type null | string @description an error message to show
+             briefly at the top of the screen, if any. ***/
+            error: null,
+            chatState: null,
+        };
+    }
+
+    async afterResponse(botMessage: Message): Promise<Partial<StageResponse<ChatStateType, MessageStateType>>> {
+        /***
+         This is called immediately after a response from the LLM.
+         ***/
+        const {
+            content,            /*** @type: string
+             @description The LLM's response. ***/
+            anonymizedId,       /*** @type: string
+             @description An anonymized ID that is unique to this individual
+              in this chat, but NOT their Chub ID. ***/
+            isBot             /*** @type: boolean
+             @description Whether this is from a bot, conceivably always true. ***/
+        } = botMessage;
+        this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
+        const currentCount = this.myInternalState['numMsg'] || 0;
+
+         const PROMPT_1 = `*Mia leads the way to the bridge, casting a playful glance back at you as she speaks.*
+**Mia:** “Here she is. This is Luna, the Red Cherry’s lead sailor.”
+
+*A stunning blonde woman strides toward you, her figure accentuated by a wet bikini that clings to her curves. She is dripping with seawater, looking refreshed after a dive into the deep emerald ocean.*
+
+**Luna:** “Nice to meet you, Mr. Mills. I hope you’re looking forward to your cruise. The weather is gorgeous, and I suspect we’ll have very pleasant winds for the next few days.”
+![image](https://aigc.uploads.dev/image/0a9f120b7d2c34c7d88fe6e8db69436e527fa7eb36fe9f0bd3c6fdef99dd635f.jpeg)`;
+
+        const PROMPT_2 = `*Mia continues the tour, guiding you toward the lobby with a graceful stride.*
+**Mia:** “And here is the final member of our crew. Gwen is our esteemed cook and bartender.”
+
+*A gorgeous red-haired woman stands before you, her striking features framed by a cascade of crimson hair. She wears a bikini top that highlights her curves and a pair of breezy linen trousers that hang loosely on her hips.*
+
+**Gwen:** “I am delighted to meet our guest. I hope your cruise is nothing short of wonderful and relaxing. Please, feel free to come to the lobby and ask me for anything—I am always ready for a drink and a chat.”
+
+![image](https://aigc.uploads.dev/image/6e677b68d22c05af4ea4eda185fa868580f88360b351eb0e54992fe911d798b3.jpeg)`;
+
+        const PROMPT_3 = `*Gwen gives you a knowing smile, gesturing toward the table.*
+
+**Gwen:** “I’ve prepared a bottle to welcome you and celebrate the start of your voyage.”
+
+*Gwen reveals a chilled bottle of champagne and four filled glasses, waiting for the celebration to begin.*
+
+
+![image](https://aigc.uploads.dev/image/ce7f73c20a1577e67d73fee3cff8db97959028e4eb8222218249e3b26530d338.jpeg)
+
+**Mia:** “A toast to Mr. Mills!”
+**Gwen:** “Cheers.”
+**Luna:** “And to our cruise together. Cheers!”`;
+
+        let outMessage = null;
+        if (currentCount === 2) {
+           outMessage = PROMPT_1
+        }
+        else if (currentCount === 3) {
+           outMessage = PROMPT_2;
+        }
+        else if (currentCount === 4) {
+           outMessage = PROMPT_3;
+        }
+        else {
+           outMessage = null;
+        }
+         this.myInternalState.log =   (this.myInternalState.log ?? "") +
+	"\n IN afterPrompt " +
+    `[${new Date().toISOString()}]\n` +
+    JSON.stringify(this.myInternalState.messageState, null, 2);
+    
+        return {
+            /*** @type null | string @description A string to add to the
+             end of the final prompt sent to the LLM,
+             but that isn't persisted. ***/
+            stageDirections: null,
+            /*** @type MessageStateType | null @description the new state after the botMessage. ***/
+            messageState: {'someKey': this.myInternalState['someKey']},
+            /*** @type null | string @description If not null, the bot's response itself is replaced
+             with this value, both in what's sent to the LLM subsequently and in the database. ***/
+            modifiedMessage: outMessage, /***null,***/
+            /*** @type null | string @description an error message to show
+             briefly at the top of the screen, if any. ***/
+            error: null,
+            systemMessage: null,
+            chatState: null
+        };
+    }
+// ========================
+// HUD Actions
+// ========================
+/***
+openMap(): void {
+
+    this.myInternalState.activeScreen = "map";
+
+    // @ts-ignore
+    this.forceUpdate?.();
+}
+
+
+openStats(): void {
+
+    this.myInternalState.activeScreen = "stats";
+
+    // @ts-ignore
+    this.forceUpdate?.();
+}
+
+
+closeScreen(): void {
+
+    this.myInternalState.activeScreen = "none";
+
+    // @ts-ignore
+    this.forceUpdate?.();
+}	
+changeDeck(delta: number): void {
+
+    const maxDeck =
+        locationsData.floors.length - 1;
+
+    let next =
+        this.myInternalState.currentDeck +
+        delta;
+
+    next = Math.max(
+        0,
+        Math.min(maxDeck, next)
+    );
+
+    this.myInternalState.currentDeck = next;
+
+    // @ts-ignore
+    this.forceUpdate?.();
+}
+
+locationClicked(
+    location: string
+): void {
+
+    console.log(
+        "Location clicked:",
+        location
+    );
+
+    this.myInternalState.currentLocation =
+        location;
+
+    this.closeScreen();
+
+}***/
+
+	locationClicked(
+    location: string
+): void {
+
+    this.myInternalState.currentLocation =
+        location;
+
+    //this.closeScreen();
+
+    //this.loadSceneForLocation(location);
+
+	}
+
+	
+ render(): ReactElement {
+
+    return (
+
+        <HUD
+
+            state={this.myInternalState}
+
+            onLocationClick={(location) =>
+                this.locationClicked(
+                    location
+                )
+            }
+
+        />
+
+    );
+}
+}
