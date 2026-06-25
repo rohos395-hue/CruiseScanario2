@@ -1,5 +1,5 @@
 import React from "react";
-
+/***
 import locationsData from "./assets/locations.json";
 
 interface HUDProps {
@@ -41,7 +41,7 @@ export default function HUD({
 
         <div>
 
-            {/* TOP MENU */}
+            
 
             <div
                 style={{
@@ -77,7 +77,6 @@ export default function HUD({
 
             </div>
 
-            {/* MAP SCREEN */}
 
             {state.activeScreen === "map" && (
 
@@ -95,7 +94,7 @@ export default function HUD({
                     }}
                 >
 
-                    {/* CLOSE */}
+                    
 
                     <button
                         onClick={
@@ -114,7 +113,7 @@ export default function HUD({
                         ✕
                     </button>
 
-                    {/* DECK SELECTOR */}
+                    
 
                     <div
                         style={{
@@ -150,7 +149,7 @@ export default function HUD({
 
                     </div>
 
-                    {/* MAP */}
+                    
 
                     <div
                         style={{
@@ -176,7 +175,7 @@ export default function HUD({
                             }}
                         />
 
-                        {/* HOTSPOTS */}
+                        
 
                         {
                             currentDeck.locations.map(
@@ -235,7 +234,7 @@ export default function HUD({
 
             )}
 
-            {/* STATS SCREEN */}
+            
 
             {state.activeScreen === "stats" && (
 
@@ -322,3 +321,4 @@ export default function HUD({
 
     );
 }
+***/
