@@ -58,23 +58,20 @@ export class SceneEngine {
             state.sceneState.frameIndex
         ];
     }
-startScene(sceneId: string): boolean {
+startScene(sceneId: string, state: any): boolean {
 
     const scene =
-        this.scenes.find(
-            s => s.id === sceneId
-        );
+        this.scenes.find(             s => s.id === sceneId        );
 
     if (!scene)
         return false;
 
-    this.activeScene = {
-
-        sceneId,
-
+    state.sceneState = {
+        activeSceneId: sceneId,
         frameIndex: 0,
-
-        messagesSeen: 0
+        messagesSeen: 0,
+        completedScenes:
+            state.sceneState?.completedScenes ?? []
     };
 
     return true;
