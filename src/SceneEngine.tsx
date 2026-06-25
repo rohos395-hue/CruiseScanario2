@@ -36,6 +36,7 @@ export class SceneEngine {
 
     constructor() {
         this.scenes = scenesData.scenes;
+        this.completedScenes = []
     }
 
     getCurrentFrame(state: any) {
