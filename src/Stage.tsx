@@ -1,7 +1,7 @@
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
-const USE_HUD = False;
+const USE_HUD = false;
 if (USE_HUD) {
 import HUD from "./HUD3";}
 import locationsData from "./assets/locations.json";
