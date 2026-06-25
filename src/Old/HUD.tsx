@@ -1,5 +1,5 @@
 import React from "react";
-import locationsData from "./assets/locations.json";
+/***import locationsData from "./assets/locations.json";
 import CompassIcon from "./assets/compass.jpg";
 
 interface HUDProps {
@@ -27,9 +27,10 @@ export default function HUD({ stage }: HUDProps) {
                 overflowY: "auto"
             }}
         >
-
+***/
             {/* HUD BAR */}
 
+ /***   
             <div
                 style={{
                     backgroundColor: "#222",
@@ -91,9 +92,10 @@ export default function HUD({ stage }: HUDProps) {
                 </div>    
 
             </div>
+***/
 
             {/* MAP */}
-
+/***
             {state.showMap && (
 
 <div
@@ -168,9 +170,9 @@ export default function HUD({ stage }: HUDProps) {
                 />
             )
         )}
-
+***/
         {/* FLOOR UP */}
-
+/***
         <div
             title="Go Up"
 
@@ -193,9 +195,9 @@ export default function HUD({ stage }: HUDProps) {
                     "pointer"
             }}
         />
-
+***/
         {/* FLOOR DOWN */}
-
+/***
         <div
             title="Go Down"
 
@@ -244,3 +246,4 @@ export default function HUD({ stage }: HUDProps) {
         </div>
     );
 }
+***/
