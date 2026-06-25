@@ -1,4 +1,4 @@
-import {ReactElement} from "react";
+/***import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
 import HUD from "./HUD3";
@@ -14,6 +14,7 @@ import locationsData from "./assets/locations.json";
   but not for things like history, which is best managed ephemerally
   in the internal state of the Stage class itself.
  ***/
+/***
 type MessageStateType = any;
 
 
@@ -44,7 +45,7 @@ type InitStateType = any;
  ***/
 type ChatStateType = any;
 
-/*** Characters intrerface and types ***/
+/*** Characters intrerface and types 
 export interface Character {
     name: string;
     aspect: string;
@@ -73,7 +74,7 @@ import charactersJson from "./assets/characters.json";
  A simple example class that implements the interfaces necessary for a Stage.
  If you want to rename it, be sure to modify App.js as well.
  @link https://github.com/CharHubAI/chub-stages-ts/blob/main/src/types/stage.ts
- ***/
+ 
 
 export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateType, ConfigType> {
 
@@ -87,14 +88,14 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 	//characterDb: CharacterDatabase;
    
 
-    constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
+  ///  constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
         /***
          This is the first thing called in the stage,
          to create an instance of it.
          The definition of InitialData is at @link https://github.com/CharHubAI/chub-stages-ts/blob/main/src/types/initial.ts
          Character at @link https://github.com/CharHubAI/chub-stages-ts/blob/main/src/types/character.ts
          User at @link https://github.com/CharHubAI/chub-stages-ts/blob/main/src/types/user.ts
-         ***/
+         
         super(data);
 
 		// const nameCharacters=	this.characterDb.characters.map(        c => c.name    );
@@ -130,7 +131,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     			this.myInternalState.characterStats[statName].value =new Array(numCharacters).fill(this.characterDb.stats[statName].default);
 				this.myInternalState.characterStats[statName].min =this.characterDb.stats[statName].min;
 				this.myInternalState.characterStats[statName].max =this.characterDb.stats[statName].max;***/
-		for (const statName of statNames) {
+		/***for (const statName of statNames) {
     				const stat = statsByName[statName];
     				this.myInternalState.characterStats[statName].value = new Array(numCharacters).fill(stat.default);
     				this.myInternalState.characterStats[statName].min = stat.min;
@@ -204,7 +205,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         /***
          This is called immediately after the constructor, in case there is some asynchronous code you need to
          run on instantiation.
-         ***/
+         
         return {
             /*** @type boolean @default null
              @description The 'success' boolean returned should be false IFF (if and only if), some condition is met that means
@@ -213,7 +214,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
               there is no reason to run the stage, so it would return false here. ***/
             success: true,
             /*** @type null | string @description an error message to show
-             briefly at the top of the screen, if any. ***/
+             briefly at the top of the screen, if any. 
             error: null,
             initState: null,
             chatState: null,
@@ -225,7 +226,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
          This can be called at any time, typically after a jump to a different place in the chat tree
          or a swipe. Note how neither InitState nor ChatState are given here. They are not for
          state that is affected by swiping.
-         ***/
+         
         if (state != null) {
             this.myInternalState = {...this.myInternalState, ...state};
         }
@@ -234,7 +235,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     async beforePrompt(userMessage: Message): Promise<Partial<StageResponse<ChatStateType, MessageStateType>>> {
         /***
          This is called after someone presses 'send', but before anything is sent to the LLM.
-         ***/
+         
         const {
             content,            /*** @type: string
              @description Just the last message about to be sent. ***/
@@ -242,7 +243,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              @description An anonymized ID that is unique to this individual
               in this chat, but NOT their Chub ID. ***/
             isBot             /*** @type: boolean
-             @description Whether this is itself from another bot, ex. in a group chat. ***/
+             @description Whether this is itself from another bot, ex. in a group chat.
         } = userMessage;
 
           this.myInternalState.log =  (this.myInternalState.log ?? "") +
@@ -291,7 +292,7 @@ Write the next response using only characters currently present.
              mimic/output them, they belong here. ***/
             systemMessage: null,
             /*** @type null | string @description an error message to show
-             briefly at the top of the screen, if any. ***/
+             briefly at the top of the screen, if any.
             error: null,
             chatState: null,
         };
@@ -300,7 +301,7 @@ Write the next response using only characters currently present.
     async afterResponse(botMessage: Message): Promise<Partial<StageResponse<ChatStateType, MessageStateType>>> {
         /***
          This is called immediately after a response from the LLM.
-         ***/
+         
         const {
             content,            /*** @type: string
              @description The LLM's response. ***/
@@ -308,7 +309,7 @@ Write the next response using only characters currently present.
              @description An anonymized ID that is unique to this individual
               in this chat, but NOT their Chub ID. ***/
             isBot             /*** @type: boolean
-             @description Whether this is from a bot, conceivably always true. ***/
+             @description Whether this is from a bot, conceivably always true. 
         } = botMessage;
         this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
         const currentCount = this.myInternalState['numMsg'] || 0;
@@ -364,15 +365,15 @@ Write the next response using only characters currently present.
         return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
-             but that isn't persisted. ***/
+             but that isn't persisted.
             stageDirections: null,
-            /*** @type MessageStateType | null @description the new state after the botMessage. ***/
+            /*** @type MessageStateType | null @description the new state after the botMessage. 
             messageState: {'someKey': this.myInternalState['someKey']},
             /*** @type null | string @description If not null, the bot's response itself is replaced
              with this value, both in what's sent to the LLM subsequently and in the database. ***/
             modifiedMessage: outMessage, /***null,***/
             /*** @type null | string @description an error message to show
-             briefly at the top of the screen, if any. ***/
+             briefly at the top of the screen, if any. 
             error: null,
             systemMessage: null,
             chatState: null
@@ -441,7 +442,7 @@ locationClicked(
 
     this.closeScreen();
 
-}***/
+}
 
 	locationClicked(
     location: string
