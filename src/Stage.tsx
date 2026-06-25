@@ -56,13 +56,13 @@ export interface Character {
 }
 export interface Stat {
 	name:string;
-	default: integer;
-	min: integer;
-	max: integer;
+	default: number;
+	min: number;
+	max: number;
 	icon:string;
-	description:string}
+	description:string;}
 export interface CharacterDatabase {
-    stat: Stat[];
+    stats: Stat[];
 	characters: Character[];
 	
 }
@@ -99,8 +99,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
 		this.characterDb = charactersJson;
 		const  numCharacters =    this.characterDb.characters.length;
-		const statNames = Object.keys(this.characterDb.stats);
-		
+		const statNames = this.characterDb.stats.map(stat => stat.name);
+		const statsByName = Object.fromEntries(    this.characterDb.stats.map(s => [s.name, s]) );
 		// const nameCharacters=	this.characterDb.characters.map(        c => c.name    );
 		
         const {
@@ -125,11 +125,19 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 
 		this.myInternalState.characterStats = {};
 
-		for (const statName of statNames) {
+		/***for (const statName of statNames) {
     			this.myInternalState.characterStats[statName].value =new Array(numCharacters).fill(this.characterDb.stats[statName].default);
 				this.myInternalState.characterStats[statName].min =this.characterDb.stats[statName].min;
-				this.myInternalState.characterStats[statName].max =this.characterDb.stats[statName].max;
-										  }
+				this.myInternalState.characterStats[statName].max =this.characterDb.stats[statName].max;***/
+		for (const statName of statNames) {
+    				const stat = statsByName[statName];
+    				this.myInternalState.characterStats[statName].value = new Array(numCharacters).fill(stat.default);
+    				this.myInternalState.characterStats[statName].min = stat.min;
+    				this.myInternalState.characterStats[statName].max = stat.max;
+					this.myInternalState.characterStats[statName].icon = stat.icon;
+					this.myInternalState.characterStats[statName].description = stat.description;
+								  		  }
+		
         //this.myInternalState['numChars'] = Object.keys(characters).length;
         this.myInternalState['numMsg'] = 0 ;
         this.myInternalState['miaAffection'] = 25;
