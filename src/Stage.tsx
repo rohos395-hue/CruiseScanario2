@@ -287,18 +287,16 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 
 	
  render(): ReactElement {
-if (USE_HUD) {
-    return (
-        <HUD
+
+    return ()
+      /***  <HUD
 
             state={this.myInternalState}
 
-            onLocationClick={(location) =>
-                this.locationClicked( location )
-            }
+            onLocationClick={(location) =>                this.locationClicked( location )            }
 
         />
 
-    );   }
+    );   /***
 }
 }
