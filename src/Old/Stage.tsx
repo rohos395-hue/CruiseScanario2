@@ -211,7 +211,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              @description The 'success' boolean returned should be false IFF (if and only if), some condition is met that means
               the stage shouldn't be run at all and the iFrame can be closed/removed.
               For example, if a stage displays expressions and no characters have an expression pack,
-              there is no reason to run the stage, so it would return false here. ***/
+              there is no reason to run the stage, so it would return false here. 
             success: true,
             /*** @type null | string @description an error message to show
              briefly at the top of the screen, if any. 
@@ -238,10 +238,10 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
          
         const {
             content,            /*** @type: string
-             @description Just the last message about to be sent. ***/
+             @description Just the last message about to be sent. 
             anonymizedId,       /*** @type: string
              @description An anonymized ID that is unique to this individual
-              in this chat, but NOT their Chub ID. ***/
+              in this chat, but NOT their Chub ID. 
             isBot             /*** @type: boolean
              @description Whether this is itself from another bot, ex. in a group chat.
         } = userMessage;
@@ -304,10 +304,10 @@ Write the next response using only characters currently present.
          
         const {
             content,            /*** @type: string
-             @description The LLM's response. ***/
+             @description The LLM's response. 
             anonymizedId,       /*** @type: string
              @description An anonymized ID that is unique to this individual
-              in this chat, but NOT their Chub ID. ***/
+              in this chat, but NOT their Chub ID. 
             isBot             /*** @type: boolean
              @description Whether this is from a bot, conceivably always true. 
         } = botMessage;
