@@ -84,7 +84,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
      ***/
     myInternalState: {[key: string]: any};
 
-	characterDb: CharacterDatabase;
+	//characterDb: CharacterDatabase;
    
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
@@ -121,7 +121,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
        
         this.myInternalState['numUsers'] = Object.keys(users).length;
 		this.myInternalState.numChars =    numCharacters;
-		this.myInternalState.characterNames =    this.characterDb.characters.map(        c => c.name    );
+		this.myInternalState.characterNames =    this.myInternalState.characterDb.characters.map(        c => c.name    );
 		this.myInternalState.characterPresent  =    new Array(numCharacters).fill(false);
 
 		this.myInternalState.characterStats = {};
