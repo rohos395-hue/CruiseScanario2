@@ -370,7 +370,7 @@ Write the next response using only characters currently present.
             /*** @type MessageStateType | null @description the new state after the botMessage. 
             messageState: {'someKey': this.myInternalState['someKey']},
             /*** @type null | string @description If not null, the bot's response itself is replaced
-             with this value, both in what's sent to the LLM subsequently and in the database. ***/
+             with this value, both in what's sent to the LLM subsequently and in the database. 
             modifiedMessage: outMessage, /***null,***/
             /*** @type null | string @description an error message to show
              briefly at the top of the screen, if any. 
@@ -477,3 +477,4 @@ locationClicked(
     );
 }
 }
+***/
