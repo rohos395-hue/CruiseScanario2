@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import locationsData from "./assets/locations.json";
-
+import { Character, Stat } from "./Stage";
 interface HUDProps {
 
     state: any;
@@ -13,7 +13,7 @@ interface HUDProps {
 
 export default function HUD({
 
-    state,
+    e,
 
     onLocationClick
 
@@ -262,8 +262,8 @@ export default function HUD({
         <thead>
             <tr>
                 <th>Character</th>
-
-                {state.characterDb.stats.map(stat => (
+                {state.characterDb.stats.map((stat: Stat) => (
+              
                     <th key={stat.name}>
                         {stat.icon} {stat.name}
                     </th>
@@ -274,11 +274,12 @@ export default function HUD({
         </thead>
 
         <tbody>
-            {state.characterDb.characters.map((char, charIndex) => (
+            {state.characterDb.characters.map(    (char: Character, charIndex: number) => (
+           
                 <tr key={char.name}>
                     <td>{char.name}</td>
-
-                    {state.characterDb.stats.map(stat => (
+                    {state.characterDb.stats.map((stat: Stat) => (
+                  
                         <td key={stat.name}>
                             {
                                 state
