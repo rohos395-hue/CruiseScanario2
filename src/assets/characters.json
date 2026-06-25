@@ -1,26 +1,25 @@
-{ "stats": {
-    "affection": {
+{ "stats": [
+     {"name":"affection",
       "default": 30,
       "min": 0,
       "max": 100,
       "icon":"❤️",
       "description":""
     },
-    "lust": {
+    {"name":"lust",
       "default": 50,
       "min": 0,
       "max": 100,
       "icon":"🌶️",
       "description":""
     },
-    "suspicion": {
+    {"name":"suspicion",
       "default": 0,
       "min": 0,
       "max": 100,
       "icon":"👀",
       "description":""
-    }
-  },
+    }],
   
   "characters": [
   {"name":"Mia", 
