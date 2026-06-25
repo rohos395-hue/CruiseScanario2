@@ -1,6 +1,6 @@
 {"scenes": [
 {"name":"greeting",
-  "conditions":[{"type":"at_start","value":0},{"type":"once", "value":true}]
+  "conditions":[{"type":"at_start","value":0},{"type":"once", "value":true}],
   "frames":[
 {      "id": "greetingMia",
       "priority": 1,
