@@ -278,7 +278,7 @@ export default function HUD({
                 <tr key={char.name}>
                     <td>{char.name}</td>
 
-                    {this.characterDb.stats.map(stat => (
+                    {state.characterDb.stats.map(stat => (
                         <td key={stat.name}>
                             {
                                 state
