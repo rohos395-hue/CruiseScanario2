@@ -82,7 +82,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
      A very simple example internal state. Can be anything.
      This is ephemeral in the sense that it isn't persisted to a database,
      but exists as long as the instance does, i.e., the chat page is open.
-     ***/
+     
     myInternalState: {[key: string]: any};
 
 	//characterDb: CharacterDatabase;
@@ -278,18 +278,18 @@ Write the next response using only characters currently present.
         return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
-             but that isn't persisted. ***/
+             but that isn't persisted. 
             stageDirections: null,
-            /*** @type MessageStateType | null @description the new state after the userMessage. ***/
+            /*** @type MessageStateType | null @description the new state after the userMessage. 
             messageState: {'someKey': this.myInternalState['someKey']},
             /*** @type null | string @description If not null, the user's message itself is replaced
-             with this value, both in what's sent to the LLM and in the database. ***/
+             with this value, both in what's sent to the LLM and in the database.
             modifiedMessage: null,
             /*** @type null | string @description A system message to append to the end of this message.
              This is unique in that it shows up in the chat log and is sent to the LLM in subsequent messages,
              but it's shown as coming from a system user and not any member of the chat. If you have things like
              computed stat blocks that you want to show in the log, but don't want the LLM to start trying to
-             mimic/output them, they belong here. ***/
+             mimic/output them, they belong here. 
             systemMessage: null,
             /*** @type null | string @description an error message to show
              briefly at the top of the screen, if any.
