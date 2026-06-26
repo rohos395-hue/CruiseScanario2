@@ -172,10 +172,8 @@ function StatsScreen({
                     }}
                 >
 
-                    <button
-                        onClick={() =>
-                            setActiveScreen("none")
-                        }
+                     <button
+                        onClick={() =>{close}}
                         style={{
                             position: "fixed",
                             right: "10px",
