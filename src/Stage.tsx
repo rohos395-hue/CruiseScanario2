@@ -144,7 +144,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		this.myInternalState.currentDeck ??= 1;
         this.myInternalState.showMap ??= false;
 		this.myInternalState.activeScreen= "none";
-		this.myInternalState.log = "";
+		this.myInternalState.log = "statNames"+statNames+"  characterNames"+ this.myInternalState.characterNames ;
 		
     }
 	
