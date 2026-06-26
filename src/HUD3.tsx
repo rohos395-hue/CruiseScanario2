@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-/***
+
 import locationsData from "./assets/locations.json";
 import { Character, Stat } from "./Stage";
 interface HUDProps {
@@ -10,7 +10,7 @@ interface HUDProps {
         location: string
     ) => void;
 }
-
+/***
 export default function HUD({
 
      state,
