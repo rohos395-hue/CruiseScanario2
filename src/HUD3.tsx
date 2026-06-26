@@ -10,6 +10,14 @@ interface HUDProps {
         location: string
     ) => void;
 }
+const menuButtonStyle = {
+  backgroundColor: "white",
+  color: "black",
+  border: "1px solid #999",
+  borderRadius: "4px",
+  padding: "6px 12px",
+  cursor: "pointer"
+};
 
 function TopBar({
   day,
@@ -31,8 +39,16 @@ function TopBar({
         alignItems: "center",
       }}
     >
-      <button onClick={openMap}>🗺 Map</button>
-      <button onClick={openStats}>📊 Stats</button>
+      <button 
+           style={menuButtonStyle}
+           onClick={openMap}
+          >🗺 Map</button>
+      <button 
+           style={menuButtonStyle}
+           onClick={openStats}>📊 Stats</button>
+       <button
+            style={menuButtonStyle}
+            onClick={openLogScreen}  >📜 Log</button>  
       <span>📅 Day {day}</span>
     </div>
   );
@@ -248,13 +264,66 @@ function StatsScreen({
    
   );
 }
+
+function LogScreen({
+  state,
+  close,
+}: {
+  state: any;
+  close: () => void;
+}) {
+   return (
+    <div
+      style={{
+                        position: "fixed",
+                        inset: 0,
+                        backgroundColor: "#222",
+                        color: "white",
+                        zIndex: 99999
+                    }}
+                >
+
+                     <button
+                        onClick={() =>{close}}
+                        style={{
+                            position: "fixed",
+                            right: "10px",
+                            top: "10px"
+                        }}
+                    >
+                        ✕
+                    </button>
+
+                   <div style={{ padding: "20px" }}>
+    <h2>Event Log</h2>
+
+      <pre
+        style={{
+          whiteSpace: "pre-wrap",
+          backgroundColor: "#111",
+          padding: "10px",
+          borderRadius: "4px"
+        }}
+      >
+        {String(state.log ?? "No log entries")}
+      </pre>
+
+    </div>
+
+  </div>
+
+)}
+
+
+
+
 export default function HUD({
   state,
   onLocationClick,
 }: HUDProps) {
 
   const [activeScreen, setActiveScreen] =
-    useState<"none" | "map" | "stats">("none");
+    useState<"none" | "map" | "stats" | "log">("none");
 
   const [currentDeckIndex, setCurrentDeckIndex] =
     useState(0);
@@ -268,6 +337,7 @@ export default function HUD({
         day={state.day}
         openMap={() => setActiveScreen("map")}
         openStats={() => setActiveScreen("stats")}
+        openLogScreen = {() => setActiveScreen("log")}
       />
 
       {activeScreen === "map" && (
@@ -286,6 +356,13 @@ export default function HUD({
           close={() => setActiveScreen("none")}
         />
       )}
+
+      {activeScreen === "log" && (
+        <LogScreen
+          state={state}
+          close={() => setActiveScreen("none")}
+        />
+      )}  
     </>
   );
 }
