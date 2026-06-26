@@ -125,7 +125,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		this.myInternalState.numChars =    numCharacters;
 		this.myInternalState.characterNames =    this.myInternalState.characterDb.characters.map(        (c:Character) => c.name    );
 		this.myInternalState.characterPresent  =    new Array(numCharacters).fill(false);
-/***
+
 		this.myInternalState.characterStats = {};
 
 	
@@ -137,7 +137,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 					this.myInternalState.characterStats[statName].icon = stat.icon;
 					this.myInternalState.characterStats[statName].description = stat.description;
 								  		  }
-		***/
+
         
         this.myInternalState['numMsg'] = 0 ;
         this.myInternalState['day'] = 1;
