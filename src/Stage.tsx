@@ -127,16 +127,14 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		this.myInternalState.characterPresent  =    new Array(numCharacters).fill(false);
 
 		this.myInternalState.characterStats = {};
-
-	
-		for (const statName of statNames) {
-    				const stat = statsByName[statName];
-    				this.myInternalState.characterStats[statName].value = new Array(numCharacters).fill(stat.default);
-    				this.myInternalState.characterStats[statName].min = stat.min;
-    				this.myInternalState.characterStats[statName].max = stat.max;
-					this.myInternalState.characterStats[statName].icon = stat.icon;
-					this.myInternalState.characterStats[statName].description = stat.description;
-								  		  }
+		for (const statName of statNames) {    const stat = statsByName[statName];
+    		this.myInternalState.characterStats[statName] = {
+        		value: new Array(numCharacters).fill(stat.default),
+        		min: stat.min,
+        		max: stat.max,
+        		icon: stat.icon,
+        		description: stat.description               };
+										}
 
         
         this.myInternalState['numMsg'] = 0 ;
