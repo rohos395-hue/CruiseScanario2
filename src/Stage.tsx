@@ -46,8 +46,8 @@ type InitStateType = any;
  ***/
 type ChatStateType = any;
 
-/*** Characters intrerface and types ***/
-export interface Character {
+/*** Characters interface and types ***/
+/***export interface Character {
     name: string;
     aspect: string;
     clothings: string;
@@ -69,8 +69,8 @@ export interface CharacterDatabase {
 	
 }
 import charactersJson from "./assets/characters.json";
+***/
 
-//const characterDb: CharacterDatabase = charactersJson;
 /***
  A simple example class that implements the interfaces necessary for a Stage.
  If you want to rename it, be sure to modify App.js as well.
@@ -86,7 +86,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
      ***/
     myInternalState: {[key: string]: any};
 
-	//characterDb: CharacterDatabase;
+	
    
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
@@ -115,7 +115,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
 
 		this.myInternalState = messageState != null ? messageState : {'someKey': 'someValue'};
-		
+		/***
 		this.myInternalState.characterDb = charactersJson  as CharacterDatabase;
 		const  numCharacters =    this.myInternalState.characterDb.characters.length;
 		const statNames = this.myInternalState.characterDb.stats.map((stat: Stat) => stat.name);
@@ -128,10 +128,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 
 		this.myInternalState.characterStats = {};
 
-		/***for (const statName of statNames) {
-    			this.myInternalState.characterStats[statName].value =new Array(numCharacters).fill(this.characterDb.stats[statName].default);
-				this.myInternalState.characterStats[statName].min =this.characterDb.stats[statName].min;
-				this.myInternalState.characterStats[statName].max =this.characterDb.stats[statName].max;***/
+	
 		for (const statName of statNames) {
     				const stat = statsByName[statName];
     				this.myInternalState.characterStats[statName].value = new Array(numCharacters).fill(stat.default);
@@ -141,7 +138,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 					this.myInternalState.characterStats[statName].description = stat.description;
 								  		  }
 		
-        //this.myInternalState['numChars'] = Object.keys(characters).length;
+        ***/
         this.myInternalState['numMsg'] = 0 ;
         this.myInternalState['day'] = 1;
 		this.myInternalState.currentDeck ??= 1;
