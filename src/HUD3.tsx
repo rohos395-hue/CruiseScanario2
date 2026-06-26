@@ -179,6 +179,40 @@ function StatsScreen({
   state: any;
   close: () => void;
 }) {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        backgroundColor: "#222",
+        color: "white",
+        zIndex: 99999,
+      }}
+    >
+      <button
+        onClick={close}
+        style={{
+          position: "fixed",
+          right: "10px",
+          top: "10px",
+        }}
+      >
+        ✕
+      </button>
+
+      <div style={{ padding: "20px" }}>
+        <h2>Stats Screen Debug</h2>
+      </div>
+    </div>
+  );
+}
+function StatsScreen_old({
+  state,
+  close,
+}: {
+  state: any;
+  close: () => void;
+}) {
    return (
     <div
       style={{
