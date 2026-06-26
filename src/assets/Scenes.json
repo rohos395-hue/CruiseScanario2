@@ -9,7 +9,7 @@
       "conditions":{"all":[{"type":"at_start","operator":"===","value":0}]},
       "beforePrompt": "descibe this scene: {{user}} is walking by the docks of Siren Harbour, and spots the boat, as soon as {{user}} approach the boat a beautiful woman comes by. She has long black hairs and grey to blue eyes, she wears blue jeans and a white polo. Mia says hello and welcome {{user}}" ,
       "afterPrompt": "![image](https://aigc.uploads.dev/image/507aefa6bbbadb0e080715e4b4d682a4aa147fa7764e19d5bd59179da23f7042.jpeg)  ",
-      "participants‎": [true,false,false],
+      "participants‎":[true,false,false],
       "effects": [        {"type": "none","value": ""        }      ]},
 {"id": "greetingLuna",
       "priority": 2,
@@ -23,18 +23,18 @@
 {"id": "greetingGwen",
       "priority": 3,
       "conditions":{"all":[{"type":"scene_time","operator":">=","value":3}]},
-      "beforePrompt": [],
-      "afterPrompt": [],
-      "participants‎": [true,true,true],
+      "beforePrompt":"",
+      "afterPrompt":"",
+      "participants‎":[true,true,true],
       "effects": [        {"type": "none","value": ""        }      ]},
   
 {"id": "greetingToast",
       "priority": 4,
       "conditions":{"all":[{"type":"scene_time","operator":">=","value":4}]},
-      "beforePrompt": [],
-      "afterPrompt": [],
-      "participants‎": [true,true,true],
-      "effects": [        {"type": "none","value": ""        }      ]},
+      "beforePrompt":"",
+      "afterPrompt":"",
+      "participants‎" [true,true,true],
+      "effects": [        {"type": "none","value": ""        }      ]}
      ]  
 
 }
