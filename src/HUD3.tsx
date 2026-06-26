@@ -23,10 +23,12 @@ function TopBar({
   day,
   openMap,
   openStats,
+  openLogScreen,
 }: {
   day: number;
   openMap: () => void;
   openStats: () => void;
+  openLogScreen: () => void;
 }) {
   return (
     <div
