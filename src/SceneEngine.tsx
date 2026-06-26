@@ -10,11 +10,11 @@ export interface ConditionGroup {
 export interface SceneFrame {
     id: string;
     priority:number,
+    conditions?:ConditionGroup
     beforePrompt?: string;
     afterPrompt?: string;
     tones?: string[];
     participants?: string[];
-    advanceAfter?: number;
     effects?: any[];
 }
 
