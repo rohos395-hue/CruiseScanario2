@@ -30,7 +30,6 @@
   
 {"id": "greetingToast",
       "priority": 4,
-      "once": true,
       "conditions":{"all":[{"type":"scene_time","operator":">=","value":4}]},
       "beforePrompt": [],
       "afterPrompt": [],
