@@ -172,7 +172,7 @@ function MapImage({
     </div>
   );
 }
-function StatsScreen({
+function EmptyScreen({
   state,
   close,
 }: {
@@ -206,7 +206,7 @@ function StatsScreen({
     </div>
   );
 }
-function StatsScreen_old({
+function StatsScreen({
   state,
   close,
 }: {
