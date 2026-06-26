@@ -3,9 +3,13 @@ export interface Condition {
     operator?: string;
     value?: any;
 }
+export interface ConditionGroup { 
+    all?: (Condition | ConditionGroup)[]; 
+    any?: (Condition | ConditionGroup)[]; }
 
 export interface SceneFrame {
     id: string;
+    priority:number,
     beforePrompt?: string;
     afterPrompt?: string;
     tones?: string[];
@@ -18,7 +22,7 @@ export interface Scene {
     id: string;
     priority?: number;
     repeatable?: boolean;
-    trigger?: any;
+    conditions?: ConditionGroup;
     frames: SceneFrame[];
 }
 export interface ActiveScene {
