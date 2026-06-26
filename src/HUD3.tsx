@@ -161,8 +161,8 @@ function StatsScreen({
   state: any;
   close: () => void;
 }) {
-  return (
-    <div>
+   return (
+    <div
       style={{
                         position: "fixed",
                         inset: 0,
@@ -247,7 +247,7 @@ function StatsScreen({
 </div>
 
                 </div>
-    </div>
+   
   );
 }
 export default function HUD({
