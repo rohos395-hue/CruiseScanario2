@@ -66,9 +66,9 @@ export interface CharacterDatabase {
 	characters: Character[];
 	
 }
-/***
+
 import charactersJson from "./assets/characters.json";
-***/
+
 
 /***
  A simple example class that implements the interfaces necessary for a Stage.
