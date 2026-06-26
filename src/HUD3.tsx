@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+/***
 import locationsData from "./assets/locations.json";
 import { Character, Stat } from "./Stage";
 interface HUDProps {
@@ -35,9 +35,9 @@ export default function HUD({
     return (
 
         <div>
-
+***/
             {/* TOP BAR */}
-
+/***
             <div
                 style={{
                     backgroundColor: "#222",
@@ -70,9 +70,9 @@ export default function HUD({
                 </span>
 
             </div>
-
+***/
             {/* MAP SCREEN */}
-
+/***
             {activeScreen === "map" && (
 
                 <div
@@ -84,9 +84,9 @@ export default function HUD({
                         overflow: "auto"
                     }}
                 >
-
+***/
                     {/* CLOSE */}
-
+/***
                     <button
                         onClick={() =>
                             setActiveScreen("none")
@@ -100,9 +100,9 @@ export default function HUD({
                     >
                         ✕
                     </button>
-
+***/
                     {/* DECK NAV */}
-
+/***
                     <div
                         style={{
                             textAlign: "center",
@@ -144,9 +144,9 @@ export default function HUD({
                         </button>
 
                     </div>
-
+***/
                     {/* MAP IMAGE */}
-
+/***
                     <div
                         style={{
                             position: "relative",
@@ -164,9 +164,9 @@ export default function HUD({
                                 display: "block"
                             }}
                         />
-
+***/
                         {/* HOTSPOTS */}
-
+/***
                         {currentDeck.locations.map(
                             (location: any) => (
 
@@ -227,9 +227,9 @@ export default function HUD({
                 </div>
 
             )}
-
+***/
             {/* STATS SCREEN */}
-
+/***
             {activeScreen === "stats" && (
 
                 <div
@@ -317,7 +317,7 @@ export default function HUD({
 </div>
 
                 </div>
-
+***/
             )}
 
         </div>
