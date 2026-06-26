@@ -47,7 +47,7 @@ type InitStateType = any;
 type ChatStateType = any;
 
 /*** Characters interface and types ***/
-/***export interface Character {
+export interface Character {
     name: string;
     aspect: string;
     clothings: string;
@@ -68,6 +68,7 @@ export interface CharacterDatabase {
 	characters: Character[];
 	
 }
+/***
 import charactersJson from "./assets/characters.json";
 ***/
 
