@@ -114,7 +114,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
 
 		this.myInternalState = messageState != null ? messageState : {'someKey': 'someValue'};
-		/***
+		
 		this.myInternalState.characterDb = charactersJson  as CharacterDatabase;
 		const  numCharacters =    this.myInternalState.characterDb.characters.length;
 		const statNames = this.myInternalState.characterDb.stats.map((stat: Stat) => stat.name);
@@ -137,7 +137,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 					this.myInternalState.characterStats[statName].description = stat.description;
 								  		  }
 		
-        ***/
+        
         this.myInternalState['numMsg'] = 0 ;
         this.myInternalState['day'] = 1;
 		this.myInternalState.currentDeck ??= 1;
