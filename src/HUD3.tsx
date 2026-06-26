@@ -10,230 +10,160 @@ interface HUDProps {
         location: string
     ) => void;
 }
-/***
-export default function HUD({
 
-     state,
+function TopBar({
+  day,
+  openMap,
+  openStats,
+}: {
+  day: number;
+  openMap: () => void;
+  openStats: () => void;
+}) {
+  return (
+    <div
+      style={{
+        backgroundColor: "#222",
+        color: "white",
+        padding: "10px",
+        display: "flex",
+        gap: "10px",
+        alignItems: "center",
+      }}
+    >
+      <button onClick={openMap}>🗺 Map</button>
+      <button onClick={openStats}>📊 Stats</button>
+      <span>📅 Day {day}</span>
+    </div>
+  );
+}
 
-    onLocationClick
+function MapScreen({
+  currentDeck,
+  currentDeckIndex,
+  setCurrentDeckIndex,
+  close,
+  onLocationClick,
+}: any) {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        backgroundColor: "#111",
+        zIndex: 99999,
+        overflow: "auto",
+      }}
+    >
+      <button
+        onClick={close}
+        style={{
+          position: "fixed",
+          right: "10px",
+          top: "10px",
+        }}
+      >
+        ✕
+      </button>
 
-}: HUDProps) {
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: "10px",
+          color: "white",
+        }}
+      >
+        <button
+          onClick={() =>
+            setCurrentDeckIndex(
+              Math.max(0, currentDeckIndex - 1)
+            )
+          }
+        >
+          ◀
+        </button>
 
-    const [activeScreen, setActiveScreen] =
-        useState<"none" | "map" | "stats">(
-            "none"
-        );
+        {currentDeck.floorname}
 
-    const [currentDeckIndex, setCurrentDeckIndex] =
-        useState(0);
+        <button
+          onClick={() =>
+            setCurrentDeckIndex(
+              Math.min(
+                locationsData.floors.length - 1,
+                currentDeckIndex + 1
+              )
+            )
+          }
+        >
+          ▶
+        </button>
+      </div>
 
-    const currentDeck =
-        locationsData.floors[
-            currentDeckIndex
-        ];
+      <MapImage
+        currentDeck={currentDeck}
+        onLocationClick={onLocationClick}
+        close={close}
+      />
+    </div>
+  );
+}
 
-    return (
+function MapImage({
+  currentDeck,
+  onLocationClick,
+  close,
+}: any) {
+  return (
+    <div
+      style={{
+        position: "relative",
+        height: "95vw",
+        maxWidth: "1000px",
+        margin: "20px auto",
+      }}
+    >
+      <img
+        src={currentDeck.map}
+        alt={currentDeck.floorname}
+        style={{
+          width: "100%",
+          display: "block",
+        }}
+      />
 
-        <div>
-***/
-            {/* TOP BAR */}
-/***
-            <div
-                style={{
-                    backgroundColor: "#222",
-                    color: "white",
-                    padding: "10px",
-                    display: "flex",
-                    gap: "10px",
-                    alignItems: "center"
-                }}
-            >
-
-                <button
-                    onClick={() =>
-                        setActiveScreen("map")
-                    }
-                >
-                    🗺 Map
-                </button>
-
-                <button
-                    onClick={() =>
-                        setActiveScreen("stats")
-                    }
-                >
-                    📊 Stats
-                </button>
-
-                <span>
-                    📅 Day {state.day}
-                </span>
-
-            </div>
-***/
-            {/* MAP SCREEN */}
-/***
-            {activeScreen === "map" && (
-
-                <div
-                    style={{
-                        position: "fixed",
-                        inset: 0,
-                        backgroundColor: "#111",
-                        zIndex: 99999,
-                        overflow: "auto"
-                    }}
-                >
-***/
-                    {/* CLOSE */}
-/***
-                    <button
-                        onClick={() =>
-                            setActiveScreen("none")
-                        }
-                        style={{
-                            position: "fixed",
-                            right: "10px",
-                            top: "10px",
-                            zIndex: 100000
-                        }}
-                    >
-                        ✕
-                    </button>
-***/
-                    {/* DECK NAV */}
-/***
-                    <div
-                        style={{
-                            textAlign: "center",
-                            marginTop: "10px",
-                            color: "white"
-                        }}
-                    >
-
-                        <button
-                            onClick={() =>
-                                setCurrentDeckIndex(
-                                    Math.max(
-                                        0,
-                                        currentDeckIndex - 1
-                                    )
-                                )
-                            }
-                        >
-                            ◀
-                        </button>
-
-                        {" "}
-
-                        {currentDeck.floorname}
-
-                        {" "}
-
-                        <button
-                            onClick={() =>
-                                setCurrentDeckIndex(
-                                    Math.min(
-                                        locationsData.floors.length - 1,
-                                        currentDeckIndex + 1
-                                    )
-                                )
-                            }
-                        >
-                            ▶
-                        </button>
-
-                    </div>
-***/
-                    {/* MAP IMAGE */}
-/***
-                    <div
-                        style={{
-                            position: "relative",
-                            height: "95vw",
-                            maxWidth: "1000px",
-                            margin: "20px auto"
-                        }}
-                    >
-
-                        <img
-                            src={currentDeck.map}
-                            alt={currentDeck.floorname}
-                            style={{
-                                width: "100%",
-                                display: "block"
-                            }}
-                        />
-***/
-                        {/* HOTSPOTS */}
-/***
-                        {currentDeck.locations.map(
-                            (location: any) => (
-
-                                <div
-
-                                    key={
-                                        location.name
-                                    }
-
-                                    onClick={() => {
-
-                                        onLocationClick(
-                                            location.name
-                                        );
-
-                                        setActiveScreen(
-                                            "none"
-                                        );
-
-                                    }}
-
-                                    title={
-                                        location.name
-                                    }
-
-                                    style={{
-                                        position:
-                                            "absolute",
-
-                                        left:
-                                            `${location.left}%`,
-
-                                        top:
-                                            `${location.top}%`,
-
-                                        width:
-                                            `${location.width}%`,
-
-                                        height:
-                                            `${location.height}%`,
-
-                                        border:
-                                            "2px solid red",
-
-                                        backgroundColor:
-                                            "rgba(255,0,0,0.15)",
-
-                                        cursor:
-                                            "pointer"
-                                    }}
-
-                                />
-                            )
-                        )}
-
-                    </div>
-
-                </div>
-
-            )}
-***/
-            {/* STATS SCREEN */}
-/***
-            {activeScreen === "stats" && (
-
-                <div
-                    style={{
+      {currentDeck.locations?.map((location: any) => (
+        <div
+          key={location.name}
+          title={location.name}
+          onClick={() => {
+            onLocationClick(location.name);
+            close();
+          }}
+          style={{
+            position: "absolute",
+            left: `${location.left}%`,
+            top: `${location.top}%`,
+            width: `${location.width}%`,
+            height: `${location.height}%`,
+            border: "2px solid red",
+            backgroundColor: "rgba(255,0,0,0.15)",
+            cursor: "pointer",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+function StatsScreen({
+  state,
+  close,
+}: {
+  state: any;
+  close: () => void;
+}) {
+  return (
+    <div>
+      style={{
                         position: "fixed",
                         inset: 0,
                         backgroundColor: "#222",
@@ -317,11 +247,47 @@ export default function HUD({
 </div>
 
                 </div>
-
-            )}
-
-        </div>
-
-    );
+    </div>
+  );
 }
-***/
+export default function HUD({
+  state,
+  onLocationClick,
+}: HUDProps) {
+
+  const [activeScreen, setActiveScreen] =
+    useState<"none" | "map" | "stats">("none");
+
+  const [currentDeckIndex, setCurrentDeckIndex] =
+    useState(0);
+
+  const currentDeck =
+    locationsData.floors[currentDeckIndex];
+
+  return (
+    <>
+      <TopBar
+        day={state.day}
+        openMap={() => setActiveScreen("map")}
+        openStats={() => setActiveScreen("stats")}
+      />
+
+      {activeScreen === "map" && (
+        <MapScreen
+          currentDeck={currentDeck}
+          currentDeckIndex={currentDeckIndex}
+          setCurrentDeckIndex={setCurrentDeckIndex}
+          close={() => setActiveScreen("none")}
+          onLocationClick={onLocationClick}
+        />
+      )}
+
+      {activeScreen === "stats" && (
+        <StatsScreen
+          state={state}
+          close={() => setActiveScreen("none")}
+        />
+      )}
+    </>
+  );
+}
