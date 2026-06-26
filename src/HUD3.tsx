@@ -191,7 +191,7 @@ function StatsScreen({
                 >
 
                      <button
-                        onClick={() =>{close}}
+                        onClick={close}
                         style={{
                             position: "fixed",
                             right: "10px",
@@ -286,7 +286,7 @@ function LogScreen({
                 >
 
                      <button
-                        onClick={() =>{close}}
+                        onClick={close}
                         style={{
                             position: "fixed",
                             right: "10px",
