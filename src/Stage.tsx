@@ -284,7 +284,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 	
  render(): ReactElement {
 
-    return  (;
+    return  (
         <HUD
 
             state={this.myInternalState}
