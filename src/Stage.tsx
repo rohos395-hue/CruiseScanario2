@@ -3,6 +3,7 @@ import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
 import HUD from "./HUD3";
 import locationsData from "./assets/locations.json";
+import { SceneEngine } from "./SceneEngine";
 // import CruiseMap from "./assets/map_cata.jpg";
 // import CompassIcon from "./assets/compass.jpg";
 /***
@@ -85,8 +86,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
      ***/
     myInternalState: {[key: string]: any};
 
-	
-   
+	private sceneEngine: SceneEngine;
+
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
         /***
@@ -144,6 +145,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		this.myInternalState.activeScreen= "none";
 		this.myInternalState.log = "statNames"+statNames+"  characterNames"+ this.myInternalState.characterNames ;
 		
+		this.sceneEngine =            new SceneEngine();
     }
 	
     getGameState() {
@@ -204,6 +206,10 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             isBot             /*** @type: boolean
              @description Whether this is itself from another bot, ex. in a group chat. ***/
         } = userMessage;
+
+		this.sceneEngine.startScene(    "greeting",    this.myInternalState);
+ 		const frame =    this.sceneEngine.getCurrentFrame(        this.myInternalState    );
+		this.myInternalState.log(frame?.beforePrompt);
 
           
       return {
