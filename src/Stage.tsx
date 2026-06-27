@@ -143,9 +143,10 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		this.myInternalState.currentDeck ??= 1;
         this.myInternalState.showMap ??= false;
 		this.myInternalState.activeScreen= "none";
-		this.myInternalState.log = "statNames"+statNames+"  characterNames"+ this.myInternalState.characterNames ;
+		
 		
 		this.sceneEngine =            new SceneEngine();
+		this.myInternalState.log = "in constructor, after new scene" ;
     }
 	
     getGameState() {
@@ -208,8 +209,10 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         } = userMessage;
 
 		this.sceneEngine.startScene(    "greeting",    this.myInternalState);
+		this.myInternalState.log=this.myInternalState.log+("after start grretings");
+
  		const frame =    this.sceneEngine.getCurrentFrame(        this.myInternalState    );
-		this.myInternalState.log(frame?.beforePrompt);
+		this.myInternalState.log=this.myInternalState.log+(frame?.beforePrompt);
 
           
       return {
