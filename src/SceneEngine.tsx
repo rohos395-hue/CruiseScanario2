@@ -124,7 +124,150 @@ advanceFrame(state: any): void {
 
     state.sceneState.activeSceneId = null;
 }
+private isConditionGroup(
+    obj: any
+): obj is ConditionGroup {
 
+    return (
+        obj &&
+        (
+            obj.all !== undefined ||
+            obj.any !== undefined
+        )
+    );
+}
+   private compare(
+    left: any,
+    operator: string,
+    right: any
+): boolean {
 
+    switch(operator) {
+
+        case "===":
+            return left === right;
+
+        case "!==":
+            return left !== right;
+
+        case ">":
+            return left > right;
+
+        case ">=":
+            return left >= right;
+
+        case "<":
+            return left < right;
+
+        case "<=":
+            return left <= right;
+
+        default:
+            return false;
+    }
+   }
+    
+    private evaluateCondition(
+    condition: Condition,
+    state: any
+): boolean {
+
+    let leftValue: any;
+
+    switch(condition.type) {
+
+        case "at_start":
+
+            leftValue =
+                state.day ?? 0;
+
+            break;
+
+        case "scene_time":
+
+            leftValue =
+                state.sceneState
+                    ?.messagesSeen ?? 0;
+
+            break;
+
+        case "location":
+
+            leftValue =
+                state.currentLocation;
+
+            break;
+
+        default:
+
+            return false;
+    }
+
+    return this.compare(
+        leftValue,
+        condition.operator ?? "===",
+        condition.value
+    );
+}
+
+private evaluateConditionGroup(
+    group: ConditionGroup,
+    state: any
+): boolean {
+
+    if (group.all) {
+
+        return group.all.every(
+            condition => {
+
+                if (
+                    this.isConditionGroup(
+                        condition
+                    )
+                ) {
+                    return this
+                        .evaluateConditionGroup(
+                            condition,
+                            state
+                        );
+                }
+
+                return this
+                    .evaluateCondition(
+                        condition,
+                        state
+                    );
+            }
+        );
+    }
+
+    if (group.any) {
+
+        return group.any.some(
+            condition => {
+
+                if (
+                    this.isConditionGroup(
+                        condition
+                    )
+                ) {
+                    return this
+                        .evaluateConditionGroup(
+                            condition,
+                            state
+                        );
+                }
+
+                return this
+                    .evaluateCondition(
+                        condition,
+                        state
+                    );
+            }
+        );
+    }
+
+    return true;
+}
   
 }
