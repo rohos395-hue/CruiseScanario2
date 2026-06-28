@@ -328,6 +328,7 @@ private evaluateConditionGroup(
     if (!activeSceneId) {
         return null;
     }
+    
 
     const scene =
         this.scenes.find(
@@ -344,6 +345,9 @@ private evaluateConditionGroup(
             if (!frame.conditions) {
                 return true;
             }
+            if (state.sceneState.completedFrames.includes(
+                    frame.id
+                ){ return false}
 
             return this.evaluateConditionGroup(
                 frame.conditions,
