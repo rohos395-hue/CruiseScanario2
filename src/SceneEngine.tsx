@@ -350,8 +350,7 @@ private evaluateConditionGroup(
             if (!frame.conditions) {
                 return true;
             }
-            if (state.sceneState.completedFrames.includes(
-                    frame.id
+            if (state.sceneState.completedFrames.includes(frame.id)
                 ){ return false}
 
             return this.evaluateConditionGroup(
