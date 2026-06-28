@@ -107,18 +107,13 @@ startScene(sceneId: string, state: any): boolean {
                 s => s.id === activeSceneId
             );
     }
-advanceFrame(state: any): void {
+advanceFrame(state: any,newFrame:SceneFrame): void {
 
-    if (!state.sceneState.activeSceneId)
-        return;
+    
 
-    const scene =
-        this.getActiveScene(state);
-
-    if (!scene)
-        return;
-
-    state.sceneState.frameIndex++;
+    state.sceneState.completedFrames.add(state.sceneState.activeFrame.id);
+    state.sceneState.actveFrame = newFrame;
+    state.sceneState.messagesFrame=0;
 
     if (
         state.sceneState.frameIndex >=
