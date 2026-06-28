@@ -51,7 +51,10 @@ export class SceneEngine {
             sceneId = this.findAvailableScene(state);
             if(!sceneid)
                 return null;
-            this.startScene(sceneId, state)
+            started = this.startScene(sceneId, state);
+            if (!started)
+                return null;
+            return sceneState.activeFrame;
         }
 
         const scene =
@@ -61,10 +64,14 @@ export class SceneEngine {
 
         if (!scene)
             return null;
+        newFrame =findAvailableFrame(state);
+        if (newFrame.id=== this.sceneState.activeFrame.id) {
+            return this.sceneState.activeFrame};
+        else {
+            advanceFrame(state)
+            return this.sceneState.activeFrame};
 
-        return scene.frames[
-            state.sceneState.frameIndex
-        ];
+        return this.sceneState.activeFrame;
     }
 startScene(sceneId: string, state: any): boolean {
 
