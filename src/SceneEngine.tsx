@@ -310,5 +310,51 @@ private evaluateConditionGroup(
 
     return validScenes[0];
     }
+    findAvailableFrame(
+    state: any
+): SceneFrame | null {
+
+    const activeSceneId =
+        state.sceneState.activeSceneId;
+
+    if (!activeSceneId) {
+        return null;
+    }
+
+    const scene =
+        this.scenes.find(
+            s => s.id === activeSceneId
+        );
+
+    if (!scene) {
+        return null;
+    }
+
+    const validFrames =
+        scene.frames.filter(frame => {
+
+            if (!frame.conditions) {
+                return true;
+            }
+
+            return this.evaluateConditionGroup(
+                frame.conditions,
+                state
+            );
+
+        });
+
+    if (validFrames.length === 0) {
+        return null;
+    }
+
+    validFrames.sort(
+        (a, b) =>
+            (b.priority ?? 0) -
+            (a.priority ?? 0)
+    );
+
+    return validFrames[0];
+    }
   
 }
