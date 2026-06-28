@@ -76,11 +76,15 @@ startScene(sceneId: string, state: any): boolean {
 
     state.sceneState = {
         activeSceneId: sceneId,
+        activeFrame:scene.frames[0],
         frameIndex: 0,
-        messagesSeen: 0,
+        messagesScene: 0,
+        messagesFrame:0,
         completedScenes:
-            state.sceneState?.completedScenes ?? []
+            state.sceneState?.completedScenes ?? [],
+        completedFrames:[]
     };
+        
 
     return true;
 }
