@@ -269,5 +269,46 @@ private evaluateConditionGroup(
 
     return true;
 }
+    findAvailableScene(state: any): Scene | null {
+
+    const validScenes =
+        this.scenes.filter(scene => {
+
+            // Skip completed non-repeatable scenes
+
+            if (
+                scene.repeatable === false &&
+                state.sceneState.completedScenes.includes(
+                    scene.id
+                )
+            ) {
+                return false;
+            }
+
+            // No conditions
+
+            if (!scene.conditions) {
+                return true;
+            }
+
+            return this.evaluateConditionGroup(
+                scene.conditions,
+                state
+            );
+
+        });
+
+    if (validScenes.length === 0) {
+        return null;
+    }
+
+    validScenes.sort(
+        (a, b) =>
+            (b.priority ?? 0) -
+            (a.priority ?? 0)
+    );
+
+    return validScenes[0];
+    }
   
 }
