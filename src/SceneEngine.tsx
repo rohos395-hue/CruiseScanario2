@@ -47,8 +47,12 @@ export class SceneEngine {
         const activeSceneId =
             state.sceneState?.activeSceneId;
 
-        if (!activeSceneId)
-            return null;
+        if (!activeSceneId){
+            sceneId = this.findAvailableScene(state);
+            if(!sceneid)
+                return null;
+            this.startScene(sceneId, state)
+        }
 
         const scene =
             this.scenes.find(
@@ -308,7 +312,7 @@ private evaluateConditionGroup(
             (a.priority ?? 0)
     );
 
-    return validScenes[0];
+    return validScenes[0].id;
     }
     findAvailableFrame(
     state: any
