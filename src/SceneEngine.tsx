@@ -64,9 +64,12 @@ export class SceneEngine {
 
         if (!scene)
             return null;
+        this.sceneState.messagesScene+++;
         newFrame =findAvailableFrame(state);
         if (newFrame.id=== this.sceneState.activeFrame.id) {
-            return this.sceneState.activeFrame};
+            this.sceneState.messagesFrame+++;
+            return this.sceneState.activeFrame;
+        }
         else {
             advanceFrame(state)
             return this.sceneState.activeFrame};
