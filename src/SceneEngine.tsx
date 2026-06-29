@@ -329,6 +329,7 @@ private evaluateConditionGroup(
     return true;
 }
     findAvailableScene(state: any): string | null {
+        state.log=state.log+"\n in findAvailableScene "+state.sceneState
 
     const validScenes =
         this.scenes.filter(scene => {
@@ -369,6 +370,7 @@ private evaluateConditionGroup(
 
     return validScenes[0].id;
     }
+    
     findAvailableFrame(
     state: any
 ): SceneFrame | null {
