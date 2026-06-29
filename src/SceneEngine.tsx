@@ -399,33 +399,45 @@ private evaluateConditionGroup(
         return null;
     }
 
-    const validFrames =
-        scene.frames.filter(frame => {
+    const validFrames = scene.frames.filter(frame => {
 
-            if (!frame.conditions) {
-                return true;
-            }
-            if (state.sceneState.completedFrames.includes(frame.id)
-                ){ return false}
+        state.log += "\nchecking frame " + frame.id;
 
-            return this.evaluateConditionGroup(
-                frame.conditions,
-                state
-            );
+        if (state.sceneState.completedFrames.includes(frame.id)) {
+            state.log += "\nframe completed";
+            return false;
+        }
 
-        });
+        if (!frame.conditions) {
+            state.log += "\nframe valid (no conditions)";
+            return true;
+        }
+
+        const result = this.evaluateConditionGroup(
+            frame.conditions,
+            state
+        );
+
+        state.log += "\ncondition result=" + result;
+        state.log += "\ncondition condition=" + frame.conditions;
+
+        return result;
+    });
+
+    state.log += "\nvalidFrames=" + validFrames.length;
 
     if (validFrames.length === 0) {
+        state.log += "\nRETURN NULL: no valid frames";
         return null;
     }
 
     validFrames.sort(
-        (a, b) =>
-            (b.priority ?? 0) -
-            (a.priority ?? 0)
+        (a, b) => (b.priority ?? 0) - (a.priority ?? 0)
     );
 
+    state.log += "\nRETURN FRAME=" + validFrames[0].id;
+
     return validFrames[0];
-    }
+}
   
 }
