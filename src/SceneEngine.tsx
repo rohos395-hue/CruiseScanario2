@@ -393,7 +393,7 @@ private evaluateConditionGroup(
             s => s.id === activeSceneId
         );
 
-        state.log=state.log+"\n in findAvailableFrame396 "+JSON.stringify(scene);
+        //state.log=state.log+"\n in findAvailableFrame396 "+JSON.stringify(scene);
 
     if (!scene) {
         return null;
@@ -419,7 +419,7 @@ private evaluateConditionGroup(
         );
 
         state.log += "\ncondition result=" + result;
-        state.log += "\ncondition condition=" + frame.conditions;
+        state.log += "\ncondition condition=" + JSON.stringify(frame.conditions);
 
         return result;
     });
