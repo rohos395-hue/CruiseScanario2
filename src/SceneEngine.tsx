@@ -58,7 +58,7 @@ Write the next response using only characters currently present.
 `;
         const stageDirectionCharacters = state.characterDb.characters.filter((_ : string, index: number) => presentCharacters[index])
   .map(
-    character => `
+    (character:any) => `
 Character: ${character.name}
 Aspect: ${character.aspect}
 Clothings:  ${character.clothing}
