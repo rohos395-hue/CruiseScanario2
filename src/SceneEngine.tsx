@@ -64,6 +64,22 @@ export class SceneEngine {
 
         if (!scene)
             return null;
+
+        const allFramesCompleted =
+             scene.frames.every(
+               frame =>
+                  state.sceneState.completedFrames.includes(frame.id)            )
+    );
+
+        if (allFramesCompleted) {
+
+           this.completeScene(state);
+            return null
+
+          }
+
+
+        
         state.sceneState.messagesScene++;
         let newFrame =this.findAvailableFrame(state);
         if(!newFrame)
@@ -120,13 +136,7 @@ advanceFrame(state: any,newFrame:SceneFrame): void {
     state.sceneState.actveFrame = newFrame;
     state.sceneState.messagesFrame=0;
 
-    if (
-        state.sceneState.frameIndex >=
-        scene.frames.length
-    ) {
-
-        this.completeScene(state);
-    }
+    
 }
   completeScene(state: any): void {
 
