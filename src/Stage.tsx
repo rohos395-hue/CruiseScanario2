@@ -99,7 +99,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
          ***/
         super(data);
 
-		// const nameCharacters=	this.characterDb.characters.map(        c => c.name    );
+		
 		
         const {
 			
@@ -113,7 +113,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         } = data;
 		
 		
-
+        this.myInternalState.log = "in constructor, data"+ JSON.stringify(data, null, 2);
 		this.myInternalState = messageState != null ? messageState : {'someKey': 'someValue'};
 		
 		this.myInternalState.characterDb = charactersJson  as CharacterDatabase;
@@ -146,7 +146,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
 		
 		this.sceneEngine =            new SceneEngine();
-		this.myInternalState.log = "in constructor, after new scene" ;
+		
     }
 	
     getGameState() {
