@@ -66,7 +66,9 @@ export class SceneEngine {
             return null;
         state.sceneState.messagesScene++;
         let newFrame =this.findAvailableFrame(state);
-        if (newFrame.id=== this.sceneState.activeFrame.id) {
+        if(!newFrame)
+            return null
+        if (newFrame.id=== state.sceneState.activeFrame.id) {
             state.sceneState.messagesFrame++;
             return state.sceneState.activeFrame;
         }
