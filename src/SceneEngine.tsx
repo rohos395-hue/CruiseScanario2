@@ -68,8 +68,7 @@ export class SceneEngine {
         const allFramesCompleted =
              scene.frames.every(
                frame =>
-                  state.sceneState.completedFrames.includes(frame.id)            )
-    );
+                  state.sceneState.completedFrames.includes(frame.id)    );
 
         if (allFramesCompleted) {
 
