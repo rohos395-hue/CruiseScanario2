@@ -47,7 +47,7 @@ export class SceneEngine {
    const frame = state.sceneState.activeFrame;     
    let stageDirection ="";     
         const presentCharacters = state.charactersNames.filter(
-  (_, index) => frame.participants[index]
+  (_:string, index:number) => frame.participants[index]
 );
 
 stageDirection += `
@@ -56,7 +56,7 @@ ${presentCharacters.join(", ")}
 Characters who are not present cannot speak, act, appear, be referenced as participating in the scene, or interact with the player.
 Write the next response using only characters currently present.
 `;
-        const stageDirectionCharacters = state.characterDb.characters.filter((_, index) => presentCharacters[index])
+        const stageDirectionCharacters = state.characterDb.characters.filter((_ : string, index: number) => presentCharacters[index])
   .map(
     character => `
 Character: ${character.name}
