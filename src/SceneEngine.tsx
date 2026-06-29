@@ -77,7 +77,7 @@ Role:  ${character.role}
 
         const activeSceneId =
             state.sceneState?.activeSceneId;
-        state.log=+"activeSceneId"+activeSceneId
+        state.log=state.log+"activeSceneId"+activeSceneId
 
         if (!activeSceneId){
             const sceneId = this.findAvailableScene(state);
