@@ -96,9 +96,9 @@ Role:  ${character.role}
                 s => s.id === activeSceneId
             );
 
-        if (!scene)
+        if (!scene) {
             state.log=state.log+"\n Not scene row100"
-            return null;
+            return null;}
 
         const allFramesCompleted =
              scene.frames.every(
