@@ -49,9 +49,9 @@ export class SceneEngine {
 
         if (!activeSceneId){
             const sceneId = this.findAvailableScene(state);
-            if(!sceneid)
+            if(!sceneId)
                 return null;
-            started = this.startScene(sceneId, state);
+            const started = this.startScene(sceneId, state);
             if (!started)
                 return null;
             return state.sceneState.activeFrame;
@@ -67,7 +67,7 @@ export class SceneEngine {
         state.sceneState.messagesScene++;
         let newFrame =findAvailableFrame(state);
         if (newFrame.id=== this.sceneState.activeFrame.id) {
-            this.sceneState.messagesFrame++;
+            state.sceneState.messagesFrame++;
             return state.sceneState.activeFrame;
         }
         else {
