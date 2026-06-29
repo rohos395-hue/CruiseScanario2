@@ -77,10 +77,12 @@ Role:  ${character.role}
 
         const activeSceneId =
             state.sceneState?.activeSceneId;
-        state.log=state.log+"activeSceneId"+activeSceneId
+        state.log=state.log+"\n activeSceneId "+activeSceneId
 
         if (!activeSceneId){
+            state.log=state.log+"\n NOT activeSceneId "
             const sceneId = this.findAvailableScene(state);
+            state.log=state.log+"\n sceneId "+sceneId
             if(!sceneId)
                 return null;
             const started = this.startScene(sceneId, state);
