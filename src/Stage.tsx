@@ -216,18 +216,19 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              @description Whether this is itself from another bot, ex. in a group chat. ***/
         } = userMessage;
 
-		this.sceneEngine.startScene(    "greeting",    this.myInternalState);
-		this.myInternalState.log=this.myInternalState.log+("after start grretings");
+		//this.sceneEngine.startScene(    "greeting",    this.myInternalState);
+		//this.myInternalState.log=this.myInternalState.log+("after start grretings");
 
  		const frame =    this.sceneEngine.getCurrentFrame(        this.myInternalState    );
 		this.myInternalState.log=this.myInternalState.log+(frame?.beforePrompt);
+		let myStageDirections=stageDirectionWrite(this.myInternalState);
 
           
       return {
             /*** @type null | string @description A string to add to the
              end of the final prompt sent to the LLM,
              but that isn't persisted. ***/
-            stageDirections: null,
+            stageDirections: myStageDirections,
             /*** @type MessageStateType | null @description the new state after the userMessage. ***/
             messageState: {'someKey': this.myInternalState['someKey']},
             /*** @type null | string @description If not null, the user's message itself is replaced
