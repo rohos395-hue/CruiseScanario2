@@ -42,6 +42,37 @@ export class SceneEngine {
         this.scenes = scenesData.scenes;
             }
 
+    
+    stageDirectionWrite(state:any){
+   frame = state.sceneState.activeFrame;     
+   stageDirection ="";     
+        const presentCharacters = state.charactersNames.filter(
+  (_, index) => frame.participants[index]
+);
+
+stageDirection += `
+Only the following characters are currently present:
+${presentCharacters.join(", ")}
+Characters who are not present cannot speak, act, appear, be referenced as participating in the scene, or interact with the player.
+Write the next response using only characters currently present.
+`;
+        const stageDirectionCharacters = state.characterDb.characters.filter((_, index) => presentCharacters[index])
+  .map(
+    character => `
+Character: ${character.name}
+Aspect: ${character.aspect}
+Clothings:  ${character.clothing}
+Role:  ${character.role}
+`
+  )
+  .join("\n");
+        
+        stageDirection +=stageDirectionCharacters;
+        stageDirection +=` describe this scene and elaborate the dialoge of the characters:`;
+        stageDirection += frame beforePrompt;
+            return stageDirection;
+    }
+    
     getCurrentFrame(state: any) {
 
         const activeSceneId =
