@@ -133,7 +133,7 @@ advanceFrame(state: any,newFrame:SceneFrame): void {
     
 
     state.sceneState.completedFrames.add(state.sceneState.activeFrame.id);
-    state.sceneState.actveFrame = newFrame;
+    state.sceneState.activeFrame = newFrame;
     state.sceneState.messagesFrame=0;
 
     
