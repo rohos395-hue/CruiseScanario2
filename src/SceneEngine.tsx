@@ -54,7 +54,7 @@ export class SceneEngine {
             started = this.startScene(sceneId, state);
             if (!started)
                 return null;
-            return sceneState.activeFrame;
+            return state.sceneState.activeFrame;
         }
 
         const scene =
@@ -64,11 +64,11 @@ export class SceneEngine {
 
         if (!scene)
             return null;
-        this.sceneState.messagesScene++;
-        newFrame =findAvailableFrame(state);
+        state.sceneState.messagesScene++;
+        let newFrame =findAvailableFrame(state);
         if (newFrame.id=== this.sceneState.activeFrame.id) {
             this.sceneState.messagesFrame++;
-            return this.sceneState.activeFrame;
+            return state.sceneState.activeFrame;
         }
         else {
             advanceFrame(state)
