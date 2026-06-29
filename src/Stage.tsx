@@ -1,3 +1,11 @@
+/*** things to do:
+0- make input prompt: characters present, characters definition. clothes, role, instruction based on frame tone, instrucion from frame
+1-time day increasing
+2-judge and modify stats
+3- inventory system
+4- characters avatar and prompt with html tabs
+***/
+
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
