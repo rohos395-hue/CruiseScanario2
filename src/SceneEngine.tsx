@@ -204,7 +204,7 @@ private isConditionGroup(
         case "at_start":
 
             leftValue =
-                state.day ?? 0;
+                state.sceneState?.messagesScene ?? 0;
 
             break;
 
@@ -212,7 +212,7 @@ private isConditionGroup(
 
             leftValue =
                 state.sceneState
-                    ?.messagesSeen ?? 0;
+                    ?.messagesScene ?? 0;
 
             break;
 
