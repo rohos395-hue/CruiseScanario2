@@ -44,8 +44,8 @@ export class SceneEngine {
 
     
     stageDirectionWrite(state:any){
-   frame = state.sceneState.activeFrame;     
-   stageDirection ="";     
+   const frame = state.sceneState.activeFrame;     
+   let stageDirection ="";     
         const presentCharacters = state.charactersNames.filter(
   (_, index) => frame.participants[index]
 );
