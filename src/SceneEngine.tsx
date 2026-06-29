@@ -77,12 +77,12 @@ Role:  ${character.role}
 
         const activeSceneId =
             state.sceneState?.activeSceneId;
-        state.log=state.log+"\n activeSceneId "+activeSceneId
+        state.log=state.log+"\n activeSceneId "+activeSceneId;
 
         if (!activeSceneId){
             state.log=state.log+"\n NOT activeSceneId "
             const sceneId = this.findAvailableScene(state);
-            state.log=state.log+"\n sceneId "+sceneId
+            state.log=state.log+"\n sceneId "+sceneId;
             if(!sceneId)
                 return null;
             const started = this.startScene(sceneId, state);
@@ -97,7 +97,7 @@ Role:  ${character.role}
             );
 
         if (!scene) {
-            state.log=state.log+"\n Not scene row100"
+            state.log=state.log+"\n Not scene row100";
             return null;}
 
         const allFramesCompleted =
@@ -112,9 +112,12 @@ Role:  ${character.role}
 
           }
 
+        state.log=state.log+"\n state.sceneState.messagesScene"+state.sceneState.messagesScene;
+
 
         
         state.sceneState.messagesScene++;
+        state.log=state.log+"\n state.sceneState.messagesScene"+state.sceneState.messagesScene;
         let newFrame =this.findAvailableFrame(state);
         state.log=state.log+"\n newFrame "+newFrame
         if(!newFrame)
