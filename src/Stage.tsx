@@ -154,6 +154,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
 		
 		this.sceneEngine =            new SceneEngine();
+		this.sceneEngine.startScene(    "greeting",    this.myInternalState);
 		
     }
 	
