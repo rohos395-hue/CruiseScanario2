@@ -73,10 +73,10 @@ export class SceneEngine {
             return state.sceneState.activeFrame;
         }
         else {
-            this.advanceFrame(state)
-            return this.sceneState.activeFrame};
+            this.advanceFrame(state,newFrame)
+            return state.sceneState.activeFrame};
 
-        return this.sceneState.activeFrame;
+        return state.sceneState.activeFrame;
     }
 startScene(sceneId: string, state: any): boolean {
 
