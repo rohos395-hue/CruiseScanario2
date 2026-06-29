@@ -115,7 +115,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
         
 		this.myInternalState = messageState != null ? messageState : {'someKey': 'someValue'};
-		this.myInternalState.log = "in constructor, data"+ JSON.stringify(data, null, 2);
+		this.myInternalState.log = "in constructor, data"+ JSON.stringify(chatState, null, 2);
 		this.myInternalState.characterDb = charactersJson  as CharacterDatabase;
 		const  numCharacters =    this.myInternalState.characterDb.characters.length;
 		const statNames = this.myInternalState.characterDb.stats.map((stat: Stat) => stat.name);
