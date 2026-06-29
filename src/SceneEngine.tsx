@@ -65,13 +65,13 @@ export class SceneEngine {
         if (!scene)
             return null;
         state.sceneState.messagesScene++;
-        let newFrame =findAvailableFrame(state);
+        let newFrame =this.findAvailableFrame(state);
         if (newFrame.id=== this.sceneState.activeFrame.id) {
             state.sceneState.messagesFrame++;
             return state.sceneState.activeFrame;
         }
         else {
-            advanceFrame(state)
+            this.advanceFrame(state)
             return this.sceneState.activeFrame};
 
         return this.sceneState.activeFrame;
@@ -282,7 +282,7 @@ private evaluateConditionGroup(
 
     return true;
 }
-    findAvailableScene(state: any): Scene | null {
+    findAvailableScene(state: any): string | null {
 
     const validScenes =
         this.scenes.filter(scene => {
