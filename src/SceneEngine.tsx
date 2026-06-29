@@ -48,7 +48,7 @@ export class SceneEngine {
             state.sceneState?.activeSceneId;
 
         if (!activeSceneId){
-            sceneId = this.findAvailableScene(state);
+            const sceneId = this.findAvailableScene(state);
             if(!sceneid)
                 return null;
             started = this.startScene(sceneId, state);
