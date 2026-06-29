@@ -69,7 +69,7 @@ Role:  ${character.role}
         
         stageDirection +=stageDirectionCharacters;
         stageDirection +=` describe this scene and elaborate the dialoge of the characters:`;
-        stageDirection += frame beforePrompt;
+        stageDirection += frame.beforePrompt;
             return stageDirection;
     }
     
