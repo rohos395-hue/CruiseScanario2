@@ -97,6 +97,7 @@ Role:  ${character.role}
             );
 
         if (!scene)
+            state.log=state.log+"\n Not scene row100"
             return null;
 
         const allFramesCompleted =
