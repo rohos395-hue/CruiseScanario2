@@ -123,10 +123,12 @@ Role:  ${character.role}
         if(!newFrame)
             return null
         if (newFrame.id=== state.sceneState.activeFrame.id) {
+            state.log=state.log+"\n return same frame"
             state.sceneState.messagesFrame++;
             return state.sceneState.activeFrame;
         }
         else {
+            state.log=state.log+"\n return advance frame"
             this.advanceFrame(state,newFrame)
             return state.sceneState.activeFrame};
 
@@ -401,7 +403,7 @@ private evaluateConditionGroup(
 
     const validFrames = scene.frames.filter(frame => {
 
-        state.log += "\nchecking frame " + frame.id;
+        //state.log += "\nchecking frame " + frame.id;
 
         if (state.sceneState.completedFrames.includes(frame.id)) {
             state.log += "\nframe completed";
@@ -418,8 +420,8 @@ private evaluateConditionGroup(
             state
         );
 
-        state.log += "\ncondition result=" + result;
-        state.log += "\ncondition condition=" + JSON.stringify(frame.conditions);
+        //state.log += "\ncondition result=" + result;
+        //state.log += "\ncondition condition=" + JSON.stringify(frame.conditions);
 
         return result;
     });
