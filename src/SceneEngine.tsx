@@ -112,7 +112,7 @@ Role:  ${character.role}
 
           }
 
-        state.log=state.log+"\n state.sceneState.messagesScene"+state.sceneState.messagesScene;
+        //state.log=state.log+"\n state.sceneState.messagesScene"+state.sceneState.messagesScene;
 
 
         
@@ -335,7 +335,7 @@ private evaluateConditionGroup(
     return true;
 }
     findAvailableScene(state: any): string | null {
-        state.log=state.log+"\n in findAvailableScene "+state.sceneState;
+        //state.log=state.log+"\n in findAvailableScene "+state.sceneState;
 
     const validScenes =
         this.scenes.filter(scene => {
@@ -380,7 +380,7 @@ private evaluateConditionGroup(
     findAvailableFrame(
     state: any
 ): SceneFrame | null {
-        state.log=state.log+"\n in findAvailableFrame "+state.sceneState
+        //state.log=state.log+"\n in findAvailableFrame "+state.sceneState
 
     const activeSceneId =
         state.sceneState.activeSceneId;
@@ -406,12 +406,12 @@ private evaluateConditionGroup(
         //state.log += "\nchecking frame " + frame.id;
 
         if (state.sceneState.completedFrames.includes(frame.id)) {
-            state.log += "\nframe completed";
+        //state.log += "\nframe completed";
             return false;
         }
 
         if (!frame.conditions) {
-            state.log += "\nframe valid (no conditions)";
+        // state.log += "\nframe valid (no conditions)";
             return true;
         }
 
@@ -426,10 +426,10 @@ private evaluateConditionGroup(
         return result;
     });
 
-    state.log += "\nvalidFrames=" + validFrames.length;
+//state.log += "\nvalidFrames=" + validFrames.length;
 
     if (validFrames.length === 0) {
-        state.log += "\nRETURN NULL: no valid frames";
+        //state.log += "\nRETURN NULL: no valid frames";
         return null;
     }
 
@@ -437,7 +437,7 @@ private evaluateConditionGroup(
         (a, b) => (b.priority ?? 0) - (a.priority ?? 0)
     );
 
-    state.log += "\nRETURN FRAME=" + validFrames[0].id;
+    //state.log += "\nRETURN FRAME=" + validFrames[0].id;
 
     return validFrames[0];
 }
