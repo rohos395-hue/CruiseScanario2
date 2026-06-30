@@ -47,9 +47,9 @@ export class SceneEngine {
    const frame = state.sceneState.activeFrame;     
    let stageDirection ="";     
         state.log=state.log+"\n inside stageDirectionWrite";
-        state.log=state.log+"\n"+state.charactersNames;
+        state.log=state.log+"\n"+state.characterNames;
         state.log=state.log+"\n"+frame.participants;
-        const presentCharacters = state.charactersNames.filter(
+        const presentCharacters = state.characterNames.filter(
   (_:string, index:number) => frame.participants[index]
 );
 
