@@ -48,10 +48,10 @@ export class SceneEngine {
    let stageDirection ="";     
         state.log=state.log+"\n inside stageDirectionWrite";
         state.log=state.log+"\n"+state.characterNames;
-        state.log=state.log+"\n"+frame.participants‎;
+        state.log=state.log+"\n"+frame.participants;
         state.log=state.log+"\n"+JSON.stringify(frame);
         const presentCharacters = state.characterNames.filter(
-  (_:string, index:number) => frame.participants‎[index]
+  (_:string, index:number) => frame.participants[index]
 );
 
 stageDirection += `
