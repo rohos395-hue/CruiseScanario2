@@ -14,7 +14,7 @@ export interface SceneFrame {
     beforePrompt?: string;
     afterPrompt?: string;
     tones?: string[];
-    participants?: string[];
+    participants?: boolean[];
     effects?: any[];
 }
 
