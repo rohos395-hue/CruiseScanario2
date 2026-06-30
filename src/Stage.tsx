@@ -219,11 +219,14 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 
 		//this.sceneEngine.startScene(    "greeting",    this.myInternalState);
 		//this.myInternalState.log=this.myInternalState.log+("after start grretings");
+		this.myInternalState.log=""
 		this.myInternalState.log=this.myInternalState.log+"beforePrompt before getCurrentFrame";
 
  		const frame =    this.sceneEngine.getCurrentFrame(        this.myInternalState    );
+		
 		this.myInternalState.log=this.myInternalState.log+(frame?.beforePrompt);
 		let myStageDirections=this.sceneEngine.stageDirectionWrite(this.myInternalState);
+		this.myInternalState.log=this.myInternalState.log+"\n myStageDirections "+myStageDirections;
 
           
       return {
