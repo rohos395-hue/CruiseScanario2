@@ -46,6 +46,7 @@ export class SceneEngine {
     stageDirectionWrite(state:any){
    const frame = state.sceneState.activeFrame;     
    let stageDirection ="";     
+        state.log=state.log+"\n inside stageDirectionWrite";
         const presentCharacters = state.charactersNames.filter(
   (_:string, index:number) => frame.participants[index]
 );
@@ -56,6 +57,7 @@ ${presentCharacters.join(", ")}
 Characters who are not present cannot speak, act, appear, be referenced as participating in the scene, or interact with the player.
 Write the next response using only characters currently present.
 `;
+        state.log=state.log+"\n  "+${presentCharacters.join(", ")};
         const stageDirectionCharacters = state.characterDb.characters.filter((_ : string, index: number) => presentCharacters[index])
   .map(
     (character:any) => `
@@ -66,7 +68,7 @@ Role:  ${character.role}
 `
   )
   .join("\n");
-        
+        state.log=state.log+stageDirectionCharacters;
         stageDirection +=stageDirectionCharacters;
         stageDirection +=` describe this scene and elaborate the dialoge of the characters:`;
         stageDirection += frame.beforePrompt;
