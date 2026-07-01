@@ -77,7 +77,15 @@ Role:  ${character.role}
         stageDirection += frame.beforePrompt;
             return stageDirection;
     }
-    
+    newContentAppend(state: any) {
+         const frame = state.sceneState.activeFrame; 
+        if (state.sceneState.messagesFrame ===0){
+              return frame.afterPrompt}
+        else { return ""}
+        //<div style="text-align:center;">
+        //<img src="https://example.com/image.jpg" width="400">
+        //</div>
+    }
     getCurrentFrame(state: any) {
 
         const activeSceneId =
