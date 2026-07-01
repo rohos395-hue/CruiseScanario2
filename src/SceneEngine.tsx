@@ -174,7 +174,7 @@ startScene(sceneId: string, state: any): boolean {
                 s => s.id === activeSceneId
             );
     }
-advanceFrame(state: any,newFrame:SceneFrame): void {
+advanceFrame(state: any,newFrame:any): void {
 
     
  state.log=state.log+"\n advancing frame"+newFrame.id
