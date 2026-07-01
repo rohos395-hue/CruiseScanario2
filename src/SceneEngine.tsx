@@ -79,6 +79,7 @@ Role:  ${character.role}
     }
     newContentAppend(state: any) {
          const frame = state.sceneState.activeFrame; 
+        state.log=state.log+"newFrameIdInAppend: "+frame.id;
         if (state.sceneState.messagesFrame ===0){
               return frame.afterPrompt}
         else { return ""}
