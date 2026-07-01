@@ -134,7 +134,8 @@ Role:  ${character.role}
         }
         else {
             state.log=state.log+"\n return advance frame"
-            this.advanceFrame(state,newFrame)
+            this.advanceFrame(state,newFrame
+                              state.log=state.log+"\n returnED advance frame"
             return state.sceneState.activeFrame};
 
         return state.sceneState.activeFrame;
@@ -176,7 +177,7 @@ startScene(sceneId: string, state: any): boolean {
 advanceFrame(state: any,newFrame:SceneFrame): void {
 
     
-
+ state.log=state.log+"\n advancing frame"+newFrame.id
     state.sceneState.completedFrames.add(state.sceneState.activeFrame.id);
     state.sceneState.activeFrame = newFrame;
     state.sceneState.messagesFrame=0;
