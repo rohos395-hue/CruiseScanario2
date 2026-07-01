@@ -134,8 +134,8 @@ Role:  ${character.role}
         }
         else {
             state.log=state.log+"\n return advance frame"
-            this.advanceFrame(state,newFrame
-                              state.log=state.log+"\n returnED advance frame"
+            this.advanceFrame(state,newFrame);
+                              state.log=state.log+"\n returnED advance frame";
             return state.sceneState.activeFrame};
 
         return state.sceneState.activeFrame;
