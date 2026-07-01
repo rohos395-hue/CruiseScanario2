@@ -78,8 +78,11 @@ Role:  ${character.role}
             return stageDirection;
     }
     newContentAppend(state: any) {
-         const frame = state.sceneState.activeFrame; 
-        state.log=state.log+"newFrameIdInAppend: "+frame.id;
+         //const frame = state.sceneState.activeFrame; 
+         const frame = state?.sceneState?.activeFrame;
+        //state.log=state.log+"newFrameIdInAppend: "+frame.id;
+        state.log += "newFrameIdInAppend: " + (frame?.id ?? "undefined");
+        state.log += "messagesFrame: " + (state?.sceneState?.messagesFrame ?? "undefined");
         if (state.sceneState.messagesFrame ===0){
               return frame.afterPrompt}
         else { return ""}
