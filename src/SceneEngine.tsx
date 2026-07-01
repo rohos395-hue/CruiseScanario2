@@ -179,7 +179,7 @@ advanceFrame(state: any,newFrame:any): void {
     
          state.log=state.log+"\n advancing frame"+newFrame.id;
          state.log=state.log+"\n frameID"+state.sceneState.activeFrame.id;
-    state.sceneState.completedFrames.add(state.sceneState.activeFrame.id);
+    state.sceneState.completedFrames.push(state.sceneState.activeFrame.id);
          state.log=state.log+"\n completedFrames "+state.sceneState.completedFrames;
     state.sceneState.activeFrame = newFrame;
     state.sceneState.messagesFrame=0;
