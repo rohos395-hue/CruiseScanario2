@@ -267,7 +267,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         } = botMessage;
         this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
         const currentCount = this.myInternalState['numMsg'] || 0;
-		this.myInternalState.log = this.myInternalState.log+JASON.stringify(botMessage)
+		this.myInternalState.log = this.myInternalState.log+JSON.stringify(botMessage)
 
         let outMessage = null;
         
