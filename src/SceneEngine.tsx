@@ -124,16 +124,16 @@ Role:  ${character.role}
         state.sceneState.messagesScene++;
         state.log=state.log+"\n state.sceneState.messagesScene"+state.sceneState.messagesScene;
         let newFrame =this.findAvailableFrame(state);
-        state.log=state.log+"\n newFrame "+newFrame
+        state.log=state.log+"\n newFrame "+newFrame.id
         if(!newFrame)
             return null
         if (newFrame.id=== state.sceneState.activeFrame.id) {
-            //state.log=state.log+"\n return same frame"
+            state.log=state.log+"\n return same frame"
             state.sceneState.messagesFrame++;
             return state.sceneState.activeFrame;
         }
         else {
-            //state.log=state.log+"\n return advance frame"
+            state.log=state.log+"\n return advance frame"
             this.advanceFrame(state,newFrame)
             return state.sceneState.activeFrame};
 
@@ -408,7 +408,7 @@ private evaluateConditionGroup(
 
     const validFrames = scene.frames.filter(frame => {
 
-        state.log += "\nchecking frame " + frame.id;
+        //state.log += "\nchecking frame " + frame.id;
 
         if (state.sceneState.completedFrames.includes(frame.id)) {
         //state.log += "\nframe completed";
@@ -416,7 +416,7 @@ private evaluateConditionGroup(
         }
 
         if (!frame.conditions) {
-        state.log += "\nframe valid (no conditions)";
+        //state.log += "\nframe valid (no conditions)";
             return true;
         }
 
@@ -425,8 +425,8 @@ private evaluateConditionGroup(
             state
         );
 
-        state.log += "\ncondition result=" + result;
-        state.log += "\ncondition condition=" + JSON.stringify(frame.conditions);
+        //state.log += "\ncondition result=" + result;
+        //state.log += "\ncondition condition=" + JSON.stringify(frame.conditions);
 
         return result;
     });
@@ -442,7 +442,7 @@ state.log += "\nvalidFrames=" + validFrames.length;
         (a, b) => (b.priority ?? 0) - (a.priority ?? 0)
     );
 
-    //state.log += "\nRETURN FRAME=" + validFrames[0].id;
+    state.log += "\nRETURN FRAME=" + validFrames[0].id;
 
     return validFrames[0];
 }
