@@ -267,11 +267,12 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         } = botMessage;
         this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
         const currentCount = this.myInternalState['numMsg'] || 0;
-		this.myInternalState.log = this.myInternalState.log+JSON.stringify(botMessage)
+		//this.myInternalState.log = this.myInternalState.log+JSON.stringify(botMessage)
 
         let outMessage = null;
 		let newContentAppend =this.sceneEngine.newContentAppend(this.myInternalState);
-        botMessage.content = content+newContentAppend;
+		this.myInternalState.log = this.myInternalState.log+newContentAppend
+        outMessage = content+newContentAppend;
     
         return {
             /*** @type null | string @description A string to add to the
