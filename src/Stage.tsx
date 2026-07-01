@@ -219,14 +219,14 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 
 		//this.sceneEngine.startScene(    "greeting",    this.myInternalState);
 		//this.myInternalState.log=this.myInternalState.log+("after start grretings");
-		this.myInternalState.log=""
-		this.myInternalState.log=this.myInternalState.log+"beforePrompt before getCurrentFrame";
+		//this.myInternalState.log=""
+		//this.myInternalState.log=this.myInternalState.log+"beforePrompt before getCurrentFrame";
 
  		const frame =    this.sceneEngine.getCurrentFrame(        this.myInternalState    );
 		
-		this.myInternalState.log=this.myInternalState.log+(frame?.beforePrompt);
+		//this.myInternalState.log=this.myInternalState.log+(frame?.beforePrompt);
 		let myStageDirections=this.sceneEngine.stageDirectionWrite(this.myInternalState);
-		this.myInternalState.log=this.myInternalState.log+"\n myStageDirections "+myStageDirections;
+		//this.myInternalState.log=this.myInternalState.log+"\n myStageDirections "+myStageDirections;
 
           
       return {
@@ -267,6 +267,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         } = botMessage;
         this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
         const currentCount = this.myInternalState['numMsg'] || 0;
+		this.myInternalState.log = this.myInternalState.log+JASON.stringify(botMessage)
 
         let outMessage = null;
         
