@@ -124,7 +124,7 @@ Role:  ${character.role}
         state.sceneState.messagesScene++;
         state.log=state.log+"\n state.sceneState.messagesScene"+state.sceneState.messagesScene;
         let newFrame =this.findAvailableFrame(state);
-        state.log=state.log+"\n newFrame "+newFrame.id
+        state.log=state.log+"\n newFrame "+newFrame?.id
         if(!newFrame)
             return null
         if (newFrame.id=== state.sceneState.activeFrame.id) {
