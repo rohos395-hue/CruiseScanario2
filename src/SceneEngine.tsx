@@ -46,10 +46,10 @@ export class SceneEngine {
     stageDirectionWrite(state:any){
    const frame = state.sceneState.activeFrame;     
    let stageDirection ="";     
-        state.log=state.log+"\n inside stageDirectionWrite";
-        state.log=state.log+"\n"+state.characterNames;
-        state.log=state.log+"\n"+frame.participants;
-        state.log=state.log+"\n"+JSON.stringify(frame);
+            //state.log=state.log+"\n inside stageDirectionWrite";
+            //state.log=state.log+"\n"+state.characterNames;
+            //state.log=state.log+"\n"+frame.participants;
+            //state.log=state.log+"\n"+JSON.stringify(frame);
         const presentCharacters = state.characterNames.filter(
   (_:string, index:number) => frame.participants[index]
 );
@@ -60,7 +60,7 @@ ${presentCharacters.join(", ")}
 Characters who are not present cannot speak, act, appear, be referenced as participating in the scene, or interact with the player.
 Write the next response using only characters currently present.
 `;
-        state.log=state.log+"\n  "+presentCharacters.join(", ");
+            //state.log=state.log+"\n  "+presentCharacters.join(", ");
         const stageDirectionCharacters = state.characterDb.characters.filter((_ : string, index: number) => presentCharacters[index])
   .map(
     (character:any) => `
@@ -71,7 +71,7 @@ Role:  ${character.role}
 `
   )
   .join("\n");
-        state.log=state.log+stageDirectionCharacters;
+            //state.log=state.log+stageDirectionCharacters;
         stageDirection +=stageDirectionCharacters;
         stageDirection +=` describe this scene and elaborate the dialoge of the characters:`;
         stageDirection += frame.beforePrompt;
@@ -82,12 +82,12 @@ Role:  ${character.role}
 
         const activeSceneId =
             state.sceneState?.activeSceneId;
-        state.log=state.log+"\n activeSceneId "+activeSceneId;
+                //state.log=state.log+"\n activeSceneId "+activeSceneId;
 
         if (!activeSceneId){
-            //state.log=state.log+"\n NOT activeSceneId "
+                //state.log=state.log+"\n NOT activeSceneId "
             const sceneId = this.findAvailableScene(state);
-            //state.log=state.log+"\n sceneId "+sceneId;
+                //state.log=state.log+"\n sceneId "+sceneId;
             if(!sceneId)
                 return null;
             const started = this.startScene(sceneId, state);
@@ -102,7 +102,7 @@ Role:  ${character.role}
             );
 
         if (!scene) {
-            //state.log=state.log+"\n Not scene row100";
+                //state.log=state.log+"\n Not scene row100";
             return null;}
 
         const allFramesCompleted =
@@ -117,25 +117,25 @@ Role:  ${character.role}
 
           }
 
-        //state.log=state.log+"\n state.sceneState.messagesScene"+state.sceneState.messagesScene;
+                //state.log=state.log+"\n state.sceneState.messagesScene"+state.sceneState.messagesScene;
 
 
         
         state.sceneState.messagesScene++;
-        state.log=state.log+"\n state.sceneState.messagesScene"+state.sceneState.messagesScene;
+                //state.log=state.log+"\n state.sceneState.messagesScene"+state.sceneState.messagesScene;
         let newFrame =this.findAvailableFrame(state);
-        state.log=state.log+"\n newFrame "+newFrame?.id
+                //state.log=state.log+"\n newFrame "+newFrame?.id
         if(!newFrame)
             return null
         if (newFrame.id=== state.sceneState.activeFrame.id) {
-            state.log=state.log+"\n return same frame"
+                //state.log=state.log+"\n return same frame"
             state.sceneState.messagesFrame++;
             return state.sceneState.activeFrame;
         }
         else {
-            state.log=state.log+"\n return advance frame"
+                //state.log=state.log+"\n return advance frame"
             this.advanceFrame(state,newFrame);
-                              state.log=state.log+"\n returnED advance frame";
+                              //state.log=state.log+"\n returnED advance frame";
             return state.sceneState.activeFrame};
 
         return state.sceneState.activeFrame;
@@ -177,10 +177,10 @@ startScene(sceneId: string, state: any): boolean {
 advanceFrame(state: any,newFrame:any): void {
 
     
-         state.log=state.log+"\n advancing frame"+newFrame.id;
-         state.log=state.log+"\n frameID"+state.sceneState.activeFrame.id;
+         //state.log=state.log+"\n advancing frame"+newFrame.id;
+         //state.log=state.log+"\n frameID"+state.sceneState.activeFrame.id;
     state.sceneState.completedFrames.push(state.sceneState.activeFrame.id);
-         state.log=state.log+"\n completedFrames "+state.sceneState.completedFrames;
+         //state.log=state.log+"\n completedFrames "+state.sceneState.completedFrames;
     state.sceneState.activeFrame = newFrame;
     state.sceneState.messagesFrame=0;
 
@@ -343,7 +343,7 @@ private evaluateConditionGroup(
     return true;
 }
     findAvailableScene(state: any): string | null {
-        //state.log=state.log+"\n in findAvailableScene "+state.sceneState;
+            //state.log=state.log+"\n in findAvailableScene "+state.sceneState;
 
     const validScenes =
         this.scenes.filter(scene => {
@@ -388,7 +388,7 @@ private evaluateConditionGroup(
     findAvailableFrame(
     state: any
 ): SceneFrame | null {
-        //state.log=state.log+"\n in findAvailableFrame "+state.sceneState
+            //state.log=state.log+"\n in findAvailableFrame "+state.sceneState
 
     const activeSceneId =
         state.sceneState.activeSceneId;
@@ -403,7 +403,7 @@ private evaluateConditionGroup(
             s => s.id === activeSceneId
         );
 
-        //state.log=state.log+"\n in findAvailableFrame396 "+JSON.stringify(scene);
+            //state.log=state.log+"\n in findAvailableFrame396 "+JSON.stringify(scene);
 
     if (!scene) {
         return null;
@@ -411,15 +411,15 @@ private evaluateConditionGroup(
 
     const validFrames = scene.frames.filter(frame => {
 
-        //state.log += "\nchecking frame " + frame.id;
+                //state.log += "\nchecking frame " + frame.id;
 
         if (state.sceneState.completedFrames.includes(frame.id)) {
-        //state.log += "\nframe completed";
+                //state.log += "\nframe completed";
             return false;
         }
 
         if (!frame.conditions) {
-        //state.log += "\nframe valid (no conditions)";
+                //state.log += "\nframe valid (no conditions)";
             return true;
         }
 
@@ -428,16 +428,16 @@ private evaluateConditionGroup(
             state
         );
 
-        //state.log += "\ncondition result=" + result;
-        //state.log += "\ncondition condition=" + JSON.stringify(frame.conditions);
+                //state.log += "\ncondition result=" + result;
+                //state.log += "\ncondition condition=" + JSON.stringify(frame.conditions);
 
         return result;
     });
 
-state.log += "\nvalidFrames=" + validFrames.length;
+                //state.log += "\nvalidFrames=" + validFrames.length;
 
     if (validFrames.length === 0) {
-        //state.log += "\nRETURN NULL: no valid frames";
+                //state.log += "\nRETURN NULL: no valid frames";
         return null;
     }
 
@@ -445,7 +445,7 @@ state.log += "\nvalidFrames=" + validFrames.length;
         (a, b) => (b.priority ?? 0) - (a.priority ?? 0)
     );
 
-    state.log += "\nRETURN FRAME=" + validFrames[0].id;
+        //state.log += "\nRETURN FRAME=" + validFrames[0].id;
 
     return validFrames[0];
 }
