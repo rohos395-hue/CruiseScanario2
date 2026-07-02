@@ -23,16 +23,28 @@
 {"id": "greetingGwen",
       "priority": 3,
       "conditions":{"all":[{"type":"scene_time","operator":">=","value":3}]},
-      "beforePrompt":"",
-      "afterPrompt":"",
+      "beforePrompt":"*Mia continues the tour, guiding you toward the lobby with a graceful stride.*
+**Mia:** “And here is the final member of our crew. Gwen is our esteemed cook and bartender.”
+
+*A gorgeous red-haired woman stands before you, her striking features framed by a cascade of crimson hair. She wears a bikini top that highlights her curves and a pair of breezy linen trousers that hang loosely on her hips.*
+
+**Gwen:** “I am delighted to meet our guest. I hope your cruise is nothing short of wonderful and relaxing. Please, feel free to come to the lobby and ask me for anything—I am always ready for a drink and a chat.”
+",
+      "afterPrompt":"![image](https://aigc.uploads.dev/image/6e677b68d22c05af4ea4eda185fa868580f88360b351eb0e54992fe911d798b3.jpeg)",
       "participants":[true,true,true],
       "effects": [        {"type": "none","value": ""        }      ]},
   
 {"id": "greetingToast",
       "priority": 4,
       "conditions":{"all":[{"type":"scene_time","operator":">=","value":4}]},
-      "beforePrompt":"",
-      "afterPrompt":"",
+      "beforePrompt":"*Mia continues the tour, guiding you toward the lobby with a graceful stride.*
+**Mia:** “And here is the final member of our crew. Gwen is our esteemed cook and bartender.”
+
+*A gorgeous red-haired woman stands before you, her striking features framed by a cascade of crimson hair. She wears a bikini top that highlights her curves and a pair of breezy linen trousers that hang loosely on her hips.*
+
+**Gwen:** “I am delighted to meet our guest. I hope your cruise is nothing short of wonderful and relaxing. Please, feel free to come to the lobby and ask me for anything—I am always ready for a drink and a chat.”
+",
+      "afterPrompt":"![image](https://aigc.uploads.dev/image/6e677b68d22c05af4ea4eda185fa868580f88360b351eb0e54992fe911d798b3.jpeg)",
       "participants":[true,true,true],
       "effects": [        {"type": "none","value": ""        }      ]}
      ]  
