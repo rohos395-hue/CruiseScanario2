@@ -18,7 +18,7 @@
   "locations":[
 {"name" : "kitchen",       "top":	18	,   "left":	35	,   "height":	65	,   "width" :	27	},
 {"name" : "lobbyOutdoor",  "top":	22	,   "left":	15	,   "height":	28	,   "width" :	19	},
-{"name" : "hobbyRoom",     "top":	23	,   "left":	64	,   "height":	35	,   "width" :	9	},
+{"name" : "hobbyRoom",     "top":	24	,   "left":	64	,   "height":	35	,   "width" :	9	},
 {"name" : "solarium",      "top":	31	,   "left":	75	,   "height":	35	,   "width" :	9	},
 {"name" : "deckTopLeft",   "top":	6	,     "left":	63	,     "height":	17	,     "width" :	34	},
 {"name" : "deckBotLeft",   "top":	2	,     "left":	18	,   "height":	11	,   "width" :	44	},
