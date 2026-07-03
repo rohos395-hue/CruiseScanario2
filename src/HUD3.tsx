@@ -134,41 +134,60 @@ function MapImage({
   return (
     <div
       style={{
-        position: "relative",
-        height: "95vw",
+        width: "100%",
         maxWidth: "1000px",
-        margin: "20px auto",
+        margin: "0 auto",
+        overflow: "auto",
+        maxHeight: "90vh",
       }}
     >
-      <img
-        src={currentDeck.map}
-        alt={currentDeck.floorname}
+      <div
         style={{
+          position: "relative",
           width: "100%",
-          display: "block",
+          aspectRatio: "718 / 378",
         }}
-      />
-
-      {currentDeck.locations?.map((location: any) => (
-        <div
-          key={location.name}
-          title={location.name}
-          onClick={() => {
-            onLocationClick(location.name);
-            close();
-          }}
+      >
+        <img
+          src={currentDeck.map}
+          alt={currentDeck.floorname}
           style={{
             position: "absolute",
-            left: `${location.left}%`,
-            top: `${location.top}%`,
-            width: `${location.width}%`,
-            height: `${location.height}%`,
-            border: "2px solid red",
-            backgroundColor: "rgba(255,0,0,0.15)",
-            cursor: "pointer",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            display: "block",
           }}
         />
-      ))}
+
+        {currentDeck.locations?.map((location: any) => (
+          <div
+            key={location.name}
+            title={location.name}
+            onClick={() => {
+              onLocationClick(location.name);
+              close();
+            }}
+            style={{
+              position: "absolute",
+              left: `${location.left}%`,
+              top: `${location.top}%`,
+              width: `${location.width}%`,
+              height: `${location.height}%`,
+
+              border: "2px solid red",
+              backgroundColor: "rgba(255,0,0,0.15)",
+              boxSizing: "border-box",
+              cursor: "pointer",
+
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 }
