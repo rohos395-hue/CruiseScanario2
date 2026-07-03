@@ -140,7 +140,7 @@ function MapImage({
         overflow: "auto",
 
         // was 90vh
-        maxHeight: "75vh",
+        maxHeight: "65vh",
 
         padding: "4px",
       }}
