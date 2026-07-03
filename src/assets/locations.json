@@ -17,7 +17,7 @@
 {"floorname":"mainDeck",
   "locations":[
 {"name" : "kitchen",       "top":	18	,   "left":	35	,   "height":	65	,   "width" :	27	},
-{"name" : "lobbyOutdoor",  "top":	22	,   "left":	15	,   "height":	28	,   "width" :	19	},
+{"name" : "lobbyOutdoor",  "top":	22	,   "left":	15	,   "height":	30	,   "width" :	19	},
 {"name" : "hobbyRoom",     "top":	24	,   "left":	64	,   "height":	35	,   "width" :	9	},
 {"name" : "solarium",      "top":	31	,   "left":	75	,   "height":	35	,   "width" :	9	},
 {"name" : "deckTopLeft",   "top":	6	,     "left":	63	,     "height":	17	,     "width" :	34	},
@@ -30,7 +30,7 @@
 
 {"floorname":"topDeck",
   "locations":[
-{"name" : "controlRoom",  "left":	30	,   "top":	58	,   "width":	5	,   "height" :	21	},
+{"name" : "controlRoom",  "left":	28	,   "top":	58	,   "width":	8	,   "height" :	21	},
 {"name" : "flybridge",    "left":	15	,   "top":	27	,   "width":	14	,   "height" :	39	}
 ],
 "map":"https://raw.githubusercontent.com/rohos395-hue/CruiseScanario2/main/src/assets/topDeckH.jpg"
