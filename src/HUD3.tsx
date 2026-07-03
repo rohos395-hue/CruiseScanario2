@@ -134,19 +134,21 @@ function MapImage({
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        padding: "8px",
+        width: "100%",
+        maxWidth: "900px",
+        margin: "0 auto",
+        overflow: "auto",
+
+        // was 90vh
+        maxHeight: "75vh",
+
+        padding: "4px",
       }}
     >
       <div
         style={{
           position: "relative",
-
-          // Width follows height instead of the opposite
-          height: "70vh",
-          maxHeight: "500px",
-
+          width: "100%",
           aspectRatio: "718 / 378",
         }}
       >
@@ -174,8 +176,10 @@ function MapImage({
               top: `${location.top}%`,
               width: `${location.width}%`,
               height: `${location.height}%`,
-              cursor: "pointer",
+              border: "2px solid red",
+              backgroundColor: "rgba(255,0,0,0.15)",
               boxSizing: "border-box",
+              cursor: "pointer",
             }}
           />
         ))}
