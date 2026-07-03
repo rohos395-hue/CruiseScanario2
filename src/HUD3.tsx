@@ -134,17 +134,19 @@ function MapImage({
   return (
     <div
       style={{
-        width: "100%",
-        maxWidth: "1000px",
-        margin: "0 auto",
-        overflow: "auto",
-        maxHeight: "90vh",
+        display: "flex",
+        justifyContent: "center",
+        padding: "8px",
       }}
     >
       <div
         style={{
           position: "relative",
-          width: "100%",
+
+          // Width follows height instead of the opposite
+          height: "70vh",
+          maxHeight: "500px",
+
           aspectRatio: "718 / 378",
         }}
       >
@@ -152,11 +154,8 @@ function MapImage({
           src={currentDeck.map}
           alt={currentDeck.floorname}
           style={{
-            position: "absolute",
-            inset: 0,
             width: "100%",
             height: "100%",
-            objectFit: "contain",
             display: "block",
           }}
         />
@@ -175,15 +174,8 @@ function MapImage({
               top: `${location.top}%`,
               width: `${location.width}%`,
               height: `${location.height}%`,
-
-              border: "2px solid red",
-              backgroundColor: "rgba(255,0,0,0.15)",
-              boxSizing: "border-box",
               cursor: "pointer",
-
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              boxSizing: "border-box",
             }}
           />
         ))}
