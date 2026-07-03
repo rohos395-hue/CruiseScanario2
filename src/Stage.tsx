@@ -148,6 +148,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         
         this.myInternalState['numMsg'] = 0 ;
         this.myInternalState['day'] = 1;
+		this.myInternalState['hour'] = 11;
 		this.myInternalState.currentDeck ??= 1;
         this.myInternalState.showMap ??= false;
 		this.myInternalState.activeScreen= "none";
