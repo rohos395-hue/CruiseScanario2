@@ -31,7 +31,7 @@
 {"floorname":"topDeck",
   "locations":[
 {"name" : "controlRoom",  "left":	28	,   "top":	58	,   "width":	8	,   "height" :	21	},
-{"name" : "flybridge",    "left":	15	,   "top":	27	,   "width":	14	,   "height" :	39	}
+{"name" : "flybridge",    "left":	15	,   "top":	27	,   "width":	12	,   "height" :	39	}
 ],
 "map":"https://raw.githubusercontent.com/rohos395-hue/CruiseScanario2/main/src/assets/topDeckH.jpg"
 }  ]}
