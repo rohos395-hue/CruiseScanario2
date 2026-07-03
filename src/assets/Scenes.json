@@ -37,5 +37,51 @@
       "effects": [        {"type": "none","value": ""        }      ]}
      ]  
 
+},
+
+{"id":"deckLunaDay1",
+  "priority":1,
+  "repeatable":false,
+   "conditions":{"all":[{"type":"location","operator":"===","value":"deckBotRight"},{"type":"day","operator":"===","value":1}]},
+  "frames":[
+{      "id": "deckLunaDay1",
+      "priority": 1,
+      "conditions":{"all":[]},
+      "beforePrompt": "descibe this scene: {{user}} goes to the bridge, Luna is working on the sails, she says hi and tries to chat" ,
+      "afterPrompt": "![image]()  ",
+      "participants":[false,true,false],
+      "effects": [        {"type": "none","value": ""        }      ]},  
+      ]  
 }
+{"id":"lobbyOutdoorGwenDay1",
+  "priority":1,
+  "repeatable":false,
+   "conditions":{"all":[{"type":"location","operator":"===","value":"lobbyOutdoor"},{"type":"day","operator":"===","value":1}]},
+  "frames":[
+{      "id": "lobbyOutdoorGwenDay1",
+      "priority": 1,
+      "conditions":{"all":[]},
+      "beforePrompt": "descibe this scene: {{user}} goes to the outdoor lobby, Gwen gets out of the kitchen holding two glasses of soda offering one to {{user}}, she tryes to chat with {{user}}" ,
+      "afterPrompt": "![image]()  ",
+      "participants":[false,false,true],
+      "effects": [        {"type": "none","value": ""        }      ]},  
+
+      ]  
+}
+ {"id":"controlRoomMiaDay1",
+  "priority":1,
+  "repeatable":false,
+   "conditions":{"all":[{"type":"location","operator":"===","value":"controlRoom"},{"type":"day","operator":"===","value":1}]},
+  "frames":[
+{      "id": "controlRoomMiaDay1",
+      "priority": 1,
+      "conditions":{"all":[]},
+      "beforePrompt": "descibe this scene: {{user}} goes to the control room, Mia is there commanding the wheel, she says hello and chat for a while" ,
+      "afterPrompt": "![image]()  ",
+      "participants":[true,false,false],
+      "effects": [        {"type": "none","value": ""        }      ]},  
+
+      ]  
+} 
+  
 ]}
