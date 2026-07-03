@@ -62,7 +62,7 @@
       "priority": 1,
       "conditions":{"all":[]},
       "beforePrompt": "descibe this scene: {{user}} goes to the outdoor lobby, Gwen gets out of the kitchen holding two glasses of soda offering one to {{user}}, she tryes to chat with {{user}}" ,
-      "afterPrompt": "![image]()  ",
+      "afterPrompt": "![image](https://files.catbox.moe/asujer.png)  ",
       "participants":[false,false,true],
       "effects": [        {"type": "none","value": ""        }      ]},  
 
