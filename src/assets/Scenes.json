@@ -50,7 +50,7 @@
       "beforePrompt": "descibe this scene: {{user}} goes to the bridge, Luna is working on the sails, she says hi and tries to chat" ,
       "afterPrompt": "![image](https://files.catbox.moe/uy8gdi.png)  ",
       "participants":[false,true,false],
-      "effects": [        {"type": "none","value": ""        }      ]},  
+      "effects": [        {"type": "none","value": ""        }      ]}
       ]  
 },
 {"id":"lobbyOutdoorGwenDay1",
@@ -64,7 +64,7 @@
       "beforePrompt": "descibe this scene: {{user}} goes to the outdoor lobby, Gwen gets out of the kitchen holding two glasses of soda offering one to {{user}}, she tryes to chat with {{user}}" ,
       "afterPrompt": "![image](https://files.catbox.moe/asujer.png)  ",
       "participants":[false,false,true],
-      "effects": [        {"type": "none","value": ""        }      ]},  
+      "effects": [        {"type": "none","value": ""        }      ]}
 
       ]  
 },
@@ -79,7 +79,7 @@
       "beforePrompt": "descibe this scene: {{user}} goes to the control room, Mia is there commanding the wheel, she says hello and chat for a while" ,
       "afterPrompt": "![image](https://files.catbox.moe/qtwe4e.jpeg)  ",
       "participants":[true,false,false],
-      "effects": [        {"type": "none","value": ""        }      ]},  
+      "effects": [        {"type": "none","value": ""        }      ]}
 
       ]  
 } 
