@@ -52,7 +52,7 @@
       "participants":[false,true,false],
       "effects": [        {"type": "none","value": ""        }      ]},  
       ]  
-}
+},
 {"id":"lobbyOutdoorGwenDay1",
   "priority":1,
   "repeatable":false,
@@ -67,7 +67,7 @@
       "effects": [        {"type": "none","value": ""        }      ]},  
 
       ]  
-}
+},
  {"id":"controlRoomMiaDay1",
   "priority":1,
   "repeatable":false,
