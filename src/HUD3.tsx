@@ -286,7 +286,7 @@ function StatsScreen({
 
                     <td style={{ textAlign: "center" }}>
                         {
-                            state.characterPresent?.[char.name]
+                            state.sceneState.activeFrame?.participants[charIndex]
                                 ? "🟢"
                                 : "⚫"
                         }
