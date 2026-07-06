@@ -12,7 +12,7 @@ export interface Effect{
     value?:any;
     character?:string;
     stat?:string;
-    condition?:ConditionGroup}
+    conditions?:ConditionGroup}
 export interface SceneFrame {
     id: string;
     priority:number,
