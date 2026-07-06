@@ -7,7 +7,7 @@ export interface ConditionGroup {
     all?: (Condition | ConditionGroup)[]; 
     any?: (Condition | ConditionGroup)[]; }
 
-export interface effect{
+export interface Effect{
     type: string;
     value?:any;
     character?:string;
