@@ -302,6 +302,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         location;
 	//const sceneId=this.sceneEngine.findAvailableScene(this.myInternalState);
 	const sceneId =this.sceneEngine.findAvailableScene(this.myInternalState)?? "greeting";
+	this.myInternalState.log="";
+	this.myInternalState = 	this.myInternalState.log+sceneId;
 	this.sceneEngine.startScene(sceneId,this.myInternalState);
 
     //this.closeScreen();
