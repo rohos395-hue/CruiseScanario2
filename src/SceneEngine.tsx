@@ -242,6 +242,25 @@ advanceFrame(state: any,newFrame:any): void {
         }
     }
 }
+  private applyCharacterStat(    state: any,    effect: Effect): void {
+
+    const character =        state.characterDb?.characters?.find(
+            (c: any) =>                c.name === effect.character        );
+
+    if (!character) {        console.warn(            "Character not found:",            effect.character        );
+        return;    }
+
+    const stat =
+        effect.stat;
+
+    if (!stat)
+        return;
+
+    character[stat] =
+        (character[stat] ?? 0)
+        + Number(effect.value);
+}  
+    
   completeScene(state: any): void {
 
     if (!state.sceneState.activeSceneId)
