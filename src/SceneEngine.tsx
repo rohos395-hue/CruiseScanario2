@@ -205,11 +205,43 @@ advanceFrame(state: any,newFrame:any): void {
 
     
 }
-    evaluateEffect(state: any,effects:any): void {
+   evaluateEffects(    state: any,    effects: Effect[]): void {
 
+    if (!effects)
+        return;
 
+    for (const effect of effects) {
 
+        // Optional condition check
+
+        if (effect.conditions && !this.evaluateConditionGroup(effect.conditions,state)        ) {
+            continue;        }
+
+        switch (effect.type) {
+
+            case "time":
+                state.time =(state.time ?? 0)+ Number(effect.value);
+                break;
+
+            case "flag":
+                state.flags ??= [];
+                if (!state.flags.includes(effect.value)  ) {
+                    state.flags.push(effect.value);                 }
+                break;
+
+            case "location":
+                state.currentLocation =effect.value;
+                break;
+
+            case "character_stat":
+                this.applyCharacterStat(state,effect);
+                break;
+
+            default:
+                consle.warn("Unknown effect:",effect.type);
+        }
     }
+}
   completeScene(state: any): void {
 
     if (!state.sceneState.activeSceneId)
