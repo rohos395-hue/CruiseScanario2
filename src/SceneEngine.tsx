@@ -21,7 +21,7 @@ export interface SceneFrame {
     afterPrompt?: string;
     tones?: string[];
     participants?: boolean[];
-    effects?: effect[];
+    effects?: Effect[];
 }
 
 export interface Scene {
