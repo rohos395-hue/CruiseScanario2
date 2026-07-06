@@ -238,7 +238,7 @@ advanceFrame(state: any,newFrame:any): void {
                 break;
 
             default:
-                consle.warn("Unknown effect:",effect.type);
+                console.warn("Unknown effect:",effect.type);
         }
     }
 }
