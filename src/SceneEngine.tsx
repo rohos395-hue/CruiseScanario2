@@ -7,6 +7,12 @@ export interface ConditionGroup {
     all?: (Condition | ConditionGroup)[]; 
     any?: (Condition | ConditionGroup)[]; }
 
+export interface effect{
+    type: string;
+    value?:any;
+    character?:string;
+    stat?:string;
+    condition?:ConditionGroup}
 export interface SceneFrame {
     id: string;
     priority:number,
@@ -15,7 +21,7 @@ export interface SceneFrame {
     afterPrompt?: string;
     tones?: string[];
     participants?: boolean[];
-    effects?: any[];
+    effects?: effect[];
 }
 
 export interface Scene {
@@ -199,6 +205,11 @@ advanceFrame(state: any,newFrame:any): void {
 
     
 }
+    evaluateEffect(state: any,effects:any): void {
+
+
+
+    }
   completeScene(state: any): void {
 
     if (!state.sceneState.activeSceneId)
