@@ -219,8 +219,8 @@ advanceFrame(state: any,newFrame:any): void {
 
         switch (effect.type) {
 
-            case "time":
-                state.time =(state.time ?? 0)+ Number(effect.value);
+            case "hour":
+                state.state.hour =(state.hour ?? 0)+ Number(effect.value);
                 break;
 
             case "flag":
