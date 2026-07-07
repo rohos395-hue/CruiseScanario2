@@ -47,12 +47,27 @@
 {      "id": "deckLunaDay1",
       "priority": 10,
       "conditions":{"all":[]},
-      "beforePrompt": "descibe this scene: {{user}} goes to the bridge, Luna is working on the sails, she says hi and tries to chat" ,
-      "afterPrompt": "![image](https://files.catbox.moe/uy8gdi.png)  ",
+      "beforePrompt": "descibe this scene: {{user}} goes to the deck, Luna is working on the sails, she says hi and tries to chat" ,
+      "afterPrompt": "![image](https://files.catbox.moe/uy8gdi.png)",
       "participants":[false,true,false],
       "effects": [        {"type": "none"}     ]}
       ]  
 },
+{"id":"deckLunaDay1b",
+  "priority":1,
+  "repeatable":false,
+   "conditions":{"all":[{"type":"location","operator":"===","value":"deckBotRight"},{"type":"day","operator":"===","value":1}]},
+  "frames":[
+{      "id": "deckLunaDay1b",
+      "priority": 10,
+      "conditions":{"all":[]},
+      "beforePrompt": "descibe this scene: {{user}} goes to the deck, Luna is sunbathing, she says hi and conversate" ,
+      "afterPrompt": "![image](https://files.catbox.moe/TOCHANGE.png)",
+      "participants":[false,true,false],
+      "effects": [        {"type": "none"}     ]}
+      ]  
+},
+  
 {"id":"lobbyOutdoorGwenDay1",
   "priority":10,
   "repeatable":false,
@@ -62,12 +77,29 @@
       "priority": 1,
       "conditions":{"all":[]},
       "beforePrompt": "descibe this scene: {{user}} goes to the outdoor lobby, Gwen gets out of the kitchen holding two glasses of soda offering one to {{user}}, she tryes to chat with {{user}}" ,
-      "afterPrompt": "![image](https://files.catbox.moe/asujer.png)  ",
+      "afterPrompt": "![image](https://files.catbox.moe/asujer.png)",
       "participants":[false,false,true],
       "effects": [        {"type": "none"}     ]}
 
       ]  
 },
+{"id":"kitchenGwenDay1",
+  "priority":10,
+  "repeatable":false,
+   "conditions":{"all":[{"type":"location","operator":"===","value":"kitchen"},{"type":"day","operator":"===","value":1}]},
+  "frames":[
+{      "id": "kitchenGwenDay1",
+      "priority": 1,
+      "conditions":{"all":[]},
+      "beforePrompt": "descibe this scene: {{user}} goes to the kitchen, Gwen is cooking, she wears a kitchen apron, she tryes to chat with {{user}}" ,
+      "afterPrompt": "![image](https://files.catbox.moe/asujer.png)",
+      "participants":[false,false,true],
+      "effects": [        {"type": "none"}     ]}
+
+      ]  
+},
+
+  
  {"id":"controlRoomMiaDay1",
   "priority":10,
   "repeatable":false,
@@ -77,7 +109,7 @@
       "priority": 1,
       "conditions":{"all":[]},
       "beforePrompt": "descibe this scene: {{user}} goes to the control room, Mia is there commanding the wheel, she says hello and chat for a while" ,
-      "afterPrompt": "![image](https://files.catbox.moe/qtwe4e.jpeg)  ",
+      "afterPrompt": "![image](https://files.catbox.moe/qtwe4e.jpeg)",
       "participants":[true,false,false],
       "effects": [       {"type": "none"}     ]}
 
