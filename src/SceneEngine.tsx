@@ -345,6 +345,12 @@ private isConditionGroup(
                 state.currentLocation;
 
             break;
+        case "day":
+                leftValue =state.day;
+                break;
+        case "hour":
+                leftValue =state.hour;
+                break;
 
         default:
 
