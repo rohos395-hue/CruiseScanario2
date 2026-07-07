@@ -24,7 +24,7 @@
       "priority": 3,
       "conditions":{"all":[{"type":"scene_time","operator":">=","value":3}]},
       "beforePrompt":"Mia continues the tour, guiding you toward the lobby with a graceful stride. Mia introduces Gwen as the final member of our crew, esteemed cook and bartender. Gwen is a gorgeous red-haired woman , her striking features framed by a cascade of crimson hair. She wears a bikini top that highlights her curves and a pair of breezy linen trousers that hang loosely on her hips. Gwen welcomes {{user}}",
-      "afterPrompt":"![image](https://aigc.uploads.dev/image/6e677b68d22c05af4ea4eda185fa868580f88360b351eb0e54992fe911d798b3.jpeg)",
+      "afterPrompt":"![image](https://files.catbox.moe/jjnmyt.png)",
       "participants":[true,true,true],
       "effects": [        {"type": "none"}     ]},
   
