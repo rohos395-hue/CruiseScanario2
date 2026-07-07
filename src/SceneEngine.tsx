@@ -446,8 +446,10 @@ private evaluateConditionGroup(
             );
 
         });
+        state.log=state.log+"\n in validScenes "+validScenes;
 
     if (validScenes.length === 0) {
+         state.log=state.log+"\n in validScenes is null";
         return null;
     }
 
