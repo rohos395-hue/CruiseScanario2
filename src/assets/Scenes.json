@@ -34,7 +34,7 @@
       "beforePrompt":"Gwen smiles, gesturing toward the table. She prepared a bottle to celebrate the start of the cruise. Gwen reveals a chilled bottle of champagne and four filled glasses, waiting for the celebration to begin. All woman participate to a toast",
       "afterPrompt":"![image](https://aigc.uploads.dev/image/ce7f73c20a1577e67d73fee3cff8db97959028e4eb8222218249e3b26530d338.jpeg)",
       "participants":[true,true,true],
-      "effects": [       {"type": "time","value": "2" , "character":"","stat":"","conditions":""} ]}
+      "effects": [       {"type": "time","value": "2" , "character":"","stat":""} ]}
      ]  
 
 },
