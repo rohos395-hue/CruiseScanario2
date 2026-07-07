@@ -446,7 +446,7 @@ private evaluateConditionGroup(
             );
 
         });
-        state.log=state.log+"\n in validScenes "+validScenes.id;
+        state.log=state.log+"\n in validScenes "+validScenes.map(scene => scene.id).join(", ");
 
     if (validScenes.length === 0) {
          state.log=state.log+"\n in validScenes is null";
