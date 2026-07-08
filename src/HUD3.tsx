@@ -27,6 +27,7 @@ function TopBar({
   openLogScreen,
 }: {
   day: number;
+    hour: number;
   openMap: () => void;
   openStats: () => void;
   openLogScreen: () => void;
