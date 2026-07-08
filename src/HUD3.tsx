@@ -53,7 +53,7 @@ function TopBar({
        <button
             style={menuButtonStyle}
             onClick={openLogScreen}  >📜 Log</button>  
-      <span>📅 Day {day} &nbsp; 🕒 {hour.toString().padStart(2, "0")}:00</span>
+      <span>📅 Day {day} &nbsp; 🕒 {hour}:00</span>
     </div>
   );
 }
