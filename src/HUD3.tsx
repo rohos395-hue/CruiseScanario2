@@ -21,6 +21,7 @@ const menuButtonStyle = {
 
 function TopBar({
   day,
+  hour,
   openMap,
   openStats,
   openLogScreen,
@@ -51,7 +52,7 @@ function TopBar({
        <button
             style={menuButtonStyle}
             onClick={openLogScreen}  >📜 Log</button>  
-      <span>📅 Day {day}</span>
+      <span>📅 Day {day} &nbsp; 🕒 {hour.toString().padStart(2, "0")}:00</span>
     </div>
   );
 }
@@ -299,7 +300,7 @@ function StatsScreen({
     <br />
 
     <div>
-        📅 Day: {state.day}
+         📅 Day {state.day} &nbsp; 🕒 {state.hour.toString().padStart(2, "0")}:00
     </div>
 
     <div>
@@ -386,6 +387,7 @@ export default function HUD({
     <>
       <TopBar
         day={state.day}
+          hour={state.hour}
         openMap={() => setActiveScreen("map")}
         openStats={() => setActiveScreen("stats")}
         openLogScreen = {() => setActiveScreen("log")}
