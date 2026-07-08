@@ -7,6 +7,7 @@ tones in frames
 3- inventory system
 4- characters avatar and prompt with html tabs
 5- frames pop up and choices  
+6_ location colors and closed/open room
 ***/
 
 import {ReactElement} from "react";
