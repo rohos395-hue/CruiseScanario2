@@ -1,9 +1,12 @@
 /*** things to do:
-0- make input prompt: characters present, characters definition. clothes, role, instruction based on frame tone, instrucion from frame
-1-time day increasing
+0- change input prompt: characters present, characters definition. clothes, role, instruction based on frame tone, instrucion from frame
+clothes changing on frame
+tones in frames 
+1-permanent state (chatstate)
 2-judge and modify stats
 3- inventory system
 4- characters avatar and prompt with html tabs
+5- frames pop up and choices  
 ***/
 
 import {ReactElement} from "react";
