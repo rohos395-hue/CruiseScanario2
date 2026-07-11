@@ -42,13 +42,13 @@
 {"id":"myRoomDay1",
   "priority":10,
   "repeatable":false,
-   "conditions":{"all":[{"type":"location","operator":"===","value":"kitchen"},{"type":"day","operator":"===","value":1}]},
+   "conditions":{"all":[{"type":"location","operator":"===","value":"myRoom"},{"type":"day","operator":"===","value":1}]},
   "frames":[
 {      "id": "myRoomDay1",
       "priority": 1,
       "conditions":{"all":[]},
       "beforePrompt": "descibe this scene: {{user}} is in his room" ,
-      "afterPrompt": "![image](https://files.catbox.moe/asujer.png)",
+      "afterPrompt": "![image](https://files.catbox.moe/qw0k0o.jpeg)",
       "participants":[false,false,true],
       "effects": [        {"type": "hour","value": "1" , "character":"","stat":""}     ]}
 
