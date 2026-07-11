@@ -197,7 +197,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         };
     }
 
-    async setState(state: MessageStateType): Promise<void> {
+    async setState(state: ChatStateType): Promise<void> {
         /***
          This can be called at any time, typically after a jump to a different place in the chat tree
          or a swipe. Note how neither InitState nor ChatState are given here. They are not for
@@ -253,7 +253,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             /*** @type null | string @description an error message to show
              briefly at the top of the screen, if any. ***/
             error: null,
-            chatState: null,
+            chatState: this.myInternalState,
         };
     }
 
@@ -293,7 +293,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              briefly at the top of the screen, if any. ***/
             error: null,
             systemMessage: null,
-            chatState: null
+            chatState: this.myInternalState,
         };
     }
 
