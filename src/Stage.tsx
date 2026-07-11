@@ -240,7 +240,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              but that isn't persisted. ***/
             stageDirections: myStageDirections,
             /*** @type MessageStateType | null @description the new state after the userMessage. ***/
-            messageState: {'someKey': this.myInternalState['someKey']},
+            messageState: this.myInternalState,
             /*** @type null | string @description If not null, the user's message itself is replaced
              with this value, both in what's sent to the LLM and in the database. ***/
             modifiedMessage: null,
@@ -285,7 +285,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              but that isn't persisted. ***/
             stageDirections: null,
             /*** @type MessageStateType | null @description the new state after the botMessage. ***/
-            messageState: {'someKey': this.myInternalState['someKey']},
+            messageState: this.myInternalState,
             /*** @type null | string @description If not null, the bot's response itself is replaced
              with this value, both in what's sent to the LLM subsequently and in the database. ***/
             modifiedMessage: outMessage, /***null,***/
