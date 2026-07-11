@@ -50,7 +50,7 @@
       "beforePrompt": "descibe this scene: {{user}} is in his room" ,
       "afterPrompt": "![image](https://files.catbox.moe/qw0k0o.jpeg)",
       "participants":[false,false,false],
-      "effects": [        {"type": "hour","value": "1" , "character":"","stat":""}     ]}
+      "effects": [        {"type": "hour","value": "1" , "character":"","stat":""}     ]},
 {      "id": "myRoomDay1b",
       "priority": 1,
             "conditions": {"all":[{"type": "scene_time","operator":">=","value": 4}]},
