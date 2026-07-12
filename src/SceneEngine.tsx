@@ -91,7 +91,20 @@ Role:  ${character.role}
         state.log += "newFrameIdInAppend: " + (frame?.id ?? "undefined");
         state.log += "messagesFrame: " + (state?.sceneState?.messagesFrame ?? "undefined");
         if (state.sceneState.messagesFrame ===0){
-              return frame.afterPrompt}
+
+     let table = "<table>
+<tr>
+<td width="410">
+<img src=frame.afterPrompt[0],width="400">
+</td>
+<td>
+<p>
+frame.afterPrompt[1]
+</p>
+</td>
+</tr>
+</table>   "    
+              return table//frame.afterPrompt}
         else { return ""}
         //<div style="text-align:center;">
         //<img src="https://example.com/image.jpg" width="400">
@@ -198,7 +211,7 @@ advanceFrame(state: any,newFrame:any): void {
     
          //state.log=state.log+"\n advancing frame"+newFrame.id;
          //state.log=state.log+"\n frameID"+state.sceneState.activeFrame.id;
-    evaluateEffects(    state,state.sceneState.activeFrame.effects)
+    this.evaluateEffects(    state,state.sceneState.activeFrame.effects)
     state.sceneState.completedFrames.push(state.sceneState.activeFrame.id);
          //state.log=state.log+"\n completedFrames "+state.sceneState.completedFrames;
     state.sceneState.activeFrame = newFrame;
