@@ -224,6 +224,23 @@
     typescript "^5.4.5"
     uuid "^9.0.1"
 
+"@gradio/client@npm:^1.7.1":
+  version: 1.7.1
+  resolution: "@gradio/client@npm:1.7.1"
+  dependencies:
+    "@types/eventsource": "npm:^1.1.15"
+    bufferutil: "npm:^4.0.7"
+    eventsource: "npm:^2.0.2"
+    fetch-event-stream: "npm:^0.1.5"
+    msw: "npm:^2.2.1"
+    semiver: "npm:^1.1.0"
+    textlinestream: "npm:^1.1.1"
+    typescript: "npm:^5.0.0"
+    ws: "npm:^8.13.0"
+  checksum: 10c0/a66f9e84afd33e15e1c4beb7ec24b751e0532636172f85bfbb8ccfecb1ef44a75206305a24aed9ebc014a4f56dfe4f42d306dfb369ab7a1f83312821bab7e9f7
+  languageName: node
+  linkType: hard
+
 "@esbuild/aix-ppc64@0.20.2":
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/@esbuild/aix-ppc64/-/aix-ppc64-0.20.2.tgz#a70f4ac11c6a1dfc18b8bbb13284155d933b9537"
