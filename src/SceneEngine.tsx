@@ -105,7 +105,8 @@ Role:  ${character.role}
 </tr>
 </table>
 `;  
-              return table//frame.afterPrompt}
+              return table  }
+            //frame.afterPrompt}
         else { return ""}
         //<div style="text-align:center;">
         //<img src="https://example.com/image.jpg" width="400">
