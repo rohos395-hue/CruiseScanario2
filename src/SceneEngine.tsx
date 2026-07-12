@@ -91,7 +91,7 @@ Role:  ${character.role}
         //state.log=state.log+"newFrameIdInAppend: "+frame.id;
         //state.log += "newFrameIdInAppend: " + (frame?.id ?? "undefined");
         //state.log += "messagesFrame: " + (state?.sceneState?.messagesFrame ?? "undefined");
-        if (state.sceneState.messagesFrame ===0){
+        if (state.sceneState.messagesFrame ===0&&frame.type ==="tabConversation"){
 
  let table = `
 <table>
@@ -107,11 +107,17 @@ Role:  ${character.role}
 `;  
               return table  }
             //frame.afterPrompt}
+
+        else if  (state.sceneState.messagesFrame ===0&&frame.type ==="emptyRoom"){
+            return content+frame.afterPrompt}
         else { return ""}
         //<div style="text-align:center;">
         //<img src="https://example.com/image.jpg" width="400">
         //</div>
     }
+
+
+    
     getCurrentFrame(state: any) {
 
         const activeSceneId =
