@@ -25,14 +25,14 @@ export interface SceneFrame {
 }
 
 export interface Scene {
-    id: string;
+    sceneID: string;
     priority?: number;
     repeatable?: boolean;
     conditions?: ConditionGroup;
     frames: SceneFrame[];
 }
 export interface ActiveScene {
-    sceneId: string;
+    sceneID: string;
     frameIndex: number;
     messagesSeen: number;
 }
@@ -88,22 +88,22 @@ Role:  ${character.role}
          //const frame = state.sceneState.activeFrame; 
          const frame = state?.sceneState?.activeFrame;
         //state.log=state.log+"newFrameIdInAppend: "+frame.id;
-        state.log += "newFrameIdInAppend: " + (frame?.id ?? "undefined");
-        state.log += "messagesFrame: " + (state?.sceneState?.messagesFrame ?? "undefined");
+        //state.log += "newFrameIdInAppend: " + (frame?.id ?? "undefined");
+        //state.log += "messagesFrame: " + (state?.sceneState?.messagesFrame ?? "undefined");
         if (state.sceneState.messagesFrame ===0){
 
-     let table = "<table>
+ let table = `
+<table>
 <tr>
-<td width="410">
-<img src=frame.afterPrompt[0],width="400">
-</td>
-<td>
-<p>
-frame.afterPrompt[1]
-</p>
-</td>
+    <td width="410">
+        <img src="${frame.afterPrompt[0]}" width="400">
+    </td>
+    <td>
+        <p>${frame.afterPrompt[1]}</p>
+    </td>
 </tr>
-</table>   "    
+</table>
+`;  
               return table//frame.afterPrompt}
         else { return ""}
         //<div style="text-align:center;">
@@ -130,7 +130,7 @@ frame.afterPrompt[1]
 
         const scene =
             this.scenes.find(
-                s => s.id === activeSceneId
+                s => s.sceneID === activeSceneId
             );
 
         if (!scene) {
@@ -172,10 +172,10 @@ frame.afterPrompt[1]
 
         return state.sceneState.activeFrame;
     }
-startScene(sceneId: string, state: any): boolean {
+startScene(sceneID: string, state: any): boolean {
 
     const scene =
-        this.scenes.find(             s => s.id === sceneId        );
+        this.scenes.find(             s => s.sceneID === sceneID        );
 
     if (!scene)
         return false;
@@ -203,7 +203,7 @@ startScene(sceneId: string, state: any): boolean {
             return null;
 
         return             this.scenes.find(
-                s => s.id === activeSceneId
+                s => s.sceneID === activeSceneId
             );
     }
 advanceFrame(state: any,newFrame:any): void {
@@ -448,7 +448,7 @@ private evaluateConditionGroup(
             if (
                 scene.repeatable === false &&
                 state.sceneState.completedScenes.includes(
-                    scene.id
+                    scene.sceneID
                 )
             ) {
                 return false;
@@ -466,7 +466,7 @@ private evaluateConditionGroup(
             );
 
         });
-        state.log=state.log+"\n in validScenes "+validScenes.map(scene => scene.id).join(", ");
+        state.log=state.log+"\n in validScenes "+validScenes.map(scene => scene.sceneID).join(", ");
 
     if (validScenes.length === 0) {
          state.log=state.log+"\n in validScenes is null";
@@ -479,7 +479,7 @@ private evaluateConditionGroup(
             (a.priority ?? 0)
     );
 
-    return validScenes[0].id;
+    return validScenes[0].sceneID;
     }
     
     findAvailableFrame(
@@ -497,7 +497,7 @@ private evaluateConditionGroup(
 
     const scene =
         this.scenes.find(
-            s => s.id === activeSceneId
+            s => s.sceneID === activeSceneId
         );
 
             //state.log=state.log+"\n in findAvailableFrame396 "+JSON.stringify(scene);
