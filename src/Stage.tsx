@@ -275,9 +275,9 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		//this.myInternalState.log = this.myInternalState.log+JSON.stringify(botMessage)
 
         let outMessage = null;
-		let newContentAppend =this.sceneEngine.newContentAppend(this.myInternalState);
-		this.myInternalState.log = this.myInternalState.log+"\n newContentAppend "+newContentAppend
-        outMessage = content+newContentAppend;
+		let newContentAppend =this.sceneEngine.newContentAppend(this.myInternalState,content);
+		//this.myInternalState.log = this.myInternalState.log+"\n newContentAppend "+newContentAppend
+        outMessage = newContentAppend;
     
         return {
             /*** @type null | string @description A string to add to the
