@@ -1,5 +1,5 @@
 {"scenes": [
-{"id":"greeting",
+{"sceneID":"greeting",
   "priority":1,
   "repeatable":false,
   "conditions":{"all":[{"type":"at_start","operator":"===","value":0}] },
@@ -47,7 +47,7 @@
 
 },
 
-{"id":"myRoomDay1",
+{"sceneID":"myRoomDay1",
   "priority":10,
   "repeatable":false,
    "conditions":{"all":[{"type":"location","operator":"===","value":"myRoom"},{"type":"day","operator":"===","value":1}]},
@@ -74,7 +74,7 @@
 },
 
   
-{"id":"deckLunaDay1",
+{"sceneID":"deckLunaDay1",
   "priority":1,
   "repeatable":false,
    "conditions":{"all":[{"type":"location","operator":"===","value":"deckBotRight"},{"type":"day","operator":"===","value":1}]},
@@ -90,7 +90,7 @@
       "effects": [        {"type": "hour","value": "1" , "character":"","stat":""}     ]}
       ]  
 },
-{"id":"deckLunaDay1b",
+{"sceneID":"deckLunaDay1b",
   "priority":1,
    "type":"tabConversation",
   "tones":["chat"],
@@ -107,7 +107,7 @@
       ]  
 },
   
-{"id":"lobbyOutdoorGwenDay1",
+{"sceneID":"lobbyOutdoorGwenDay1",
   "priority":10,
    "type":"tabConversation",
   "tones":["chat"],
@@ -124,7 +124,7 @@
 
       ]  
 },
-{"id":"kitchenGwenDay1",
+{"sceneID":"kitchenGwenDay1",
   "priority":10,
    "type":"tabConversation",
   "tones":["chat"],
@@ -143,7 +143,7 @@
 },
 
   
- {"id":"controlRoomMiaDay1",
+ {"sceneID":"controlRoomMiaDay1",
   "priority":10,
     "type":"tabConversation",
   "tones":["chat"],
