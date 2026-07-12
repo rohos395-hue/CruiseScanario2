@@ -16,6 +16,7 @@ export interface Effect{
 export interface SceneFrame {
     id: string;
     priority:number,
+    type?:string,
     conditions?:ConditionGroup
     beforePrompt?: string;
     afterPrompt?: string;
