@@ -84,7 +84,7 @@ Role:  ${character.role}
         //state.characterPresent = [ ${presentCharacters.join(", ")}];
             return stageDirection;
     }
-    newContentAppend(state: any) {
+    newContentAppend(state: any,content:string) {
          //const frame = state.sceneState.activeFrame; 
          const frame = state?.sceneState?.activeFrame;
         //state.log=state.log+"newFrameIdInAppend: "+frame.id;
@@ -96,10 +96,10 @@ Role:  ${character.role}
 <table>
 <tr>
     <td width="410">
-        <img src="${frame.afterPrompt[0]}" width="400">
+        <img src="${frame.afterPrompt}" width="400">
     </td>
     <td>
-        <p>${frame.afterPrompt[1]}</p>
+        <p>${content}</p>
     </td>
 </tr>
 </table>
