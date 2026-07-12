@@ -13,6 +13,7 @@ tones in frames
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
+import { Client } from "@gradio/client";
 import HUD from "./HUD3";
 import locationsData from "./assets/locations.json";
 import { SceneEngine } from "./SceneEngine";
