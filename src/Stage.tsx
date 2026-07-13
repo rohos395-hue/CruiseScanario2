@@ -13,10 +13,11 @@ tones in frames
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
-import { Client } from "@gradio/client";
+//import { Client } from "@gradio/client";
 import HUD from "./HUD3";
 import locationsData from "./assets/locations.json";
 import { SceneEngine } from "./SceneEngine";
+import { EmotionEngine } from "./EmotionEngine";
 // import CruiseMap from "./assets/map_cata.jpg";
 // import CompassIcon from "./assets/compass.jpg";
 /***
@@ -83,7 +84,6 @@ export interface CharacterDatabase {
 
 import charactersJson from "./assets/characters.json";
 
-
 /***
  A simple example class that implements the interfaces necessary for a Stage.
  If you want to rename it, be sure to modify App.js as well.
@@ -100,6 +100,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     myInternalState: {[key: string]: any};
 
 	private sceneEngine: SceneEngine;
+	private emotionEngine: EmotionEngine;
 
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
@@ -161,6 +162,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
 		this.sceneEngine =            new SceneEngine();
 		this.sceneEngine.startScene(    "greeting",    this.myInternalState);
+		this.emotionEngine = new EmotionEngine();
 		
     }
 	
@@ -183,6 +185,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
          This is called immediately after the constructor, in case there is some asynchronous code you need to
          run on instantiation.
          ***/
+		await this.emotionEngine.load();
         return {
             /*** @type boolean @default null
              @description The 'success' boolean returned should be false IFF (if and only if), some condition is met that means
@@ -279,6 +282,17 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		let newContentAppend =this.sceneEngine.newContentAppend(this.myInternalState,content);
 		//this.myInternalState.log = this.myInternalState.log+"\n newContentAppend "+newContentAppend
         outMessage = newContentAppend;
+		
+		const frame = this.myInternalState.sceneState.activeFrame;
+        const scene = this.myInternalState.sceneState.activeScene;
+
+        if (frame && scene) {
+
+        await this.emotionEngine.applyToCharacters(
+        this.myInternalState,
+        frame.participants,
+        scene.tones[0],
+        content    );}
     
         return {
             /*** @type null | string @description A string to add to the
