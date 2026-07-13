@@ -17,7 +17,7 @@ import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
 import HUD from "./HUD3";
 import locationsData from "./assets/locations.json";
 import { SceneEngine } from "./SceneEngine";
-import { EmotionEngine } from "./EmotionEngine";
+//import { EmotionEngine } from "./EmotionEngine";
 // import CruiseMap from "./assets/map_cata.jpg";
 // import CompassIcon from "./assets/compass.jpg";
 /***
@@ -100,7 +100,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     myInternalState: {[key: string]: any};
 
 	private sceneEngine: SceneEngine;
-	private emotionEngine: EmotionEngine;
+	//private emotionEngine: EmotionEngine;
 
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
@@ -162,7 +162,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		
 		this.sceneEngine =            new SceneEngine();
 		this.sceneEngine.startScene(    "greeting",    this.myInternalState);
-		this.emotionEngine = new EmotionEngine();
+		//this.emotionEngine = new EmotionEngine();
 		
     }
 	
@@ -185,7 +185,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
          This is called immediately after the constructor, in case there is some asynchronous code you need to
          run on instantiation.
          ***/
-		await this.emotionEngine.load();
+		//await this.emotionEngine.load();
         return {
             /*** @type boolean @default null
              @description The 'success' boolean returned should be false IFF (if and only if), some condition is met that means
