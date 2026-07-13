@@ -286,13 +286,13 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		const frame = this.myInternalState.sceneState.activeFrame;
         const scene = this.myInternalState.sceneState.activeScene;
 
-        if (frame && scene) {
+        //if (frame && scene) {
 
-        await this.emotionEngine.applyToCharacters(
-        this.myInternalState,
-        frame.participants,
-        scene.tones[0],
-        content    );}
+        //await this.emotionEngine.applyToCharacters(
+        //this.myInternalState,
+        //frame.participants,
+        //scene.tones[0],
+        //content    );}
     
         return {
             /*** @type null | string @description A string to add to the
