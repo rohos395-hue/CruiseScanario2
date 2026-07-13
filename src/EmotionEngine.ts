@@ -1,5 +1,5 @@
 import { Client } from "@gradio/client";
-import charactersJson from "./characters.json";
+import charactersJson from "./assets/characters.json";
 
 export class EmotionEngine {
 
