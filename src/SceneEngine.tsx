@@ -90,7 +90,7 @@ Role:  ${character.role}
          const frame = state?.sceneState?.activeFrame;
         //state.log=state.log+"newFrameIdInAppend: "+frame.id;
         //state.log += "newFrameIdInAppend: " + (frame?.id ?? "undefined");
-        //state.log += "messagesFrame: " + (state?.sceneState?.messagesFrame ?? "undefined");
+        state.log += "messagesFrame: " + (state?.sceneState?.messagesFrame ?? "undefined");
         if (state.sceneState.messagesFrame ===0&&frame.type ==="tabConversation"){
 
  let table = `
@@ -105,7 +105,7 @@ Role:  ${character.role}
 </tr>
 </table>
 `;  
-            state.log=state.log+"\n"+table;
+            //state.log=state.log+"\n"+table;
               return table  }
             //frame.afterPrompt}
 
