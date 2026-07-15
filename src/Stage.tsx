@@ -283,7 +283,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		let newContentAppend =this.sceneEngine.newContentAppend(this.myInternalState,content);
 		//this.myInternalState.log = this.myInternalState.log+"\n newContentAppend "+newContentAppend
         outMessage = newContentAppend;
-		
+		this.myInternalState.log = this.myInternalState.log+"\n newContentAppend0 ";
 		const frame = this.myInternalState.sceneState.activeFrame;
         const scene = this.myInternalState.sceneState.activeScene;
 		this.myInternalState.log = this.myInternalState.log+"\n newContentAppend ";
