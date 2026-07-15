@@ -308,7 +308,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
              briefly at the top of the screen, if any. ***/
             error: null,
             systemMessage: null,
-            chatState: this.myInternalState,
+            chatState: null,
         };
     }
 
