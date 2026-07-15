@@ -105,6 +105,7 @@ Role:  ${character.role}
 </tr>
 </table>
 `;  
+            state.log=state.log+"\n"+table;
               return table  }
             //frame.afterPrompt}
 
