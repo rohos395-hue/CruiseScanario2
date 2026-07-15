@@ -287,7 +287,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		const frame = this.myInternalState.sceneState.activeFrame;
         const scene = this.myInternalState.sceneState.activeScene;
 		this.myInternalState.log = this.myInternalState.log+"\n newContentAppend ";
-		
+		outMessage = content +"\n"+ this.myInternalState['numMsg'];
 
         //if (frame && scene) {
 
@@ -306,7 +306,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             messageState: this.myInternalState,
             /*** @type null | string @description If not null, the bot's response itself is replaced
              with this value, both in what's sent to the LLM subsequently and in the database. ***/
-            modifiedMessage: null, /***,outMessage***/
+            modifiedMessage: outMessage,  /***,null,***/
             /*** @type null | string @description an error message to show
              briefly at the top of the screen, if any. ***/
             error: null,
