@@ -109,7 +109,7 @@ Role:  ${character.role}
               return table  }
             //frame.afterPrompt}
 
-        else if  (state.sceneState.messagesFrame ===0)&&((frame.type ==="emptyRoom")||(frame.type==="tanConversation")){
+        else if  ((state.sceneState.messagesFrame ===0)&&((frame.type ==="emptyRoom")||(frame.type==="tabConversation"))){
             return content+frame.afterPrompt}
         else { return ""}
         //<div style="text-align:center;">
