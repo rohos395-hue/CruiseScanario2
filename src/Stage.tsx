@@ -207,6 +207,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
          or a swipe. Note how neither InitState nor ChatState are given here. They are not for
          state that is affected by swiping.
          ***/
+		state.log+='in setState';
         if (state != null) {
             this.myInternalState = {...this.myInternalState, ...state};
         }
@@ -280,11 +281,13 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 
         let outMessage = null;
 		let newContentAppend =this.sceneEngine.newContentAppend(this.myInternalState,content);
-		this.myInternalState.log = this.myInternalState.log+"\n newContentAppend "+newContentAppend
+		//this.myInternalState.log = this.myInternalState.log+"\n newContentAppend "+newContentAppend
         outMessage = newContentAppend;
 		
 		const frame = this.myInternalState.sceneState.activeFrame;
         const scene = this.myInternalState.sceneState.activeScene;
+		this.myInternalState.log = this.myInternalState.log+"\n newContentAppend ";
+		
 
         //if (frame && scene) {
 
