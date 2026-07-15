@@ -306,7 +306,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             messageState: this.myInternalState,
             /*** @type null | string @description If not null, the bot's response itself is replaced
              with this value, both in what's sent to the LLM subsequently and in the database. ***/
-            modifiedMessage: outMessage, /***null,***/
+            modifiedMessage: null, /***,outMessage***/
             /*** @type null | string @description an error message to show
              briefly at the top of the screen, if any. ***/
             error: null,
