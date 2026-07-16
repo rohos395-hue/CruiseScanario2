@@ -201,7 +201,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         };
     }
 
-    async setState(state: ChatStateType): Promise<void> {
+    async setState(state: MessageStateType): Promise<void> {
         /***
          This can be called at any time, typically after a jump to a different place in the chat tree
          or a swipe. Note how neither InitState nor ChatState are given here. They are not for
