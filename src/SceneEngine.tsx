@@ -111,7 +111,7 @@ Role:  ${character.role}
 
         else if  ((state.sceneState.messagesFrame ===0)&&((frame.type ==="emptyRoom")||(frame.type==="tabConversation"))){
             return content+frame.afterPrompt}
-        else { return ""}
+        else { return content}
         //<div style="text-align:center;">
         //<img src="https://example.com/image.jpg" width="400">
         //</div>
