@@ -170,7 +170,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     return this.myInternalState;
     }
 
-    moveToLocation(location: string) {
+  /***  moveToLocation(location: string) {
 
     this.myInternalState.currentLocation = location;
 
@@ -178,7 +178,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         "[Location]",
         location
     );
-    }
+    }***/
 	
     async load(): Promise<Partial<LoadResponse<InitStateType, ChatStateType, MessageStateType>>> {
         /***
