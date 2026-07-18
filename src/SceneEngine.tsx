@@ -91,7 +91,7 @@ Role:  ${character.role}
         //state.log=state.log+"newFrameIdInAppend: "+frame.id;
         //state.log += "newFrameIdInAppend: " + (frame?.id ?? "undefined");
         state.log += "messagesFrame: " + (state?.sceneState?.messagesFrame ?? "undefined");
-        if (state.sceneState.messagesFrame ===0&&frame.type ==="tabConversation"){
+        if (state.sceneState.messagesFrame ===1&&frame.type ==="tabConversation"){
 
  let table = `
 <table>
@@ -109,7 +109,7 @@ Role:  ${character.role}
               return table  }
             //frame.afterPrompt}
 
-        else if  ((state.sceneState.messagesFrame ===0)&&((frame.type ==="emptyRoom")||(frame.type==="tabConversationErr"))){
+        else if  ((state.sceneState.messagesFrame ===1)&&((frame.type ==="emptyRoom")||(frame.type==="tabConversationErr"))){
             return content+frame.afterPrompt}
         else { return content}
         //<div style="text-align:center;">
