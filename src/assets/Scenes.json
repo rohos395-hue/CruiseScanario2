@@ -56,7 +56,7 @@
       "priority": 1,
       "type":"emptyRoom",
   "tones":["none"],
-      "conditions":{"all":[]},
+      "conditions":{"all":[{"type":"true","value":"true"]},
       "beforePrompt": "descibe this scene: {{user}} is in his room" ,
       "afterPrompt": "![image](https://files.catbox.moe/qw0k0o.jpeg)",
       "participants":[false,false,false],
@@ -83,7 +83,7 @@
       "priority": 10,
    "type":"tabConversation",
   "tones":["chat"],
-      "conditions":{"all":[]},
+      "conditions":{"all":[{"type":"true","value":"true"]},
       "beforePrompt": "descibe this scene: {{user}} goes to the deck, Luna is working on the sails, she says hi and tries to chat" ,
       "afterPrompt": "https://files.catbox.moe/uy8gdi.png",
       "participants":[false,true,false],
@@ -99,7 +99,7 @@
   "frames":[
 {      "id": "deckLunaDay1b",
       "priority": 10,
-      "conditions":{"all":[]},
+      "conditions":{"all":[{"type":"true","value":"true"]},
       "beforePrompt": "descibe this scene: {{user}} goes to the deck, Luna is sunbathing, she says hi and conversate" ,
       "afterPrompt": "https://files.catbox.moe/TOCHANGE.png",
       "participants":[false,true,false],
@@ -116,7 +116,7 @@
   "frames":[
 {      "id": "lobbyOutdoorGwenDay1",
       "priority": 1,
-      "conditions":{"all":[]},
+      "conditions":{"all":[{"type":"true","value":"true"]},
       "beforePrompt": "descibe this scene: {{user}} goes to the outdoor lobby, Gwen gets out of the kitchen holding two glasses of soda offering one to {{user}}, she tryes to chat with {{user}}" ,
       "afterPrompt": "https://files.catbox.moe/asujer.png",
       "participants":[false,false,true],
@@ -133,7 +133,7 @@
   "frames":[
 {      "id": "kitchenGwenDay1",
       "priority": 1,
-      "conditions":{"all":[]},
+      "conditions":{"all":[{"type":"true","value":"true"]},
       "beforePrompt": "descibe this scene: {{user}} goes to the kitchen, Gwen is cooking, she wears a kitchen apron, she tryes to chat with {{user}}" ,
       "afterPrompt": "https://files.catbox.moe/asujer.png",
       "participants":[false,false,true],
@@ -152,7 +152,7 @@
   "frames":[
 {      "id": "controlRoomMiaDay1",
       "priority": 1,
-      "conditions":{"all":[]},
+      "conditions":{"all":[{"type":"true","value":"true"]},
       "beforePrompt": "descibe this scene: {{user}} goes to the control room, Mia is there commanding the wheel, she says hello and chat for a while" ,
       "afterPrompt": "https://files.catbox.moe/qtwe4e.jpeg",
       "participants":[true,false,false],
