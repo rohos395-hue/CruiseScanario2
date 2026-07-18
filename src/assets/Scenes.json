@@ -9,7 +9,7 @@
   "type":"tabConversation",
   "tones":["chat"],
       "conditions":{"all":[{"type":"at_start","operator":">=","value":0}]},
-      "beforePrompt": "descibe this scene: {{user}} is walking by the docks of Siren Harbour, and spots the boat, as soon as {{user}} approach the boat a beautiful woman comes by. She has long black hairs and grey to blue eyes, she wears blue jeans and a white polo. Mia says hello and welcome {{user}}" ,
+      "beforePrompt": "describe this scene: {{user}} is walking by the docks of Siren Harbour, and spots the boat, as soon as {{user}} approach the boat a beautiful woman comes by. She has long black hairs and grey to blue eyes, she wears blue jeans and a white polo. Mia says hello and welcome {{user}}" ,
       "afterPrompt": "https://aigc.uploads.dev/image/507aefa6bbbadb0e080715e4b4d682a4aa147fa7764e19d5bd59179da23f7042.jpeg",
       "participants":[true,false,false],
       "effects": [        {"type": "none"}      ]},
@@ -18,7 +18,7 @@
     "type":"tabConversation",
   "tones":["chat"],
       "conditions": {"all":[{"type": "scene_time","operator":">=","value": 2}]},
-      "beforePrompt": "descibe this scene: Mia leads the way to the bridge, casting a playful glance back at you as she speaks. Mia introduces Luna as the sailor of the red cherry. Luna is a beautiful blonde woman wearing a white bikini dripping water for her recent bath into the sea, Luna welcomes {{user}}",
+      "beforePrompt": "describe this scene: Mia leads the way to the bridge, casting a playful glance back at you as she speaks. Mia introduces Luna as the sailor of the red cherry. Luna is a beautiful blonde woman wearing a white bikini dripping water for her recent bath into the sea, Luna welcomes {{user}}",
 
       "afterPrompt": "https://aigc.uploads.dev/image/0a9f120b7d2c34c7d88fe6e8db69436e527fa7eb36fe9f0bd3c6fdef99dd635f.jpeg",
       "participants":[true,true,false],
@@ -57,7 +57,7 @@
       "type":"emptyRoom",
   "tones":["none"],
       "conditions":{"all":[{"type":"true","value":"true"}]},
-      "beforePrompt": "descibe this scene: {{user}} is in his room" ,
+      "beforePrompt": "describe this scene: {{user}} is in his room" ,
       "afterPrompt": "![image](https://files.catbox.moe/qw0k0o.jpeg)",
       "participants":[false,false,false],
       "effects": [        {"type": "hour","value": "1" , "character":"","stat":""}     ]},
@@ -66,7 +66,7 @@
       "type":"emptyRoom",
   "tones":["none"],
             "conditions": {"all":[{"type": "scene_time","operator":">=","value": 4}]},
-      "beforePrompt": "descibe this scene: {{user}} sees an hidden camera in the ceiling of his room" ,
+      "beforePrompt": "describe this scene: {{user}} sees an hidden camera in the ceiling of his room" ,
       "afterPrompt": "![image](https://files.catbox.moe/kwmghh.jpeg)",
       "participants":[false,false,false],
       "effects": [        {"type": "hour","value": "1" , "character":"","stat":""}     ]}
@@ -84,7 +84,7 @@
    "type":"tabConversation",
   "tones":["chat"],
       "conditions":{"all":[{"type":"true","value":"true"}]},
-      "beforePrompt": "descibe this scene: {{user}} goes to the deck, Luna is working on the sails, she says hi and tries to chat" ,
+      "beforePrompt": "describe this scene: {{user}} goes to the deck, Luna is working on the sails, she says hi and tries to chat" ,
       "afterPrompt": "https://files.catbox.moe/uy8gdi.png",
       "participants":[false,true,false],
       "effects": [        {"type": "hour","value": "1" , "character":"","stat":""}     ]}
@@ -100,7 +100,7 @@
 {      "id": "deckLunaDay1b",
       "priority": 10,
       "conditions":{"all":[{"type":"true","value":"true"}]},
-      "beforePrompt": "descibe this scene: {{user}} goes to the deck, Luna is sunbathing, she says hi and conversate" ,
+      "beforePrompt": "describe this scene: {{user}} goes to the deck, Luna is sunbathing, she says hi and conversate" ,
       "afterPrompt": "https://files.catbox.moe/TOCHANGE.png",
       "participants":[false,true,false],
       "effects": [        {"type": "hour","value": "1" , "character":"","stat":""}     ]}
@@ -117,7 +117,7 @@
 {      "id": "lobbyOutdoorGwenDay1",
       "priority": 1,
       "conditions":{"all":[{"type":"true","value":"true"}]},
-      "beforePrompt": "descibe this scene: {{user}} goes to the outdoor lobby, Gwen gets out of the kitchen holding two glasses of soda offering one to {{user}}, she tryes to chat with {{user}}" ,
+      "beforePrompt": "describe this scene: {{user}} goes to the outdoor lobby, Gwen gets out of the kitchen holding two glasses of soda offering one to {{user}}, she tryes to chat with {{user}}" ,
       "afterPrompt": "https://files.catbox.moe/asujer.png",
       "participants":[false,false,true],
       "effects": [        {"type": "hour","value": "1" , "character":"","stat":""}     ]}
@@ -134,7 +134,7 @@
 {      "id": "kitchenGwenDay1",
       "priority": 1,
       "conditions":{"all":[{"type":"true","value":"true"}]},
-      "beforePrompt": "descibe this scene: {{user}} goes to the kitchen, Gwen is cooking, she wears a kitchen apron, she tryes to chat with {{user}}" ,
+      "beforePrompt": "describe this scene: {{user}} goes to the kitchen, Gwen is cooking, she wears a kitchen apron, she tryes to chat with {{user}}" ,
       "afterPrompt": "https://files.catbox.moe/asujer.png",
       "participants":[false,false,true],
       "effects": [        {"type": "hour","value": "1" , "character":"","stat":""}     ]}
@@ -153,7 +153,7 @@
 {      "id": "controlRoomMiaDay1",
       "priority": 1,
       "conditions":{"all":[{"type":"true","value":"true"}]}, 
-      "beforePrompt": "descibe this scene: {{user}} goes to the control room, Mia is there commanding the wheel, she says hello and chat for a while" ,
+      "beforePrompt": "describe this scene: {{user}} goes to the control room, Mia is there commanding the wheel, she says hello and chat for a while" ,
       "afterPrompt": "https://files.catbox.moe/qtwe4e.jpeg",
       "participants":[true,false,false],
       "effects": [       {"type": "hour","value": "1" , "character":"","stat":""}     ]}
