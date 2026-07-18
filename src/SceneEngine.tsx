@@ -375,6 +375,9 @@ private isConditionGroup(
                 leftValue =state.hour;
                 break;
 
+        case "true":    
+            return true;
+
         default:
 
             return false;
