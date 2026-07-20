@@ -188,7 +188,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
          This is called immediately after the constructor, in case there is some asynchronous code you need to
          run on instantiation.
          ***/
-		    const loaded = await this.emotionEngine.load();
+		    const loaded = await this.emotionEngine.load( this.myInternalState);
 
         this.myInternalState.log +=
         " emotionEngine.load=" + loaded;
