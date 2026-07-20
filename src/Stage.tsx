@@ -291,8 +291,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         outMessage = newContentAppend;
 		//this.myInternalState.log = this.myInternalState.log+"\n newContentAppend0 ";
 		const frame = this.myInternalState.sceneState.activeFrame;
-        const scene = this.myInternalState.sceneState.activeScene;
-		this.myInternalState.log=   this.myInternalState.log+  "\n in afterprompt newContentAppend "+this.myInternalState.sceneState.activeSceneId+" "+frame.id;
+        const scene = this.myInternalState.sceneState;
+		this.myInternalState.log=   this.myInternalState.log+  "\n in afterprompt newContentAppend "+scene.activeSceneId+" "+frame.id;
 		//this.myInternalState.log = this.myInternalState.log+"\n newContentAppend " +frame.id;
 		//outMessage = content +"\n"+ this.myInternalState['numMsg'];
 
@@ -302,7 +302,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         await this.emotionEngine.applyToCharacters(
         this.myInternalState,
         frame.participants,
-        scene.tones[0],
+        scene.sceneTones[0],
         content    );}
     
         return {
