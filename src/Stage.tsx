@@ -231,8 +231,8 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 
 		//this.sceneEngine.startScene(    "greeting",    this.myInternalState);
 		//this.myInternalState.log=this.myInternalState.log+("after start grretings");
-		this.myInternalState.log="";
-		this.myInternalState.log= this.myInternalState.log+  " in beforeprompt"+this.myInternalState.sceneState.activeScene.id;
+		//this.myInternalState.log="";
+		this.myInternalState.log= this.myInternalState.log+  " in beforeprompt"+this.myInternalState.sceneState.activeSceneId;
 		//this.myInternalState.log=this.myInternalState.log+"beforePrompt before getCurrentFrame";
 
  		const frame =    this.sceneEngine.getCurrentFrame(        this.myInternalState    );
@@ -278,7 +278,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             isBot             /*** @type: boolean
              @description Whether this is from a bot, conceivably always true. ***/
         } = botMessage;
-		this.myInternalState.log=   this.myInternalState.log+  " in afterprompt"+this.myInternalState.sceneState.activeScene.id;
+		this.myInternalState.log=   this.myInternalState.log+  " in afterprompt"+this.myInternalState.sceneState.activeSceneId;
         this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
         const currentCount = this.myInternalState['numMsg'] || 0;
 		//this.myInternalState.log = this.myInternalState.log+JSON.stringify(botMessage)
