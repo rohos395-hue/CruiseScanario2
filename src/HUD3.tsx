@@ -304,9 +304,19 @@ function StatsScreen({
          📅 Day {state.day} &nbsp; 🕒 {state.hour.toString().padStart(2, "0")}:00
     </div>
 
-    <div>
-        📍 Current Location: {state.currentLocation}
-    </div>
+    <div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "20px",
+    marginTop: "8px",
+  }}
+>
+  <span>📍 Location: {state.currentLocation}</span>
+   <span>🎬 Scene: {state.sceneState?.activeSceneId}</span>
+  <span>🎞 Frame: {state.sceneState?.activeFrame?.id}</span>
+  <span>💬 Messages: {state.sceneState?.messagesFrame}</span>
+</div>
 
     <div>
         LOG: {state.log}
