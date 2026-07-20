@@ -199,7 +199,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
               the stage shouldn't be run at all and the iFrame can be closed/removed.
               For example, if a stage displays expressions and no characters have an expression pack,
               there is no reason to run the stage, so it would return false here. ***/
-            success: loaded,
+            success: true,
             /*** @type null | string @description an error message to show
              briefly at the top of the screen, if any. ***/
             error: null,
