@@ -194,6 +194,7 @@ startScene(sceneID: string, state: any): boolean {
     state.sceneState = {
         activeSceneId: sceneID,
         activeFrame:scene.frames[0],
+        sceneTones: scene.tones,
         startFrame: true,
         frameIndex: 0,
         messagesScene: 0,
