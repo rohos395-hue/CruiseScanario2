@@ -26,10 +26,18 @@ export class EmotionEngine {
             return true;
 
         } catch (err) {
+    console.error(err);
 
-            state.log=state.log+"\n Failed to load emotion model."+ err;
+    if (err instanceof Error) {
+        state.log += "\nFailed to load emotion model:\n";
+        state.log += err.message;
+        state.log += "\n";
+        state.log += err.stack ?? "";
+    } else {
+        state.log += "\n" + JSON.stringify(err);
+    }
 
-            return false;
+    return false;
         }
     }
 
