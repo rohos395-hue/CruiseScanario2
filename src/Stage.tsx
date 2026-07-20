@@ -159,10 +159,11 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
         this.myInternalState.showMap ??= false;
 		this.myInternalState.activeScreen= "none";
 		
-		
+		this.myInternalState.log ="in constructor starting sceneengine";
 		this.sceneEngine =            new SceneEngine();
 		this.sceneEngine.startScene(    "greeting",    this.myInternalState);
 		//this.sceneEngine.startScene(    "myRoomDay1",    this.myInternalState);
+		this.myInternalState.log =this.myInternalState.log+"in constructor activeSceneId: "+this.myInternalState.sceneState.activeSceneId;
 		//this.emotionEngine = new EmotionEngine();
 		
     }
