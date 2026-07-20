@@ -72,10 +72,12 @@ export class EmotionEngine {
     ): Promise<void> {
 
         const predictions = await this.classify(text);
+        state.log="in EE: "+predictions;
 
         const profile = this.data.emotionProfiles?.[profileName];
 
         if (!profile)
+            state.log=state.log+"return0";
             return;
 
         for (const prediction of predictions) {
