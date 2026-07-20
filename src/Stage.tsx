@@ -302,7 +302,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		//outMessage = content +"\n"+ this.myInternalState['numMsg'];
 
         if (frame && scene) {
-			this.myInternalState.log= "before emotionEngine.applyToCharacters";
+			this.myInternalState.log= this.myInternalState.log+"before emotionEngine.applyToCharacters";
 
         await this.emotionEngine.applyToCharacters(
         this.myInternalState,
