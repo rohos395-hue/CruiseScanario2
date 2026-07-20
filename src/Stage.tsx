@@ -165,8 +165,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		//this.sceneEngine.startScene(    "myRoomDay1",    this.myInternalState);
 		this.myInternalState.log =this.myInternalState.log+"in constructor activeSceneId: "+this.myInternalState.sceneState.activeSceneId;
 		this.emotionEngine = new EmotionEngine();
-		const loaded =await this.emotionEngine.load();
-		this.myInternalState.log =this.myInternalState.log+"emotionEngine.load "+loaded
+
 		
     }
 	
@@ -189,6 +188,10 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
          This is called immediately after the constructor, in case there is some asynchronous code you need to
          run on instantiation.
          ***/
+		    const loaded = await this.emotionEngine.load();
+
+        this.myInternalState.log +=
+        " emotionEngine.load=" + loaded;
 		//await this.emotionEngine.load();
         return {
             /*** @type boolean @default null
@@ -196,7 +199,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
               the stage shouldn't be run at all and the iFrame can be closed/removed.
               For example, if a stage displays expressions and no characters have an expression pack,
               there is no reason to run the stage, so it would return false here. ***/
-            success: true,
+            success: loaded,
             /*** @type null | string @description an error message to show
              briefly at the top of the screen, if any. ***/
             error: null,
