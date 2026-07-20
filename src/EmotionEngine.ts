@@ -78,9 +78,9 @@ export class EmotionEngine {
 
         const profile = this.data.emotionProfiles?.[profileName];
 
-        if (!profile)
+        if (!profile){
             state.log=state.log+"return0";
-            return;
+            return;}
 
         for (const prediction of predictions) {
 
