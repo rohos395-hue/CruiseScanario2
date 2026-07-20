@@ -13,11 +13,11 @@ tones in frames
 import {ReactElement} from "react";
 import {StageBase, StageResponse, InitialData, Message} from "@chub-ai/stages-ts";
 import {LoadResponse} from "@chub-ai/stages-ts/dist/types/load";
-//import { Client } from "@gradio/client";
+import { Client } from "@gradio/client";
 import HUD from "./HUD3";
 import locationsData from "./assets/locations.json";
 import { SceneEngine } from "./SceneEngine";
-//import { EmotionEngine } from "./EmotionEngine";
+import { EmotionEngine } from "./EmotionEngine";
 // import CruiseMap from "./assets/map_cata.jpg";
 // import CompassIcon from "./assets/compass.jpg";
 /***
@@ -100,7 +100,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
     myInternalState: {[key: string]: any};
 
 	private sceneEngine: SceneEngine;
-	//private emotionEngine: EmotionEngine;
+	private emotionEngine: EmotionEngine;
 
 
     constructor(data: InitialData<InitStateType, ChatStateType, MessageStateType, ConfigType>) {
