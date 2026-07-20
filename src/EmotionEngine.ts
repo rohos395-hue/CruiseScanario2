@@ -13,7 +13,7 @@ export class EmotionEngine {
     /**
      * Loads the GoEmotions model.
      */
-    async load(): Promise<boolean> {
+    async load(state: any): Promise<boolean> {
 
         try {
 
@@ -21,13 +21,13 @@ export class EmotionEngine {
                 "lloorree/SamLowe-roberta-base-go_emotions"
             );
 
-            console.log("Emotion model loaded.");
+            state.log=state.log+"Emotion model loaded.";
 
             return true;
 
         } catch (err) {
 
-            console.error("Failed to load emotion model.", err);
+            state.log=state.log+"\n Failed to load emotion model."+ err;
 
             return false;
         }
