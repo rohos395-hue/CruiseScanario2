@@ -280,7 +280,7 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
             isBot             /*** @type: boolean
              @description Whether this is from a bot, conceivably always true. ***/
         } = botMessage;
-		this.myInternalState.log=   this.myInternalState.log+  "\n in afterprompt"+this.myInternalState.sceneState.activeSceneId;
+		
         this.myInternalState['numMsg'] = this.myInternalState['numMsg']  +1;
         const currentCount = this.myInternalState['numMsg'] || 0;
 		//this.myInternalState.log = this.myInternalState.log+JSON.stringify(botMessage)
@@ -289,10 +289,11 @@ export class Stage extends StageBase<InitStateType, ChatStateType, MessageStateT
 		let newContentAppend =this.sceneEngine.newContentAppend(this.myInternalState,content);
 		//this.myInternalState.log = this.myInternalState.log+"\n newContentAppend "+newContentAppend
         outMessage = newContentAppend;
-		this.myInternalState.log = this.myInternalState.log+"\n newContentAppend0 ";
+		//this.myInternalState.log = this.myInternalState.log+"\n newContentAppend0 ";
 		const frame = this.myInternalState.sceneState.activeFrame;
         const scene = this.myInternalState.sceneState.activeScene;
-		this.myInternalState.log = this.myInternalState.log+"\n newContentAppend " +frame.id;
+		this.myInternalState.log=   this.myInternalState.log+  "\n in afterprompt newContentAppend "+this.myInternalState.sceneState.activeSceneId+" "+frame.id;
+		//this.myInternalState.log = this.myInternalState.log+"\n newContentAppend " +frame.id;
 		//outMessage = content +"\n"+ this.myInternalState['numMsg'];
 
         //if (frame && scene) {
