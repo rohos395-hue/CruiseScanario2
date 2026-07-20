@@ -91,7 +91,7 @@ Role:  ${character.role}
         //state.log=state.log+"newFrameIdInAppend: "+frame.id;
         //state.log += "newFrameIdInAppend: " + (frame?.id ?? "undefined");
         state.log += "messagesFrame: " + (state?.sceneState?.messagesFrame ?? "undefined");
-        if (state.sceneState.messagesFrame ===1&&frame.type ==="tabConversation"){
+        if (state.sceneState.startFrame&&frame.type ==="tabConversation"){
 
  let table = `
 <table>
@@ -106,10 +106,12 @@ Role:  ${character.role}
 </table>
 `;  
             //state.log=state.log+"\n"+table;
+            state.sceneState.startFrame=False;
               return table  }
             //frame.afterPrompt}
 
-        else if  ((state.sceneState.messagesFrame ===1)&&((frame.type ==="emptyRoom")||(frame.type==="tabConversationErr"))){
+        else if  ((state.sceneState.startFrame)&&((frame.type ==="emptyRoom")||(frame.type==="tabConversationErr"))){
+            state.sceneState.startFrame=False;
             return content+frame.afterPrompt}
         else { return content}
         //<div style="text-align:center;">
@@ -192,6 +194,7 @@ startScene(sceneID: string, state: any): boolean {
     state.sceneState = {
         activeSceneId: sceneID,
         activeFrame:scene.frames[0],
+        startFrame: True,
         frameIndex: 0,
         messagesScene: 0,
         messagesFrame:0,
@@ -225,6 +228,7 @@ advanceFrame(state: any,newFrame:any): void {
          //state.log=state.log+"\n completedFrames "+state.sceneState.completedFrames;
     state.sceneState.activeFrame = newFrame;
     state.sceneState.messagesFrame=0;
+    state.sceneState.startFrame=True;
 
     
 }
